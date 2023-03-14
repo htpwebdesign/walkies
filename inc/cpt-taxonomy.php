@@ -92,14 +92,14 @@ function gfw_register_custom_post_types() {
     );
     
     $args_testimonial = array(
-        'labels'             => $labels,
+        'labels'             => $labels_testimonial,
         'public'             => true,
         'publicly_queryable' => true,
         'show_ui'            => true,
         'show_in_menu'       => true,
         'show_in_rest'       => true,
         'query_var'          => true,
-        'rewrite'            => array( 'label' => 'testimonials' ),
+        'rewrite'            => array( 'label' => 'testimonial' ),
         'capability_type'    => 'post',
         'has_archive'        => false,
         'hierarchical'       => false,
@@ -160,7 +160,7 @@ function gfw_register_taxonomies() {
 
     $args_testimonial_source = array(
         'hierarchical'      => true,
-        'labels'            => $labels,
+        'labels'            => $labels_testimonial_source,
         'show_ui'           => true,
         'show_admin_column' => true,
         'show_in_rest'      => true,
