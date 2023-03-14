@@ -99,11 +99,13 @@ function gfw_register_custom_post_types() {
         'show_in_menu'       => true,
         'show_in_rest'       => true,
         'query_var'          => true,
-        'rewrite'            => array( 'labels' => 'testimonials' ),
+        'rewrite'            => array( 'label' => 'testimonials' ),
         'capability_type'    => 'post',
         'has_archive'        => false,
         'hierarchical'       => false,
-        'template_lock'      => 'all'
+        'menu_position'      => 7,
+        'menu_icon'          => 'dashicons-heart',
+        'supports'           => array( 'title' ),
     );
     register_post_type( 'gfw-testimonial', $args_testimonial ); 
 
@@ -163,7 +165,7 @@ function gfw_register_taxonomies() {
         'show_admin_column' => true,
         'show_in_rest'      => true,
         'query_var'         => true,
-        'rewrite'           => array( 'label' => 'featured' ),
+        'rewrite'           => array( 'slug' => 'testimonial-source' ),
     );
     register_taxonomy( 'gfw-featured', array( 'gfw-work' ), $args_testimonial_source );
 
