@@ -167,7 +167,7 @@ function gfw_register_taxonomies() {
         'query_var'         => true,
         'rewrite'           => array( 'slug' => 'testimonial-source' ),
     );
-    register_taxonomy( 'gfw-featured', array( 'gfw-work' ), $args_testimonial_source );
+    register_taxonomy( 'gfw-testimonial-source', array( 'gfw-testimonial' ), $args_testimonial_source );
 
 
 }
