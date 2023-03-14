@@ -99,14 +99,10 @@ function gfw_register_custom_post_types() {
         'show_in_menu'       => true,
         'show_in_rest'       => true,
         'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'testimonials' ),
+        'rewrite'            => array( 'labels' => 'testimonials' ),
         'capability_type'    => 'post',
         'has_archive'        => false,
         'hierarchical'       => false,
-        'menu_position'      => 7,
-        'menu_icon'          => 'dashicons-heart',
-        'supports'           => array( 'title', 'editor' ),
-        'template'           => array( array( 'core/quote' ) ),
         'template_lock'      => 'all'
     );
     register_post_type( 'gfw-testimonial', $args ); 
