@@ -1,7 +1,7 @@
 <?php
 function gfw_register_custom_post_types() {
 
-    // FAQ Post Type
+    // Walker Post Type
     $labels_walker = array(
         'name'               => _x( 'Walker', 'post type general name'  ),
         'singular_name'      => _x( 'Walker', 'post type singular name'  ),
