@@ -142,6 +142,32 @@ function gfw_register_taxonomies() {
     register_taxonomy( 'gfw-faq-category', array( 'gfw-faq' ), $args_faq_category );
 
     // Testimonial Taxonomy
+    $labels_testimonial_source = array(
+        'name'              => _x( 'Testimonial Source', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Testimonial Source', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Testimonial Source' ),
+        'all_items'         => __( 'All Testimonial Sources' ),
+        'parent_item'       => __( 'Parent Testimonial Source' ),
+        'parent_item_colon' => __( 'Parent Testimonial Source:' ),
+        'edit_item'         => __( 'Edit Testimonial Source' ),
+        'update_item'       => __( 'Update Testimonial Source' ),
+        'add_new_item'      => __( 'Add New Testimonial Source' ),
+        'new_item_name'     => __( 'New Testimonial Source Name' ),
+        'menu_name'         => __( 'Testimonial Source' ),
+    );
+
+    $args_testimonial_source = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'show_in_rest'      => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'label' => 'featured' ),
+    );
+    register_taxonomy( 'gfw-featured', array( 'gfw-work' ), $args_testimonial_source );
+
+
 }
 add_action( 'init', 'gfw_register_taxonomies');
 
