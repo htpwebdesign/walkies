@@ -73,6 +73,42 @@ function gfw_register_custom_post_types() {
     );
     register_post_type( 'gfw-faq', $args_faq );
 
+    // Testimonial Post Type
+    $labels_testimonial = array(
+        'name'               => _x( 'Testimonials', 'post type general name'  ),
+        'singular_name'      => _x( 'Testimonial', 'post type singular name'  ),
+        'menu_name'          => _x( 'Testimonials', 'admin menu'  ),
+        'name_admin_bar'     => _x( 'Testimonial', 'add new on admin bar' ),
+        'add_new'            => _x( 'Add New', 'testimonial' ),
+        'add_new_item'       => __( 'Add New Testimonial' ),
+        'new_item'           => __( 'New Testimonial' ),
+        'edit_item'          => __( 'Edit Testimonial' ),
+        'view_item'          => __( 'View Testimonial'  ),
+        'all_items'          => __( 'All Testimonials' ),
+        'search_items'       => __( 'Search Testimonials' ),
+        'parent_item_colon'  => __( 'Parent Testimonials:' ),
+        'not_found'          => __( 'No testimonials found.' ),
+        'not_found_in_trash' => __( 'No testimonials found in Trash.' ),
+    );
+    
+    $args_testimonial = array(
+        'labels'             => $labels_testimonial,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_rest'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'label' => 'testimonial' ),
+        'capability_type'    => 'post',
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 7,
+        'menu_icon'          => 'dashicons-heart',
+        'supports'           => array( 'title' ),
+    );
+    register_post_type( 'gfw-testimonial', $args_testimonial ); 
+
 }
 add_action( 'init', 'gfw_register_custom_post_types' );
 
@@ -106,6 +142,34 @@ function gfw_register_taxonomies() {
         'rewrite'           => array( 'slug' => 'faq-category' ),
     );
     register_taxonomy( 'gfw-faq-category', array( 'gfw-faq' ), $args_faq_category );
+
+    // Testimonial Taxonomy
+    $labels_testimonial_source = array(
+        'name'              => _x( 'Testimonial Source', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Testimonial Source', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Testimonial Source' ),
+        'all_items'         => __( 'All Testimonial Sources' ),
+        'parent_item'       => __( 'Parent Testimonial Source' ),
+        'parent_item_colon' => __( 'Parent Testimonial Source:' ),
+        'edit_item'         => __( 'Edit Testimonial Source' ),
+        'update_item'       => __( 'Update Testimonial Source' ),
+        'add_new_item'      => __( 'Add New Testimonial Source' ),
+        'new_item_name'     => __( 'New Testimonial Source Name' ),
+        'menu_name'         => __( 'Testimonial Source' ),
+    );
+
+    $args_testimonial_source = array(
+        'hierarchical'      => true,
+        'labels'            => $labels_testimonial_source,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'show_in_rest'      => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'testimonial-source' ),
+    );
+    register_taxonomy( 'gfw-featured', array( 'gfw-work' ), $args_testimonial_source );
+
+
 }
 add_action( 'init', 'gfw_register_taxonomies');
 
