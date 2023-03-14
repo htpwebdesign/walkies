@@ -79,7 +79,7 @@ add_action( 'init', 'gfw_register_custom_post_types' );
 
 function gfw_register_taxonomies() {
 
-    // FAQ Post Type
+    // FAQ Taxonomy
     $labels_faq = array(
         'name'              => _x( 'FAQ Categories', 'taxonomy general name' ),
         'singular_name'     => _x( 'FAQ Category', 'taxonomy singular name' ),
