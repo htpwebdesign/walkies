@@ -74,7 +74,7 @@ function gfw_register_custom_post_types() {
     register_post_type( 'gfw-faq', $args_faq );
 
     // Testimonial Post Type
-    $labels = array(
+    $labels_testimonial = array(
         'name'               => _x( 'Testimonials', 'post type general name'  ),
         'singular_name'      => _x( 'Testimonial', 'post type singular name'  ),
         'menu_name'          => _x( 'Testimonials', 'admin menu'  ),
@@ -91,7 +91,7 @@ function gfw_register_custom_post_types() {
         'not_found_in_trash' => __( 'No testimonials found in Trash.' ),
     );
     
-    $args = array(
+    $args_testimonial = array(
         'labels'             => $labels,
         'public'             => true,
         'publicly_queryable' => true,
@@ -105,7 +105,7 @@ function gfw_register_custom_post_types() {
         'hierarchical'       => false,
         'template_lock'      => 'all'
     );
-    register_post_type( 'gfw-testimonial', $args ); 
+    register_post_type( 'gfw-testimonial', $args_testimonial ); 
 
 }
 add_action( 'init', 'gfw_register_custom_post_types' );
@@ -140,6 +140,8 @@ function gfw_register_taxonomies() {
         'rewrite'           => array( 'slug' => 'faq-category' ),
     );
     register_taxonomy( 'gfw-faq-category', array( 'gfw-faq' ), $args_faq_category );
+
+    // Testimonial Taxonomy
 }
 add_action( 'init', 'gfw_register_taxonomies');
 
