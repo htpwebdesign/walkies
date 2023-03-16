@@ -150,6 +150,16 @@ function walkies_scripts() {
 add_action( 'wp_enqueue_scripts', 'walkies_scripts' );
 
 /**
+ * Register Google Maps API.
+ *
+ * @link https://www.advancedcustomfields.com/resources/google-map/#requirements
+ */
+function my_acf_init() {
+    acf_update_setting('google_api_key', 'AIzaSyDdcgV7xSlibF71okf0mzwkhfuH756GBOw');
+}
+add_action('acf/init', 'my_acf_init');
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -168,6 +178,11 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+* Custom Post Types & Taxonomies
+*/
+require get_template_directory() . '/inc/cpt-taxonomy.php';
 
 /**
  * Load Jetpack compatibility file.
