@@ -205,3 +205,15 @@ function gfw_support() {
 
 }
 add_action('init', 'gfw_support');
+
+// Create an ACF Option Page for Contact
+function gfw_contact_page_acf() {
+	if( function_exists('acf_add_options_page') ) {
+		$option_page = acf_add_options_page(array(
+			'page_title' 	=> __('Contact Form Settings'),
+			'menu_title' 	=> __('Contact Settings'),
+			'menu_slug'		=> 'contact-form-settings'
+		));    
+	}
+}
+add_action('acf/init', 'gfw_contact_page_acf');
