@@ -168,8 +168,6 @@ function gfw_register_taxonomies() {
         'rewrite'           => array( 'slug' => 'testimonial-source' ),
     );
     register_taxonomy( 'gfw-testimonial-source', array( 'gfw-testimonial' ), $args_testimonial_source );
-
-
 }
 add_action( 'init', 'gfw_register_taxonomies');
 
