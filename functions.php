@@ -197,3 +197,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+function gfw_support() {
+
+	/* Disable editor support on all pages */
+	remove_post_type_support( 'page', 'editor' );
+
+}
+add_action('init', 'gfw_support');
