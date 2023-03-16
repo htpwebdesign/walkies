@@ -19,7 +19,13 @@ get_header();
 
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <header class="entry-header">
-        <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+        <?php
+          if ( function_exists( 'get_field' ) ) {
+            if ( get_field( 'about_the_company_headline' )) {
+              echo '<h1>' . esc_html( get_the_title() ) . '</h1>';
+            }
+          }
+        ?>
       </header><!-- .entry-header -->
 
       <?php walkies_post_thumbnail(); ?>
@@ -35,9 +41,41 @@ get_header();
           )
         );
         ?>
+
+        <?php
+        if ( function_exists( 'get_field' ) ) {
+          if ( get_field( 'descriptive_paragraphs' )) {
+            // TODO Fix
+            // the_field( 'descriptive_paragraphs' );
+          }
+          if ( get_field( 'walker_testimonial' )) {
+            $walkers = get_field('walker_testimonial'); ?>
+
+
+            <?php
+          }
+          if ( get_field( 'location' )) : 
+            $location = get_field('location');
+            get_template_part( 'template-parts/content', 'map-helper' ); ?>
+            
+            <div class="acf-map" data-zoom="16">
+                <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
+            </div>
+
+          <?php endif;
+          if ( get_field( 'social_media_headline' )) {
+              echo '<h2>' . esc_html( get_field( 'social_media_headline' ) ) . '</h2>';
+          }
+          if ( get_field( 'instagram_link' )) {
+              echo '<a>' . esc_html( get_field( 'instagram_link' ) ) . '</a>';
+          }
+        }
+        ?>
       </div><!-- .entry-content -->
 
-    </article><!-- #post-<?php the_ID(); ?> -->
+    </article>
+    
+    <!-- #post-<?php the_ID(); ?> -->
 
 	</main><!-- #main -->
 
