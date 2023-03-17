@@ -197,3 +197,23 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+function gfw_support() {
+
+	/* Disable editor support on all pages */
+	remove_post_type_support( 'page', 'editor' );
+
+}
+add_action('init', 'gfw_support');
+
+// Create an ACF Option Page for Contact
+function gfw_contact_page_acf() {
+	if( function_exists('acf_add_options_page') ) {
+		$option_page = acf_add_options_page(array(
+			'page_title' 	=> __('Contact Form Settings'),
+			'menu_title' 	=> __('Contact Settings'),
+			'menu_slug'		=> 'contact-form-settings'
+		));    
+	}
+}
+add_action('acf/init', 'gfw_contact_page_acf');
