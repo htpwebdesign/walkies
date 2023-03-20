@@ -50,7 +50,7 @@ get_header();
 					<?php
 					if(get_field('city')):
 						?>
-						<p><?php esc_html_e('Location: ', 'walkies').the_field('city')?></p>
+						<p><span><?php esc_html_e('Location: ', 'walkies'); ?></span><?php the_field('city')?></p>
 						<?php
 					endif;
 				endif;
