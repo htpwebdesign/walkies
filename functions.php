@@ -226,3 +226,6 @@ function gfw_contact_page_acf() {
 	}
 }
 add_action('acf/init', 'gfw_contact_page_acf');
+
+// Hide Archive Prefix
+add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
