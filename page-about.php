@@ -48,12 +48,43 @@ get_header();
             // TODO Fix
             // the_field( 'descriptive_paragraphs' );
           }
-          if ( get_field( 'walker_testimonial' )) {
-            $walkers = get_field('walker_testimonial'); ?>
+
+          $walkers = get_field( 'human_testimonial' );
+          if ( $walkers ) : ?>
+
+            <ul>
+              <?php 
+              foreach ( $walkers as $walker ):
+                $walker_fields = get_fields( $walker->ID );
+
+                if( isset( $walker_fields['customer_photo'], $walker_fields['quote'] ) ):
+              ?>
+                <li>
+                  <a href="<?php echo get_permalink( $walker->ID ); ?>">
+                    <img 
+                      src="<?php echo $walker_fields['customer_photo']; ?>" 
+                      alt="<?php echo get_the_title( $walker->ID ); ?> profile photo"
+                      style="width: 100px; height: 100px;"
+                    />
+                    <span>
+                      <?php echo get_the_title( $walker->ID ); ?>
+                    </span>
+                    <p>
+                      <?php echo $walker_fields['quote']; ?>
+                    </span>
+                  </a>
+                </li>
+              
+              <?php 
+                endif;
+              endforeach;
+              ?>
+            </ul>
 
 
             <?php
-          }
+          endif;
+
           if ( get_field( 'location' )) : 
             $location = get_field('location');
             get_template_part( 'template-parts/content', 'map-helper' ); ?>
@@ -68,7 +99,6 @@ get_header();
           }
           if ( get_field( 'instagram_feed' ) &&  get_field( 'instagram_feed' ) === '1') {
               echo do_shortcode('[instagram-feed feed=1]');
-              // echo '<a>' . esc_html( get_field( 'instagram_url' ) ) . '</a>';
           }
         }
         ?>
