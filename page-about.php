@@ -66,8 +66,9 @@ get_header();
           if ( get_field( 'social_media_headline' )) {
               echo '<h2>' . esc_html( get_field( 'social_media_headline' ) ) . '</h2>';
           }
-          if ( get_field( 'instagram_link' )) {
-              echo '<a>' . esc_html( get_field( 'instagram_link' ) ) . '</a>';
+          if ( get_field( 'instagram_feed' ) &&  get_field( 'instagram_feed' ) === '1') {
+              echo do_shortcode('[instagram-feed feed=1]');
+              // echo '<a>' . esc_html( get_field( 'instagram_url' ) ) . '</a>';
           }
         }
         ?>
