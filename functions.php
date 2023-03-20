@@ -212,7 +212,9 @@ function gfw_contact_page_acf() {
 		$option_page = acf_add_options_page(array(
 			'page_title' 	=> __('Contact Form Settings'),
 			'menu_title' 	=> __('Contact Settings'),
-			'menu_slug'		=> 'contact-form-settings'
+			'menu_slug'		=> 'contact-form-settings',
+			'icon_url'		=> 'dashicons-email',
+			'position'		=> '7'
 		));    
 	}
 }
