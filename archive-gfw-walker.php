@@ -22,28 +22,47 @@ get_header();
 			</header><!-- .page-header -->
 
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			$args = array(
+				'post_type'			=> 'gfw-walker',
+				'posts_per_page'	=> -1,
+			);			
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+			$query = new WP_QUERY($args);
+			if($query -> have_posts()):
+			while($query->have_posts()) :
+				$query->the_post();
+			?>
 
-			endwhile;
+			<article class="walker-card">
+				<?php
+				if (function_exists('get_field')):
+					if(get_field('walker_photo')):
+						?>
+						<img src="<?php the_field('walker_photo'); ?>" alt="<?php the_title()?>" class="walker-photo">
+						<?php
+					endif;
+					?>
 
-			the_posts_navigation();
+					<h2>
+						<a href="<?php the_permalink()?>"><?php the_title();?></a>
+					</h2>
+				
+					<?php
+					if(get_field('city')):
+						?>
+						<p><?php esc_html_e('Location: ', 'gfw').the_field('city')?></p>
+						<?php
+					endif;
+				endif;
+				?>
 
-		else :
+			</article>
 
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
+	<?php 
+		endwhile;
+	endif;
+endif; 
+?>
 	</main><!-- #main -->
 
 <?php
