@@ -40,19 +40,19 @@ get_header();
               $sub_value = get_sub_field( 'who_we_are' );
             
               if( get_row_layout() == 'who_we_are' ):
-                echo '<section><h2>Who We Are</h2>';
+                echo '<section class="who_section"><h2>Who We Are</h2>';
                 echo wp_get_attachment_image( get_sub_field( 'banner_image' ), 'full' );
-                echo the_sub_field( 'content' );
-                echo '</secion>';
+                echo '<p>' . get_sub_field( 'content' ) . '</p>';
+                echo '</section>';
 
               elseif( get_row_layout() == 'what_we_do' ):
-                echo '<section><h2>What We Do</h2>';
-                the_sub_field( 'content' );
-                echo '</secion>';
+                echo '<section class="what_section"><h2>What We Do</h2>';
+                echo '<p>' . get_sub_field( 'content' ) . '</p>';
+                echo '</section>';
 
               elseif( get_row_layout() == 'why_choose_us' ):
                 if( have_rows( 'reasons' ) ):
-                  echo '<section><h2>Why Choose Us</h2><ul>';
+                  echo '<section class="why_section"><h2>Why Choose Us</h2><ul>';
                   while( have_rows( 'reasons' )): the_row();
                     echo '<li>';
                     echo wp_get_attachment_image( get_sub_field( 'icon' ), 'thumbnail-icon' );
@@ -60,7 +60,7 @@ get_header();
                     the_sub_field('description');
                     echo '</li>';
                   endwhile;
-                  echo '</ul></secion>';
+                  echo '</ul></section>';
                 endif;
 
               endif;
@@ -71,7 +71,7 @@ get_header();
           <?php
           $walkers = get_field( 'human_testimonial' );
           if ( $walkers ) : ?>
-            <section>
+            <section class="human_section">
               <ul>
                 <?php 
                 foreach ( $walkers as $walker ):
@@ -105,7 +105,7 @@ get_header();
             $location = get_field('location');
             get_template_part( 'template-parts/content', 'map-helper' ); ?>
             
-            <section>
+            <section class="location_section">
               <h2>Available Area</h2>
               <div class="acf-map" data-zoom="16">
                   <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
@@ -116,14 +116,14 @@ get_header();
           endif;
 
           if ( get_field( 'social_media_headline' )):
-            echo '<section>';
+            echo '<section class="social_section">';
             echo '<h2>' . esc_html( get_field( 'social_media_headline' ) ) . '</h2>';
             // TODO template_part from contact form
             echo '</section>';
           endif;
 
           if ( get_field( 'instagram_feed' ) &&  get_field( 'instagram_feed' ) == '1'):
-            echo '<section><h2>Instagram</h2>';
+            echo '<section class="instagram_section"><h2>Instagram</h2>';
             echo do_shortcode('[instagram-feed feed=1]');
             echo '</section>';
           endif;
@@ -138,5 +138,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
