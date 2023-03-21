@@ -48,36 +48,6 @@ get_header();
 			?>
 		</section>
 
-		<section class="featured_testimonial_section">
-			<h2>Testimonials</h2>
-			
-			<?php
-			if ( function_exists( 'get_field' ) ) :
-				$featuredTestimonials = get_field( 'featured_testimonials' );
-				if( $featuredTestimonials ) : ?>
-					<!-- <ul> -->
-						<?php
-						foreach( $featuredTestimonials as $testimonial ) :
-							$testimonialFields = get_fields( $testimonial->ID );
-							if( isset( $testimonialFields[ 'customer_photo' ], $testimonialFields[ 'quote' ] ) ): ?>
-								<article>
-									<?php 
-									echo wp_get_attachment_image( $testimonialFields[ 'customer_photo' ], 'thumbnail-icon' ); 
-									echo get_the_title( $testimonial->ID ); 
-									?>
-									<p> <?php echo $testimonialFields[ 'quote' ]; ?></p>
-								</article>	
-								<?php
-							endif;	
-						endforeach;
-						?>
-					<!-- </ul> -->
-					<?php
-				endif;
-			endif;
-			?>
-		</section>
-
 		<section class="featured-faq-section">
 			<h2>Frequently Asked Questions</h2>
 
@@ -115,7 +85,33 @@ get_header();
 
 			endif; ?>	
 		</section>
-
+		
+		<section class="featured_testimonial_section">
+			<h2>Hear Our Pup's Paw-sitive Reviews!</h2>
+			
+			<?php
+			if ( function_exists( 'get_field' ) ) :
+				
+				$featuredDogReviews = get_field( 'featured_dog_testimonials' );
+				if( $featuredDogReviews) : ?>
+					<?php
+					foreach( $featuredDogReviews as $dogReview ) :
+						$testimonialFields = get_fields( $dogReview->ID );
+						if( isset( $testimonialFields[ 'customer_photo' ], $testimonialFields[ 'dog_audio' ] ) ): ?>
+							<article>
+								<?php 
+								echo wp_get_attachment_url( $testimonialFields[ 'dog_audio' ] ); 
+								?>
+							</article>	
+							<?php
+						endif;	
+					endforeach;
+					?>
+					<?php
+				endif;
+			endif;
+			?>
+		</section>
 
 
 		
