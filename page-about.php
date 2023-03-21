@@ -42,13 +42,46 @@ get_header();
         );
         ?>
 
-        <?php
-        if ( function_exists( 'get_field' ) ) {
-          if ( get_field( 'descriptive_paragraphs' )) {
-            // TODO Fix
-            // the_field( 'descriptive_paragraphs' );
-          }
+        <?php 
+        if( function_exists( 'get_field' ) ): 
+          if( have_rows( 'descriptive_paragraphs' ) ):
+            while( have_rows( 'descriptive_paragraphs' ) ): the_row();
+              $sub_value = get_sub_field( 'who_we_are' );
+            
+              if( get_row_layout() == 'who_we_are' ):
+        ?>
 
+                <img 
+                  src="<?php echo ; ?>" 
+                  alt="who we are banner image"
+                />
+        <?php 
+                echo the_sub_field( 'content' );
+
+              elseif( get_row_layout() == 'what_we_do' ):
+                the_sub_field( 'content' );
+
+              elseif( get_row_layout() == 'why_choose_us' ):
+                if( have_rows( 'reasons' ) ):
+                  while( have_rows( 'reasons' )): the_row();
+        ?>
+                    <figure>
+                        <img 
+                          src="<?php echo the_sub_field( 'icon' ); ?>" 
+                          alt="<?php the_sub_field('title') ?> icon"
+                        />
+                    </figure>
+        <?php 
+                    the_sub_field('title');
+                    the_sub_field('description');
+                  endwhile;
+                endif;
+              endif;
+            endwhile;
+          endif; 
+        ?>
+
+          <?php
           $walkers = get_field( 'human_testimonial' );
           if ( $walkers ) : ?>
 
@@ -100,7 +133,7 @@ get_header();
           if ( get_field( 'instagram_feed' ) &&  get_field( 'instagram_feed' ) === '1') {
               echo do_shortcode('[instagram-feed feed=1]');
           }
-        }
+        endif;
         ?>
       </div><!-- .entry-content -->
 
