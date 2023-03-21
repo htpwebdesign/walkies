@@ -83,30 +83,28 @@ get_header();
 			if ( function_exists( 'get_field' ) ) :
 
 				$featuredFAQ = get_field( 'featured_faqs' );
-				if( $featuredFAQ ) : ?>
-					<ul>
-					<?php
-					foreach( $featuredFAQ as $singleFAQ ) :
-						$faqFields = get_fields( $singleFAQ->ID );
-						if( isset( $faqFields[ 'faq_answer' ] ) ): ?>
-							<li>
-								<?php 
-								echo wp_get_attachment_image( $faqFields[ 'faq_answer' ] ); 
-								echo get_the_title( $singleFAQ->ID ); 
-								?>
-								<p> <?php echo $faqFields[ 'faq_answer' ]; ?></p>
-							</li>	
+			
+				if( $featuredFAQ ) : 
+					foreach( $featuredFAQ as $singleFAQ ) : ?> 
+						<article> 
+							<button>
+								<?php echo get_the_title( $singleFAQ->ID ); ?>
+							</button>	
 							<?php
-						endif;	
-					endforeach; ?>	
-					</ul>
-					<?php
-				endif;
+							$faqFields = get_fields( $singleFAQ->ID );
 
-				$faqCTA = get_field( 'read_more_faq_cta' );
-				if( $faqCTA ): ?> 
-				 	<a id ="read-more-faq-cta" class="read-more-faq-cta" href="<?php echo esc_url( $faqCTA ); ?>">Read More FAQs</a> <?php 
-				endif; 	 
+							if( isset( $faqFields[ 'faq_answer' ] ) ): 
+								?> <div><?php
+								echo $faqFields[ 'faq_answer' ];	
+								?></div><?php
+							endif; ?>
+						</article>
+						<?php
+					endforeach; 	
+				endif; ?> 	
+
+				<!-- I will update this -->
+				<a href="<?php echo get_permalink(); ?>"></a> <?php 	 
 
 			endif; ?>	
 		</section>
