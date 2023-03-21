@@ -19,13 +19,7 @@ get_header();
 
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <header class="entry-header">
-        <?php
-          if ( function_exists( 'get_field' ) ) {
-            if ( get_field( 'about_the_company_headline' )) {
-              echo '<h1>' . esc_html( get_the_title() ) . '</h1>';
-            }
-          }
-        ?>
+        <?php echo '<h1>' . esc_html( get_the_title() ) . '</h1>'; ?>
       </header><!-- .entry-header -->
 
       <?php walkies_post_thumbnail(); ?>
