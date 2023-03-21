@@ -49,13 +49,7 @@ get_header();
               $sub_value = get_sub_field( 'who_we_are' );
             
               if( get_row_layout() == 'who_we_are' ):
-        ?>
-
-                <img 
-                  src="<?php echo ; ?>" 
-                  alt="who we are banner image"
-                />
-        <?php 
+                echo wp_get_attachment_image( get_sub_field( 'banner_image' ), 'full' );
                 echo the_sub_field( 'content' );
 
               elseif( get_row_layout() == 'what_we_do' ):
@@ -64,18 +58,12 @@ get_header();
               elseif( get_row_layout() == 'why_choose_us' ):
                 if( have_rows( 'reasons' ) ):
                   while( have_rows( 'reasons' )): the_row();
-        ?>
-                    <figure>
-                        <img 
-                          src="<?php echo the_sub_field( 'icon' ); ?>" 
-                          alt="<?php the_sub_field('title') ?> icon"
-                        />
-                    </figure>
-        <?php 
+                    echo wp_get_attachment_image( get_sub_field( 'icon' ), 'thumbnail-icon' );
                     the_sub_field('title');
                     the_sub_field('description');
                   endwhile;
                 endif;
+
               endif;
             endwhile;
           endif; 
@@ -94,11 +82,7 @@ get_header();
               ?>
                 <li>
                   <a href="<?php echo get_permalink( $walker->ID ); ?>">
-                    <img 
-                      src="<?php echo $walker_fields['customer_photo']; ?>" 
-                      alt="<?php echo get_the_title( $walker->ID ); ?> profile photo"
-                      style="width: 100px; height: 100px;"
-                    />
+                    <?php echo wp_get_attachment_image( $walker_fields['customer_photo'], 'thumbnail-icon' ); ?>
                     <span>
                       <?php echo get_the_title( $walker->ID ); ?>
                     </span>
@@ -114,8 +98,7 @@ get_header();
               ?>
             </ul>
 
-
-            <?php
+          <?php
           endif;
 
           if ( get_field( 'location' )) : 
