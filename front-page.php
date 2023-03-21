@@ -48,7 +48,7 @@ get_header();
 			?>
 		</section>
 
-		<section class="featured_testimonial_section">
+		<section class="featured_testimonial_section">		
 			<h2>Testimonials</h2>
 
 			<?php
@@ -64,7 +64,7 @@ get_header();
 									echo wp_get_attachment_image( $testimonialFields[ 'customer_photo' ], 'thumbnail-icon' ); 
 									echo get_the_title( $testimonial->ID ); 
 									?>
-									<p> <?php echo $testimonialFields[ 'quote' ]; ?></p>
+									<p><?php echo $testimonialFields[ 'quote' ]; ?></p>
 								</article>	
 								<?php
 							endif;	
@@ -98,17 +98,14 @@ get_header();
 							</li>	
 							<?php
 						endif;	
-					endforeach;
-					?>	
+					endforeach; ?>	
 					</ul>
 					<?php
 				endif;
 
 				$faqCTA = get_field( 'read_more_faq_cta' );
-				if( $faqCTA ):
-					?> 
-				 	<a id ="read-more-faq-cta" class="read-more-faq-cta" href="<?php echo esc_url( $faqCTA ); ?>">Read More FAQs</a>
-					<?php 
+				if( $faqCTA ): ?> 
+				 	<a id ="read-more-faq-cta" class="read-more-faq-cta" href="<?php echo esc_url( $faqCTA ); ?>">Read More FAQs</a> <?php 
 				endif; 	 
 
 			endif; ?>	
@@ -118,18 +115,19 @@ get_header();
 			<h2>Hear Our Pup's Paw-sitive Reviews!</h2>
 			
 			<?php
-			if ( function_exists( 'get_field' ) ) :
-				
+			if ( function_exists( 'get_field' ) ) :	
 				$featuredDogReviews = get_field( 'featured_dog_testimonials' );
 				if( $featuredDogReviews) : ?>
 					<?php
 					foreach( $featuredDogReviews as $dogReview ) :
 						$testimonialFields = get_fields( $dogReview->ID );
-						if( isset( $testimonialFields[ 'customer_photo' ], $testimonialFields[ 'dog_audio' ] ) ): 
+						if( isset( $testimonialFields[ 'customer_photo' ], $testimonialFields[ 'quote' ], $testimonialFields[ 'dog_audio' ] ) ): 
 							?>
 							<article>
 								<?php 
 								echo wp_get_attachment_image( $testimonialFields[ 'customer_photo' ]);
+								echo get_the_title( $dogReview->ID);
+								echo $testimonialFields[ 'quote' ];
 								echo wp_get_attachment_url( $testimonialFields[ 'dog_audio' ] ); 
 								?>
 								<audio controls> 
@@ -138,13 +136,19 @@ get_header();
 							</article>	
 							<?php
 						endif;	
-					endforeach;
-					?>
+					endforeach; ?>
 					<?php
 				endif;
 			endif;
 			?>
 		</section>
+
+		<section class="instagram-feed">
+			<h2>Check out our Instagram!</h2>
+			<?php echo do_shortcode( '[instagram-feed]' ); ?>
+		
+		</section>
+
 	</main><!-- #main -->
 
 <?php
