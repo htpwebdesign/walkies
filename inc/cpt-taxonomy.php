@@ -3,7 +3,7 @@ function gfw_register_custom_post_types() {
 
     // Walker Post Type
     $labels_walker = array(
-        'name'               => _x( 'Walker', 'post type general name'  ),
+        'name'               => _x( 'Our Walkers', 'post type general name'  ),
         'singular_name'      => _x( 'Walker', 'post type singular name'  ),
         'menu_name'          => _x( 'Walker', 'admin menu'  ),
         'name_admin_bar'     => _x( 'Walker', 'add new on admin bar' ),
