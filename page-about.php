@@ -31,16 +31,7 @@ get_header();
       <?php walkies_post_thumbnail(); ?>
 
       <div class="entry-content">
-        <?php
-        the_content();
-
-        wp_link_pages(
-          array(
-            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'walkies' ),
-            'after'  => '</div>',
-          )
-        );
-        ?>
+        <?php the_content(); ?>
 
         <?php 
         if( function_exists( 'get_field' ) ): 
