@@ -99,6 +99,9 @@ function walkies_setup() {
 			'flex-height' => true,
 		)
 	);
+
+  // Custom Image Crops
+  add_image_size( 'thumbnail-icon', 100, 100, true );
 }
 add_action( 'after_setup_theme', 'walkies_setup' );
 
