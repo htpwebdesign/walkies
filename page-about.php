@@ -40,19 +40,27 @@ get_header();
               $sub_value = get_sub_field( 'who_we_are' );
             
               if( get_row_layout() == 'who_we_are' ):
+                echo '<section><h2>Who We Are</h2>';
                 echo wp_get_attachment_image( get_sub_field( 'banner_image' ), 'full' );
                 echo the_sub_field( 'content' );
+                echo '</secion>';
 
               elseif( get_row_layout() == 'what_we_do' ):
+                echo '<section><h2>What We Do</h2>';
                 the_sub_field( 'content' );
+                echo '</secion>';
 
               elseif( get_row_layout() == 'why_choose_us' ):
                 if( have_rows( 'reasons' ) ):
+                  echo '<section><h2>Why Choose Us</h2><ul>';
                   while( have_rows( 'reasons' )): the_row();
+                    echo '<li>';
                     echo wp_get_attachment_image( get_sub_field( 'icon' ), 'thumbnail-icon' );
                     the_sub_field('title');
                     the_sub_field('description');
+                    echo '</li>';
                   endwhile;
+                  echo '</ul></secion>';
                 endif;
 
               endif;
@@ -63,31 +71,32 @@ get_header();
           <?php
           $walkers = get_field( 'human_testimonial' );
           if ( $walkers ) : ?>
+            <section>
+              <ul>
+                <?php 
+                foreach ( $walkers as $walker ):
+                  $walker_fields = get_fields( $walker->ID );
 
-            <ul>
-              <?php 
-              foreach ( $walkers as $walker ):
-                $walker_fields = get_fields( $walker->ID );
-
-                if( isset( $walker_fields['customer_photo'], $walker_fields['quote'] ) ):
-              ?>
-                <li>
-                  <a href="<?php echo get_permalink( $walker->ID ); ?>">
-                    <?php echo wp_get_attachment_image( $walker_fields['customer_photo'], 'thumbnail-icon' ); ?>
-                    <span>
-                      <?php echo get_the_title( $walker->ID ); ?>
-                    </span>
-                    <p>
-                      <?php echo $walker_fields['quote']; ?>
-                    </span>
-                  </a>
-                </li>
-              
-              <?php 
-                endif;
-              endforeach;
-              ?>
-            </ul>
+                  if( isset( $walker_fields['customer_photo'], $walker_fields['quote'] ) ):
+                ?>
+                  <li>
+                    <a href="<?php echo get_permalink( $walker->ID ); ?>">
+                      <?php echo wp_get_attachment_image( $walker_fields['customer_photo'], 'thumbnail-icon' ); ?>
+                      <span>
+                        <?php echo get_the_title( $walker->ID ); ?>
+                      </span>
+                      <p>
+                        <?php echo $walker_fields['quote']; ?>
+                      </span>
+                    </a>
+                  </li>
+                
+                <?php 
+                  endif;
+                endforeach;
+                ?>
+              </ul>
+            </section>
 
           <?php
           endif;
@@ -96,17 +105,28 @@ get_header();
             $location = get_field('location');
             get_template_part( 'template-parts/content', 'map-helper' ); ?>
             
-            <div class="acf-map" data-zoom="16">
-                <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
-            </div>
+            <section>
+              <h2>Available Area</h2>
+              <div class="acf-map" data-zoom="16">
+                  <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
+              </div>
+            </section>
 
-          <?php endif;
-          if ( get_field( 'social_media_headline' )) {
-              echo '<h2>' . esc_html( get_field( 'social_media_headline' ) ) . '</h2>';
-          }
-          if ( get_field( 'instagram_feed' ) &&  get_field( 'instagram_feed' ) === '1') {
-              echo do_shortcode('[instagram-feed feed=1]');
-          }
+        <?php 
+          endif;
+
+          if ( get_field( 'social_media_headline' )):
+            echo '<section>';
+            echo '<h2>' . esc_html( get_field( 'social_media_headline' ) ) . '</h2>';
+            // TODO template_part from contact form
+            echo '</section>';
+          endif;
+
+          if ( get_field( 'instagram_feed' ) &&  get_field( 'instagram_feed' ) == '1'):
+            echo '<section><h2>Instagram</h2>';
+            echo do_shortcode('[instagram-feed feed=1]');
+            echo '</section>';
+          endif;
         endif;
         ?>
       </div><!-- .entry-content -->
