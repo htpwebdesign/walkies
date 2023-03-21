@@ -37,9 +37,7 @@ get_header();
 				<?php
 				if (function_exists('get_field')):
 					if(get_field('walker_photo')):
-						?>
-						<img src="<?php the_field('walker_photo'); ?>" alt="<?php the_title()?>" class="walker-photo">
-						<?php
+						echo wp_get_attachment_image( get_field('walker_photo'), 'medium' );
 					endif;
 					?>
 
