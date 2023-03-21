@@ -103,8 +103,7 @@ get_header();
 					endforeach; 	
 				endif; ?> 	
 
-				<!-- I will update this -->
-				<a href="<?php echo get_permalink(); ?>"></a> <?php 	 
+				<a href="<?php echo get_permalink( 284 ); ?>"> <?php esc_html_e('View All FAQs', 'walkies' ) ?></a><?php 	 
 
 			endif; ?>	
 		</section>
