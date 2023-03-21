@@ -18,17 +18,93 @@ get_header();
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
+
+			if(function_exists('get_field')):
+
+				if(get_field('walker_photo')):
+					echo wp_get_attachment_image( get_field('walker_photo'), 'medium' );
+				endif;
+
+				if(get_field('city')):
+					?>
+					<p><span><?php esc_html_e('Location: ', 'walkies'); ?></span><?php the_field('city')?></p>
+					<?php
+				endif;
+
+				if(get_field('walker_bio')):
+					?>
+					<?php the_field('walker_bio')?>
+					<?php
+				endif;
+
+				if(get_field('walker_testimonial') || get_field('dog_testimonial')){
+					?> <section class="testimonial"> <?php
+					
+					$walkerTesti = get_field('walker_testimonial');
+
+					if($walkerTesti){
+						foreach($walkerTesti as $oneTesti){
+							$id = get_fields($oneTesti->ID);
+
+							if( isset( $id['customer_photo'], $id['quote'] ) ):
+							?>
+								<article class="walker-testi">
+									<?php echo wp_get_attachment_image($id['customer_photo'], 'medium'); ?>
+									<h3><?php echo get_the_title($oneTesti->ID) ?></h3>
+									<p><?php echo $id['quote'] ; ?></p>
+								</article>	
+
+							<?php 
+							endif;
+						};
+					};
+					
+					$dogTesti = get_field('dog_testimonial');
+
+					if($dogTesti){
+						foreach($dogTesti as $oneTesti){
+							$id = get_fields($oneTesti->ID);
+
+							if( isset( $id['customer_photo'], $id['quote'] ) ):
+							?>
+								<article class="dog-testi">
+									<?php echo wp_get_attachment_image($id['customer_photo'], 'medium', $id['dog_audio']); 
+									?>
+									<audio controls>
+										<source src="<?php echo $id['dog_audio'] ?>" type="audio/mp3">
+										Your browser does not support the audio element.
+									</audio>
+									<h3><?php echo get_the_title($oneTesti->ID) ?></h3>
+									<p><?php echo $id['quote'] ; ?></p>
+								</article>	
+
+							<?php 
+							endif;
+						};
+					};
+					?> </section> <?php
+				};
+
+				$link = get_field('single_walker_cta'); 
+				if($link){
+					$link_url = $link['url'];
+					$link_title = $link['title'];
+					$link_target = $link['target'] ? $link['target'] : '_self';
+					?>
+					<a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a><?php
+				} else {
+					?>
+					<a class="button" href="<?php the_permalink(91) ; ?>" ><?php echo esc_html_e('Book Walkies', 'walkies'  ); ?></a><?php
+				}
+
+			endif;
+			
 			the_post_navigation(
 				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'walkies' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'walkies' ) . '</span> <span class="nav-title">%title</span>',
+					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous Walker:', 'walkies' ) . '</span> <span class="nav-title">%title</span>',
+					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next Walker:', 'walkies' ) . '</span> <span class="nav-title">%title</span>',
 				)
 			);
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
 
 		endwhile; // End of the loop.
 		?>
