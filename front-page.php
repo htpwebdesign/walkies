@@ -55,7 +55,6 @@ get_header();
 			if ( function_exists( 'get_field' ) ) :
 				$featuredTestimonials = get_field( 'featured_testimonials' );
 				if( $featuredTestimonials ) : ?>
-					<!-- <ul> -->
 						<?php
 						foreach( $featuredTestimonials as $testimonial ) :
 							$testimonialFields = get_fields( $testimonial->ID );
@@ -71,7 +70,6 @@ get_header();
 							endif;	
 						endforeach;
 						?>
-					<!-- </ul> -->
 					<?php
 				endif;
 			endif;
@@ -127,10 +125,8 @@ get_header();
 					<?php
 					foreach( $featuredDogReviews as $dogReview ) :
 						$testimonialFields = get_fields( $dogReview->ID );
-						// if( isset( $testimonialFields[ 'customer_photo' ], $testimonialFields[ 'dog_audio' ] ) ): ? >
-
-						if( isset( $testimonialFields[ 'customer_photo', 'quote', 'dog_audio'] ) ): ?>
-						
+						if( isset( $testimonialFields[ 'customer_photo' ], $testimonialFields[ 'dog_audio' ] ) ): 
+							?>
 							<article>
 								<?php 
 								echo wp_get_attachment_image( $testimonialFields[ 'customer_photo' ]);
