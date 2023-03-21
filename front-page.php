@@ -145,8 +145,10 @@ get_header();
 
 		<section class="instagram-feed">
 			<h2>Check out our Instagram!</h2>
-			<?php echo do_shortcode( '[instagram-feed]' ); ?>
-		
+
+			<!-- shortcode documentation: http://localhost:8888/goforwalkies/wp-admin/plugins.php?s=smash&plugin_status=all -->
+			
+			<?php echo do_shortcode( '[instagram-feed feed=1]' ); ?>	
 		</section>
 
 	</main><!-- #main -->
