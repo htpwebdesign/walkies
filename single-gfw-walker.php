@@ -16,8 +16,6 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
-
 
 			if(function_exists('get_field')):
 
@@ -85,12 +83,18 @@ get_header();
 					?> </section> <?php
 				};
 
+				// DOM Set up to get latitude and longitude values
 				$location = get_field('location');
-				get_template_part( 'template-parts/content', 'map-geocode');
+
+				$latVal = $location['lat'];
+				$lngVal = $location['lng'];
 		
 				if( $location ): ?>
 					<div id="circle-map"></div>
+					
 				<?php
+				echo "<p class='mapMark' id='map-lat'>".$latVal."</p>";
+				echo "<p class='mapMark' id='map-lng'>".$lngVal."</p>";
 				endif;
 
 				$link = get_field('single_walker_cta'); 
