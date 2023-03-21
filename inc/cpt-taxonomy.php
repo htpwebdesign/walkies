@@ -29,7 +29,7 @@ function gfw_register_custom_post_types() {
         'query_var'          => true,
         'rewrite'            => array( 'slug' => 'walker' ),
         'capability_type'    => 'post',
-        'has_archive'        => false,
+        'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => 10,
         'menu_icon'          => 'dashicons-universal-access-alt',

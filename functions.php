@@ -198,13 +198,20 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
-function gfw_support() {
-
-	/* Disable editor support on all pages */
-	remove_post_type_support( 'page', 'editor' );
-
-}
-add_action('init', 'gfw_support');
+// Source https://github.com/AdvancedCustomFields/acf/issues/112
+add_action('admin_init', function () {
+    if (array_key_exists('post', $_GET) || array_key_exists('post_ID', $_GET)) {
+        $post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
+        if (!isset($post_id)) {
+            return;
+        }
+        $title = get_the_title($post_id);
+        
+        if ($title == 'Home' || $title == 'About the Company' || $title == 'Book Walkies') {
+            remove_post_type_support('page', 'editor');
+        }
+    }
+}, 10);
 
 // Create an ACF Option Page for Contact
 function gfw_contact_page_acf() {
@@ -212,7 +219,9 @@ function gfw_contact_page_acf() {
 		$option_page = acf_add_options_page(array(
 			'page_title' 	=> __('Contact Form Settings'),
 			'menu_title' 	=> __('Contact Settings'),
-			'menu_slug'		=> 'contact-form-settings'
+			'menu_slug'		=> 'contact-form-settings',
+			'icon_url'		=> 'dashicons-email',
+			'position'		=> '7'
 		));    
 	}
 }
