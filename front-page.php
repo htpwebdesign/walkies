@@ -99,9 +99,10 @@ get_header();
 						$testimonialFields = get_fields( $dogReview->ID );
 						if( isset( $testimonialFields[ 'customer_photo' ], $testimonialFields[ 'dog_audio' ] ) ): ?>
 							<article>
-								<?php 
-								echo wp_get_attachment_url( $testimonialFields[ 'dog_audio' ] ); 
-								?>
+								<?php echo wp_get_attachment_url( $testimonialFields[ 'dog_audio' ] ); ?>
+								<audio controls> 
+									<source src="<?php echo $testimonialFields[ 'dog_audio' ] ?>" type="audio/mp3">
+								</audio>
 							</article>	
 							<?php
 						endif;	
