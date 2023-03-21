@@ -19,7 +19,7 @@ get_header();
 
 		<section class="featured-product-section">
 			<?php
-			if ( function_exists( 'get_field' ) ) {
+			if ( function_exists( 'get_field' ) ) :
 
 				if ( get_field( 'banner_image' ) ) {
 					echo wp_get_attachment_image( get_field( 'banner_image' ), 'full' );
@@ -44,7 +44,7 @@ get_header();
 				 	<a id ="view-all-packages-cta" class="view-all-packages-cta" href="<?php echo esc_url( $secondaryCTA ); ?>">View All Packages</a>
 					<?php 
 				endif; 	 	
-			}
+			endif;
 			?>
 		</section>
 
@@ -83,8 +83,8 @@ get_header();
 
 			<?php
 			if ( function_exists( 'get_field' ) ) :
-				$featuredFAQ = get_field( 'featured_faqs' );
 
+				$featuredFAQ = get_field( 'featured_faqs' );
 				if( $featuredFAQ ) : ?>
 					<ul>
 					<?php
@@ -105,8 +105,15 @@ get_header();
 					</ul>
 					<?php
 				endif;
-			endif; ?>	
 
+				$faqCTA = get_field( 'read_more_faq_cta' );
+				if( $faqCTA ):
+					?> 
+				 	<a id ="read-more-faq-cta" class="read-more-faq-cta" href="<?php echo esc_url( $faqCTA ); ?>">Read More FAQs</a>
+					<?php 
+				endif; 	 
+
+			endif; ?>	
 		</section>
 
 
