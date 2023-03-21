@@ -50,11 +50,12 @@ get_header();
 
 		<section class="featured_testimonial_section">
 			<h2>Testimonials</h2>
+			
 			<?php
 			if ( function_exists( 'get_field' ) ) :
 				$featuredTestimonials = get_field( 'featured_testimonials' );
 				if( $featuredTestimonials ) : ?>
-					<ul>
+					<!-- <ul> -->
 						<?php
 						foreach( $featuredTestimonials as $testimonial ) :
 							$testimonialFields = get_fields( $testimonial->ID );
@@ -68,15 +69,47 @@ get_header();
 								</article>	
 								<?php
 							endif;	
-
 						endforeach;
 						?>
-					</ul>
+					<!-- </ul> -->
 					<?php
 				endif;
 			endif;
 			?>
 		</section>
+
+		<section class="featured-faq-section">
+			<h2>Frequently Asked Questions</h2>
+
+			<?php
+			if ( function_exists( 'get_field' ) ) :
+				$featuredFAQ = get_field( 'featured_faqs' );
+
+				if( $featuredFAQ ) : ?>
+					<ul>
+					<?php
+					foreach( $featuredFAQ as $singleFAQ ) :
+						$faqFields = get_fields( $singleFAQ->ID );
+						if( isset( $faqFields[ 'faq_answer' ] ) ): ?>
+							<li>
+								<?php 
+								echo wp_get_attachment_image( $faqFields[ 'faq_answer' ] ); 
+								echo get_the_title( $singleFAQ->ID ); 
+								?>
+								<p> <?php echo $faqFields[ 'faq_answer' ]; ?></p>
+							</li>	
+							<?php
+						endif;	
+					endforeach;
+					?>	
+					</ul>
+					<?php
+				endif;
+			endif; ?>	
+
+		</section>
+
+
 
 		
 
