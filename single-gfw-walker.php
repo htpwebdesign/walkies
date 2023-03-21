@@ -85,6 +85,14 @@ get_header();
 					?> </section> <?php
 				};
 
+				$location = get_field('location');
+				get_template_part( 'template-parts/content', 'map-geocode');
+		
+				if( $location ): ?>
+					<div id="circle-map"></div>
+				<?php
+				endif;
+
 				$link = get_field('single_walker_cta'); 
 				if($link){
 					$link_url = $link['url'];

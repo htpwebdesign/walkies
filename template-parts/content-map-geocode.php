@@ -23,7 +23,7 @@ body {
    max-width: inherit !important;
 }
 </style>
-<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdcgV7xSlibF71okf0mzwkhfuH756GBOw"></script>
+<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdcgV7xSlibF71okf0mzwkhfuH756GBOw&callback=Function.prototype"></script>
 <script  type="text/javascript">
 (function( $ ) {
 
@@ -38,15 +38,17 @@ body {
  * @param   jQuery $el The jQuery element.
  * @return  object The map instance.
  */
-function initCircle( ) {    
+function initCircle(coords) {    
+    
     // Create gerenic map.
     var mapArgs = {
-        zoom: 6,
-        center: { lat: 24.886, lng: -70.268 },
+        zoom: 12,
+        center: coords,
         mapTypeId: "terrain",    
     };
     var map = new google.maps.Map( $("#circle-map")[0], mapArgs );
   
+    
     // Construct the circle.
     new google.maps.Circle({
       strokeColor: "#FF0000",
@@ -55,8 +57,8 @@ function initCircle( ) {
       fillColor: "#FF0000",
       fillOpacity: 0.35,
       map,
-      center: { lat: 24.886, lng: -70.268 },
-      radius: Math.sqrt(2714856) * 100,
+      center: coords,
+      radius: Math.sqrt(2714856) * 2,
     });
 }
 
@@ -128,7 +130,7 @@ function initMap( $el ) {
         mapTypeId   : google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map( $el[0], mapArgs );
-
+    
     // Add markers.
     map.markers = [];
     $markers.each(function(){
@@ -218,20 +220,52 @@ function centerMap( map ) {
     } else{
         map.fitBounds( bounds );
     }
+
+
 }
 
+async function geocode(map){
+    // Test
+    var address = encodeURIComponent(map);
+    var url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAkmD9wgJS733c_IWb_tCV5BTmQexK_jo0`;
+
+    var response = await fetch(url);
+    var resp = await response.json();
+
+
+    // var resp = json_decode(resp_json, true);
+
+    if(resp['status']=='OK'){
+        var latVal = resp['results'][0]['geometry']['location']['lat'] ? resp['results'][0]['geometry']['location']['lat'] : ""
+        var longVal = resp['results'][0]['geometry']['location']['lng'] ? resp['results'][0]['geometry']['location']['lng'] : ""
+
+        if (latVal && longVal){
+            return {lat: parseFloat(latVal), lng: parseFloat(longVal)};
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
+
+
 // Render maps on page load.
-$(document).ready(function(){
+$(document).ready(async function(){
     // if( $args['lo'] ) {
     //   echo $args['lo'];
     // }
 
-    $('.acf-map').each(function(){
-        var map = initMap( $(this) );
-    });    
+    // $('.acf-map').each(function(){
+    //     var map = initMap( $(this) );
+        
+    // });    
     
     // initPolygon();
-    initCircle();
+    var geoTest = await geocode('555 Seymour St, Vancouver, BC V6B 3H6');
+    initCircle(geoTest);
+    console.log(geoTest);
 });
 
 })(jQuery);
