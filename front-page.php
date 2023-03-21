@@ -86,7 +86,7 @@ get_header();
 			endif; ?>	
 		</section>
 		
-		<section class="featured_dog_testimonial">
+		<section class="featured-dog-testimonial">
 			<h2>Hear Our Pup's Paw-sitive Reviews!</h2>
 			
 			<?php
