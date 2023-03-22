@@ -3,7 +3,7 @@ function gfw_register_custom_post_types() {
 
     // Walker Post Type
     $labels_walker = array(
-        'name'               => _x( 'Walker', 'post type general name'  ),
+        'name'               => _x( 'Our Walkers', 'post type general name'  ),
         'singular_name'      => _x( 'Walker', 'post type singular name'  ),
         'menu_name'          => _x( 'Walker', 'admin menu'  ),
         'name_admin_bar'     => _x( 'Walker', 'add new on admin bar' ),
@@ -29,7 +29,7 @@ function gfw_register_custom_post_types() {
         'query_var'          => true,
         'rewrite'            => array( 'slug' => 'walker' ),
         'capability_type'    => 'post',
-        'has_archive'        => false,
+        'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => 10,
         'menu_icon'          => 'dashicons-universal-access-alt',

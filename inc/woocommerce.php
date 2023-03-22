@@ -225,3 +225,46 @@ if ( ! function_exists( 'walkies_woocommerce_header_cart' ) ) {
 		<?php
 	}
 }
+
+function walkes_landing_page() {
+  $walkies_id = 91;
+
+  if( function_exists( 'get_field' ) ): 
+    if( get_field( 'banner_image', $walkies_id ))
+      echo wp_get_attachment_image( get_field( 'banner_image', $walkies_id ), 'full' );
+
+    if( get_field( 'walkies_intro_message', $walkies_id ))
+      the_field( 'walkies_intro_message', $walkies_id );
+
+    if( get_field( 'best_sellers_heading', $walkies_id ))
+      the_field( 'best_sellers_heading', $walkies_id );
+
+    $best_sellers = get_field( 'best_seller_packages', $walkies_id );
+    if( $best_sellers ): ?>
+      <!-- Display Relationship fields -->
+    <?php
+    endif;
+
+    if( get_field( 'packages_heading', $walkies_id ))
+      the_field( 'packages_heading', $walkies_id );
+
+    // if( get_field( 'package_gallery', $walkies_id ))
+      // the_field( 'package_gallery', $walkies_id );
+
+    if( get_field( 'passes_heading', $walkies_id ))
+      the_field( 'passes_heading', $walkies_id );
+
+    if( get_field( 'passes_description', $walkies_id ))
+      the_field( 'passes_description', $walkies_id );
+
+    // if( get_field( 'passes_gallery', $walkies_id ))
+      // the_field( 'passes_gallery', $walkies_id );
+
+    endif;
+}
+
+add_action( 
+  'woocommerce_before_shop_loop', 
+  'walkes_landing_page', 
+  21
+);

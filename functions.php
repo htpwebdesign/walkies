@@ -99,6 +99,9 @@ function walkies_setup() {
 			'flex-height' => true,
 		)
 	);
+
+  // Custom Image Crops
+  add_image_size( 'thumbnail-icon', 100, 100, true );
 }
 add_action( 'after_setup_theme', 'walkies_setup' );
 
@@ -146,6 +149,18 @@ function walkies_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	
+	if('gfw-walker' === get_post_type()){
+		
+		// Load script from ACF Map Documentation
+		wp_enqueue_script( 'google_js', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyDdcgV7xSlibF71okf0mzwkhfuH756GBOw&callback=Function.prototype&sensor=false', '', '' );
+
+		// Map Helper Set up
+		wp_enqueue_script( 'map-helper', get_template_directory_uri() . '/js/map.js', array('jquery'), _S_VERSION, true );
+		
+	}
+	
 }
 add_action( 'wp_enqueue_scripts', 'walkies_scripts' );
 
@@ -197,3 +212,35 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+// Source https://github.com/AdvancedCustomFields/acf/issues/112
+add_action('admin_init', function () {
+    if (array_key_exists('post', $_GET) || array_key_exists('post_ID', $_GET)) {
+        $post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
+        if (!isset($post_id)) {
+            return;
+        }
+        $title = get_the_title($post_id);
+        
+        if ($title == 'Home' || $title == 'About the Company' || $title == 'Book Walkies') {
+            remove_post_type_support('page', 'editor');
+        }
+    }
+}, 10);
+
+// Create an ACF Option Page for Contact
+function gfw_contact_page_acf() {
+	if( function_exists('acf_add_options_page') ) {
+		$option_page = acf_add_options_page(array(
+			'page_title' 	=> __('Contact Form Settings'),
+			'menu_title' 	=> __('Contact Settings'),
+			'menu_slug'		=> 'contact-form-settings',
+			'icon_url'		=> 'dashicons-email',
+			'position'		=> '7'
+		));    
+	}
+}
+add_action('acf/init', 'gfw_contact_page_acf');
+
+// Hide Archive Prefix
+add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
