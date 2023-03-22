@@ -96,7 +96,7 @@ get_header();
 
           <section class="location_section">
             <h2><?php esc_html_e('Available Area', 'walkies');?></h2>
-         
+            <iframe src="https://snazzymaps.com/embed/474769" width="100%" height="400px" style="border:none;"></iframe>
           </section>
 
         <?php 

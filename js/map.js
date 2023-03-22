@@ -261,7 +261,7 @@ function initCircle(coords) {
         fillOpacity: 0.35,
         map,
         center: coords,
-        radius: Math.sqrt(2714856) * 2,
+        radius: Math.sqrt(2714856) * 2.5,
     });
 }
 
