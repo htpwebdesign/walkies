@@ -81,7 +81,7 @@ get_header();
                       </span>
                       <p>
                         <?php echo $walker_fields['quote']; ?>
-                      </span>
+                      </p>
                     </a>
                   </li>
                 
@@ -92,23 +92,13 @@ get_header();
               </ul>
             </section>
 
-          <?php
-          endif;
+          <?php endif; ?>
 
-          if ( get_field( 'location' )) : 
-            $location = get_field('location');
-            get_template_part( 'template-parts/content', 'map-helper' ); ?>
-            
-            <section class="location_section">
-              <h2>Available Area</h2>
-              <div class="acf-map" data-zoom="16">
-                  <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
-              </div>
-            </section>
+          <section class="location_section">
+            <h2>Available Area</h2>
+          </section>
 
         <?php 
-          endif;
-
           if ( get_field( 'social_media_headline' )):
             echo '<section class="social_section">';
             echo '<h2>' . esc_html( get_field( 'social_media_headline' ) ) . '</h2>';
