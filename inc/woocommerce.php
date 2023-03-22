@@ -258,10 +258,8 @@ function walkies_landing_page() {
 					if( $term->term_id != 27) {
 						echo '<p>'.esc_html($term->name).'<p>';
 					}
-				}
-				
-				?>
-				
+				}			
+				?>			
 			</article>
 			<?php			
 		endforeach;	
