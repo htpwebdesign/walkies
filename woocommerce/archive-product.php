@@ -38,47 +38,36 @@ get_footer( 'shop' );
 
 function walkies_landing_page($page_id) {
   if( function_exists( 'get_field' ) ): 
-    // optimize if confidtion and ACF require option
-    echo '<section class="walkies_intro">';
-    if( get_field( 'banner_image', $page_id ))
-      // add fallback image
+    if( get_field( 'banner_image', $page_id ) && get_field( 'walkies_intro_message', $page_id )):
+      echo '<section class="walkies_intro">';
       echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
-
-    if( get_field( 'walkies_intro_message', $page_id ))
       echo "<p>" . get_field( 'walkies_intro_message', $page_id ) . "</p>";
-    echo '</section>';
-
-
-    echo '<section class="walkies_best_sellers">';
-    if( get_field( 'best_sellers_heading', $page_id ))
-      echo "<h2>" . get_field( 'best_sellers_heading', $page_id ) . "</h2>";
+      echo '</section>';
+    endif;
 
     $best_sellers = get_field( 'best_seller_packages', $page_id );
-    if( $best_sellers ): ?>
-      <!-- Display Relationship fields -->
-    <?php
+    if( get_field( 'best_sellers_heading', $page_id ) && $best_sellers ):
+      echo '<section class="walkies_best_sellers">';
+      echo "<h2>" . get_field( 'best_sellers_heading', $page_id ) . "</h2>";
+      // best_sellers
+      echo '</section>';
     endif;
-    echo '</section>';
 
-    echo '<section class="walkies_packages">';
-    if( get_field( 'packages_heading', $page_id ))
+    if( get_field( 'packages_heading', $page_id ) && get_field( 'package_gallery', $page_id )):
+      echo '<section class="walkies_packages">';
       echo "<h2>" . get_field( 'packages_heading', $page_id ) . "</h2>";
+      // package_gallery
+      echo '</section>';
+    endif;
 
-    // if( get_field( 'package_gallery', $page_id ))
-      // the_field( 'package_gallery', $page_id );
-    echo '</section>';
-
-
-    echo '<section class="walkies_passes">';
-    if( get_field( 'passes_heading', $page_id ))
+    $passes_gallery = get_field( 'passes_gallery', $page_id );
+    if( get_field( 'passes_heading', $page_id ) && get_field( 'passes_description', $page_id ) && $passes_gallery):
+      echo '<section class="walkies_passes">';
       echo "<h2>" . get_field( 'passes_heading', $page_id ) . "</h2>";
-
-    if( get_field( 'passes_description', $page_id ))
       echo "<p>" . get_field( 'passes_description', $page_id ) . "</p>";
-
-    // if( get_field( 'passes_gallery', $page_id ))
-      // the_field( 'passes_gallery', $page_id );
-    echo '</section>';
+      // $passes_gallery
+      echo '</section>';
+    endif;
 
   endif;
 }
