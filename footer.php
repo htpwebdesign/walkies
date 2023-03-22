@@ -12,7 +12,7 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<section="footer-cta">
+		<section="footer-cta" id="contact">
 			<div class="footer-cta-details">
 			<?php
 			if(function_exists('get_field')){
@@ -46,19 +46,26 @@
 			?>
 		</section>
 		<section class="footer-section">
-			<div class="site-info">
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'walkies' ) ); ?>">
-					<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'walkies' ), 'WordPress' );
+			<?php the_custom_logo();?>
+			<div class="footer-left">
+				<nav class="footer-nav">
+				<?php
+				wp_nav_menu(array('theme_location' => 'footer-menu'));
 				?>
-			</a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'walkies' ), 'walkies', '<a href="http://underscores.me/">FWD 32</a>' );
+				</nav>
+			</div>
+			<div class="footer-right">
+				<?php
+				get_template_part( 'template-parts/content', 'contact-socials');
 				?>
-		</div><!-- .site-info -->
+				<div>
+					<ul>
+						<li><?php esc_html_e('Capycap Team &copy;', 'walkies'); ?></li>
+						<li><a href=<?php the_permalink(377); ?>><?php esc_html_e('Privacy Policy', 'walkies'); ?></a></li>
+						<li><a href=<?php the_permalink(384); ?>><?php esc_html_e('Booking Policy', 'walkies'); ?></a></li>
+					</ul>
+				</div>
+			</div>
 		</section>
 	</footer><!-- #colophon -->
 </div><!-- #page -->

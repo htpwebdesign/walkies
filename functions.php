@@ -50,6 +50,9 @@ function walkies_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'walkies' ),
+			'header-left' => esc_html__( 'CTA Header', 'walkies' ),
+			'header-right' => esc_html__( 'Icons Menu', 'walkies' ),
+			'footer-menu' => esc_html__( 'Footer Menu', 'walkies' ),
 		)
 	);
 
