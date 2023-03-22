@@ -267,7 +267,6 @@ function walkies_landing_page() {
 
     if( get_field( 'packages_heading', $walkies_id )) 
       the_field( 'packages_heading', $walkies_id );
-
 	
     // if( get_field( 'package_gallery', $walkies_id ))
       // the_field( 'package_gallery', $walkies_id );
