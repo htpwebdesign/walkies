@@ -12,7 +12,7 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<section="footer-cta">
+		<section="footer-cta" id="contact">
 			<div class="footer-cta-details">
 			<?php
 			if(function_exists('get_field')){
@@ -46,6 +46,7 @@
 			?>
 		</section>
 		<section class="footer-section">
+			<?php the_custom_logo();?>
 			<div class="site-info">
 				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'walkies' ) ); ?>">
 					<?php
