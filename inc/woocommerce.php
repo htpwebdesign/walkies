@@ -309,12 +309,12 @@ function walkies_landing_page($page_id) {
 
 function single_walkies_landing_page() {
   $args = array(
-    'post_type'			  => 'gfw-faq',
-    'posts_per_page'	=> 3,
+    'post_type'       => 'gfw-faq',
+    'posts_per_page'  => 3,
     'tax_query'       => array(
       array(
-        'taxonomy'	  => 'gfw-faq-category',
-        'field'		    => 'slug',
+        'taxonomy'    => 'gfw-faq-category',
+        'field'       => 'slug',
         'terms'       => 'packages-passes'
       )
     )
