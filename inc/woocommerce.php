@@ -254,11 +254,14 @@ function walkies_landing_page() {
 				
 				global $post;
 				$terms = get_the_terms( $best_seller->ID, 'product_cat');
-				foreach($terms as $term) {
-					if( $term->term_id != 27) {
+				foreach($terms as $term) :
+					if( $term->term_id != 27) :
 						echo '<p>'.esc_html($term->name).'<p>';
-					}
-				}			
+					endif;
+				endforeach;	
+				
+				$product = wc_get_product( $best_seller->ID );
+				echo $product->get_price_html();
 				?>			
 			</article>
 			<?php			
