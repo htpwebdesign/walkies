@@ -263,6 +263,9 @@ function walkes_landing_page() {
     endif;
 }
 
+// Delete default contents on shop page
+
+// Add ACF fields on walkies and shop
 add_action( 
   'woocommerce_before_shop_loop', 
   function() {
@@ -271,7 +274,30 @@ add_action(
 
     if ( $page_title == 'Physical Products' )
       shop_landing_page( 12 );
-    else
+    else {
       walkies_landing_page( $page_id );
+      add_action('woocommerce_shop_loop', 'reset_woocommerce_shop_loop');
+
+      function reset_woocommerce_shop_loop() {
+          if (is_shop()) {
+              unset($GLOBALS['product']);
+              unset($GLOBALS['woocommerce_loop']);
+          }
+      }
+    }
   }
 );
+
+// Delete default contents on shop page
+remove_action(
+  'woocommerce_before_shop_loop',
+  'woocommerce_result_count',
+  20
+);
+
+remove_action(
+  'woocommerce_before_shop_loop',
+  'woocommerce_catalog_ordering',
+  30
+);
+
