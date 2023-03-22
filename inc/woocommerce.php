@@ -226,41 +226,39 @@ if ( ! function_exists( 'walkies_woocommerce_header_cart' ) ) {
 	}
 }
 
-function walkes_landing_page() {
-  $walkies_id = 91;
-
+function walkies_landing_page($page_id) {
   if( function_exists( 'get_field' ) ): 
-    if( get_field( 'banner_image', $walkies_id ))
-      echo wp_get_attachment_image( get_field( 'banner_image', $walkies_id ), 'full' );
+    if( get_field( 'banner_image', $page_id ))
+      echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
 
-    if( get_field( 'walkies_intro_message', $walkies_id ))
-      the_field( 'walkies_intro_message', $walkies_id );
+    if( get_field( 'walkies_intro_message', $page_id ))
+      the_field( 'walkies_intro_message', $page_id );
 
-    if( get_field( 'best_sellers_heading', $walkies_id ))
-      the_field( 'best_sellers_heading', $walkies_id );
+    if( get_field( 'best_sellers_heading', $page_id ))
+      the_field( 'best_sellers_heading', $page_id );
 
-    $best_sellers = get_field( 'best_seller_packages', $walkies_id );
+    $best_sellers = get_field( 'best_seller_packages', $page_id );
     if( $best_sellers ): ?>
       <!-- Display Relationship fields -->
     <?php
     endif;
 
-    if( get_field( 'packages_heading', $walkies_id ))
-      the_field( 'packages_heading', $walkies_id );
+    if( get_field( 'packages_heading', $page_id ))
+      the_field( 'packages_heading', $page_id );
 
-    // if( get_field( 'package_gallery', $walkies_id ))
-      // the_field( 'package_gallery', $walkies_id );
+    // if( get_field( 'package_gallery', $page_id ))
+      // the_field( 'package_gallery', $page_id );
 
-    if( get_field( 'passes_heading', $walkies_id ))
-      the_field( 'passes_heading', $walkies_id );
+    if( get_field( 'passes_heading', $page_id ))
+      the_field( 'passes_heading', $page_id );
 
-    if( get_field( 'passes_description', $walkies_id ))
-      the_field( 'passes_description', $walkies_id );
+    if( get_field( 'passes_description', $page_id ))
+      the_field( 'passes_description', $page_id );
 
-    // if( get_field( 'passes_gallery', $walkies_id ))
-      // the_field( 'passes_gallery', $walkies_id );
+    // if( get_field( 'passes_gallery', $page_id ))
+      // the_field( 'passes_gallery', $page_id );
 
-    endif;
+  endif;
 }
 
 // Delete default contents on shop page
