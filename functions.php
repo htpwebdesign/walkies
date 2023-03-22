@@ -157,7 +157,7 @@ function walkies_scripts() {
 	if('gfw-walker' === get_post_type()){
 		
 		// Load script from ACF Map Documentation
-		wp_enqueue_script( 'google_js', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyDdcgV7xSlibF71okf0mzwkhfuH756GBOw&callback=Function.prototype&sensor=false', '', '' );
+		wp_enqueue_script( 'google_js', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyDdcgV7xSlibF71okf0mzwkhfuH756GBOw&callback=Function.prototype', '', '' );
 
 		// Map Helper Set up
 		wp_enqueue_script( 'map-helper', get_template_directory_uri() . '/js/map.js', array('jquery'), _S_VERSION, true );
