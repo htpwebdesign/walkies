@@ -54,21 +54,19 @@ get_header();
 						$query->the_post(); ?>
 					
 						<article>
-							<button>
-								<?php 
-								esc_html(the_title());
-								?>
-							</button>
-							<?php
-							if(function_exists('get_field')) {
-								if(get_field('faq_answer')) {
-									?><div><?php
-									the_field('faq_answer');
-									?></div><?php
-								}
-							}
-							?>
-						</article>
+              <button>
+                <?php esc_html(the_title()); ?>
+              </button>
+              <?php
+                if( function_exists( 'get_field' )) {
+                  if( get_field( 'faq_answer' ) ) {
+                    echo '<div>';
+                    the_field( 'faq_answer' );
+                    echo '</div>';
+                  }
+                }
+              ?>
+            </article>
 					<?php
 					}
 			}		
