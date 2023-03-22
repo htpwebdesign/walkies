@@ -226,7 +226,7 @@ if ( ! function_exists( 'walkies_woocommerce_header_cart' ) ) {
 	}
 }
 
-function walkes_landing_page() {
+function walkies_landing_page() {
   $walkies_id = 91;
 
   if( function_exists( 'get_field' ) ): 
