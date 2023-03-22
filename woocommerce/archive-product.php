@@ -53,22 +53,17 @@ function walkies_landing_page($page_id) {
       foreach( $best_sellers as $best_seller ) : ?>
         <article class="bestseller-cards">
           <?php
-          echo get_the_post_thumbnail($best_seller);
-          echo get_the_title($best_seller -> ID);
+            echo get_the_post_thumbnail($best_seller);
+            echo get_the_title($best_seller -> ID);
 
-          $post_categories = wp_get_post_categories($best_seller -> ID );
-          $cats = array();
-          
-          global $post;
-          $terms = get_the_terms( $best_seller->ID, 'product_cat');
-          foreach($terms as $term) :
-            if( $term->term_id != 27) :
-              echo '<p>'.esc_html($term->name).'<p>';
-            endif;
-          endforeach;	
-          
-          $product = wc_get_product( $best_seller->ID );
-          echo $product->get_price_html();
+            $terms = get_the_terms( $best_seller->ID, 'product_cat');
+            foreach($terms as $term) :
+              if( $term->term_id != 27) 
+                echo '<p>'.esc_html($term->name).'</p>';
+            endforeach;	
+            
+            $product = wc_get_product( $best_seller->ID );
+            echo $product->get_price_html();
           ?>			
         </article>
         <?php			
