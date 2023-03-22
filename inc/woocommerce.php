@@ -265,6 +265,13 @@ function walkes_landing_page() {
 
 add_action( 
   'woocommerce_before_shop_loop', 
-  'walkes_landing_page', 
-  21
+  function() {
+    $page_id = get_option( 'woocommerce_shop_page_id' ); 
+    $page_title = single_term_title( '', false );
+
+    if ( $page_title == 'Physical Products' )
+      shop_landing_page( 12 );
+    else
+      walkies_landing_page( $page_id );
+  }
 );
