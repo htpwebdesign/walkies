@@ -177,5 +177,4 @@ function gfw_rewrite_flush() {
     flush_rewrite_rules();
 }
 add_action( 'after_switch_theme', 'gfw_rewrite_flush' );
-
-?>
+// delete closing tag
