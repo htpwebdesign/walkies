@@ -56,7 +56,7 @@ function walkies_landing_page($page_id) {
           echo get_the_post_thumbnail($best_seller);
           echo get_the_title($best_seller -> ID);
 
-          $post_categories = wp_get_post_categories($best_seller -> ID );
+          $post_categories = wp_get_post_categories($best_seller->ID );
           $cats = array();
           
           global $post;
@@ -77,10 +77,28 @@ function walkies_landing_page($page_id) {
       echo '</section>';
     endif;
 
+    $packages_gallery = get_field( 'package_gallery', $page_id );
     if( get_field( 'packages_heading', $page_id ) && get_field( 'package_gallery', $page_id )):
       echo '<section class="walkies_packages">';
       echo "<h2>" . get_field( 'packages_heading', $page_id ) . "</h2>";
+
       // package_gallery
+      foreach( $packages_gallery as $package ) {
+        ?>
+        <article class="packages-gallery-card">
+          <?php
+          echo get_the_post_thumbnail( $package );
+          echo get_the_title( $package->ID );
+
+
+
+          ?>
+          
+        </article>
+        <?php
+
+      } 
+      // endforeach;
       echo '</section>';
     endif;
 
