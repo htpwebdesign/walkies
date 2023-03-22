@@ -95,7 +95,8 @@ get_header();
           <?php endif; ?>
 
           <section class="location_section">
-            <h2>Available Area</h2>
+            <h2><?php esc_html_e('Available Area', 'walkies');?></h2>
+         
           </section>
 
         <?php 
