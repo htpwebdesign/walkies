@@ -112,7 +112,7 @@ get_header();
           if ( get_field( 'social_media_headline' )):
             echo '<section class="social_section">';
             echo '<h2>' . esc_html( get_field( 'social_media_headline' ) ) . '</h2>';
-            // TODO template_part from contact form
+            get_template_part( 'template-parts/content', 'contact-socials');
             echo '</section>';
           endif;
 
