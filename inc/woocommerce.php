@@ -286,7 +286,7 @@ function shop_landing_page($page_id) {
   endif;
 }
 
-// Add ACF fields on walkies and shop
+// Display ACF fields on walkies(archive-product) and shop(taxonomy-product-cat)
 add_action( 
   'woocommerce_before_shop_loop', 
   function() {
@@ -297,19 +297,11 @@ add_action(
       shop_landing_page( 12 );
     else {
       walkies_landing_page( $page_id );
-      add_action('woocommerce_shop_loop', 'reset_woocommerce_shop_loop');
-
-      function reset_woocommerce_shop_loop() {
-          if (is_shop()) {
-              unset($GLOBALS['product']);
-              unset($GLOBALS['woocommerce_loop']);
-          }
-      }
     }
   }
 );
 
-// Delete default contents on shop page
+// Delete default contents on walkies and shop page
 remove_action(
   'woocommerce_before_shop_loop',
   'woocommerce_result_count',
@@ -322,3 +314,14 @@ remove_action(
   30
 );
 
+remove_action(
+  'woocommerce_before_main_content',
+  'woocommerce_breadcrumb',
+  20
+);
+
+remove_action(
+  'woocommerce_sidebar',
+  'woocommerce_get_sidebar',
+  10
+);
