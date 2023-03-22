@@ -235,33 +235,28 @@ function walkies_landing_page() {
       echo wp_get_attachment_image( get_field( 'banner_image', $walkies_id ), 'full' );
 
     if( get_field( 'walkies_intro_message', $walkies_id ))
-      echo '<p><'.esc_html( the_field( 'walkies_intro_message', $walkies_id ) ).'/p>'; 
-
+      echo '<p>'.the_field( 'walkies_intro_message', $walkies_id ).'</p>'; 
+ 
     if( get_field( 'best_sellers_heading', $walkies_id ))
-      echo '<h2>'.esc_html(the_field( 'best_sellers_heading', $walkies_id ) ).'</h2>';
+      echo '<h2>'.the_field( 'best_sellers_heading', $walkies_id ).'</h2>';
 
 	// Relationship Fields 
     $best_sellers = get_field( 'best_seller_packages', $walkies_id );
     if( $best_sellers ): 
-		foreach( $best_sellers as $best_seller_item ) :
-			$best_seller_fields = get_fields( $best_seller_item->ID );
-			print_r(get_the_title($best_seller_fields));
-			if( isset( $best_seller_fields[ 'best_seller_packages' ] ) ) : ?>
-				<article class="bestseller-cards">
-					<?php
-					echo the_title($best_seller_fields);
-					echo wp_get_attachment_image( $best_seller_item['best_seller_packages'] );
-					?>
+		foreach( $best_sellers as $best_seller ) : ?>
+			<article class="bestseller-cards">
+				<?php
+				echo get_the_title($best_seller -> ID);
+				echo get_the_post_thumbnail($best_seller);
+				?>
 
-				</article>
+			</article>
 			<?php			
-			endif;	
 		endforeach;	
-    
-	
     endif;
 
-    if( get_field( 'packages_heading', $walkies_id ))
+    if( get_field( 'packages_heading', $walkies_id )) 
+
       the_field( 'packages_heading', $walkies_id );
 
 	
