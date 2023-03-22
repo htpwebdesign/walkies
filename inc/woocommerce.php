@@ -226,6 +226,31 @@ if ( ! function_exists( 'walkies_woocommerce_header_cart' ) ) {
 	}
 }
 
+function shop_landing_page($page_id) {
+  if( function_exists( 'get_field' ) ): 
+    if( get_field( 'banner_image', $page_id ))
+      echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
+ 
+    if( get_field( 'product_intro_summary', $page_id ))
+      the_field( 'product_intro_summary', $page_id );
+ 
+    if( get_field( 'walkies_packages_image', $page_id ))
+      echo wp_get_attachment_image( get_field( 'walkies_packages_image', $page_id ) );
+
+    if( get_field( 'walkies_headline', $page_id ))
+      the_field( 'walkies_headline', $page_id );
+
+    if( get_field( 'walkies_intro_summary', $page_id ))
+      the_field( 'walkies_intro_summary', $page_id );
+
+    if( get_field( 'book_walkies_cta', $page_id ))
+      the_field( 'book_walkies_cta', $page_id );
+
+    if( get_field( 'products_gallery_headline', $page_id ))
+      the_field( 'products_gallery_headline', $page_id );
+  endif;
+}
+
 function walkies_landing_page($page_id) {
   if( function_exists( 'get_field' ) ): 
     if( get_field( 'banner_image', $page_id ))
@@ -261,28 +286,43 @@ function walkies_landing_page($page_id) {
   endif;
 }
 
-function shop_landing_page($page_id) {
-  if( function_exists( 'get_field' ) ): 
-    if( get_field( 'banner_image', $page_id ))
-      echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
- 
-    if( get_field( 'product_intro_summary', $page_id ))
-      the_field( 'product_intro_summary', $page_id );
- 
-    if( get_field( 'walkies_packages_image', $page_id ))
-      echo wp_get_attachment_image( get_field( 'walkies_packages_image', $page_id ) );
+function single_walkies_landing_page() {
+  $args = array(
+    'post_type'			  => 'gfw-faq',
+    'posts_per_page'	=> 3,
+    'tax_query'       => array(
+      array(
+        'taxonomy'	  => 'gfw-faq-category',
+        'field'		    => 'slug',
+        'terms'       => 'packages-passes'
+      )
+    )
+  );
+  $query = new WP_Query( $args );
 
-    if( get_field( 'walkies_headline', $page_id ))
-      the_field( 'walkies_headline', $page_id );
-
-    if( get_field( 'walkies_intro_summary', $page_id ))
-      the_field( 'walkies_intro_summary', $page_id );
-
-    if( get_field( 'book_walkies_cta', $page_id ))
-      the_field( 'book_walkies_cta', $page_id );
-
-    if( get_field( 'products_gallery_headline', $page_id ))
-      the_field( 'products_gallery_headline', $page_id );
+  if( $query -> have_posts() ):
+    echo '<ol><h3>Top 3 FAQs</h3>';
+    while( $query -> have_posts() ):
+      $query -> the_post();
+      ?>
+        <article>
+          <button>
+            <?php esc_html(the_title()); ?>
+          </button>
+          <?php
+            if( function_exists( 'get_field' )) {
+              if( get_field( 'faq_answer' ) ) {
+                echo '<div>';
+                the_field( 'faq_answer' );
+                echo '</div>';
+              }
+            }
+          ?>
+        </article>
+      <?php
+    endwhile;
+    wp_reset_postdata();
+    echo '</ol>';
   endif;
 }
 
@@ -290,16 +330,34 @@ function shop_landing_page($page_id) {
 add_action( 
   'woocommerce_before_shop_loop', 
   function() {
-    $page_id = get_option( 'woocommerce_shop_page_id' ); 
     $page_title = single_term_title( '', false );
 
     if ( $page_title == 'Physical Products' )
       shop_landing_page( 12 );
     else {
-      walkies_landing_page( $page_id );
+      walkies_landing_page( 91 );
     }
   }
 );
+
+// Query Top3 FAQs on single walkies
+add_action( 
+  'woocommerce_after_main_content',
+  function() {
+    if ( is_product() ): ?>
+      <a href="<?php echo get_permalink( 284 ); ?>">
+        <?php esc_html_e('View All FAQs', 'walkies' ) ?>
+      </a>
+    <?php
+      global $product;
+      // 27 = Packages & Passes ID
+      if( in_array(27, $product->get_category_ids()) )
+        single_walkies_landing_page();
+    endif;
+  },
+  10
+);
+
 
 // Delete default contents on walkies and shop page
 remove_action(
