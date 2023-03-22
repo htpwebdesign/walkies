@@ -77,7 +77,7 @@ get_header( 'shop' ); ?>
 
       if( $query -> have_posts() ): ?>
         <section>
-          <h2>Top 3 FAQs</h2>
+          <h2><?php esc_html_e('Top 3 FAQs', 'walkies' ); ?></h2>
           <a href="<?php get_permalink( 284 ) ?>">
             <?php esc_html_e('Read More FAQ', 'walkies' ); ?>
           </a>
