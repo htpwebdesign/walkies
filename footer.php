@@ -25,7 +25,7 @@
 					<section class="contact-info">
 				<?php if(have_rows('contact_details', 'option')): the_row();
 				
-				$group = get_field('contact_details', 'option');
+				$group = get_field(' contact_details', 'option');
 				?> <h3><?php the_sub_field('heading'); ?></h3>
 					<ul>
 						<li><a href="mailto:<?php the_sub_field('company_email'); ?>"><?php the_sub_field('company_email'); ?></a></li>
