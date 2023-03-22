@@ -301,7 +301,7 @@ function single_walkies_landing_page() {
   $query = new WP_Query( $args );
 
   if( $query -> have_posts() ):
-    echo '<ol><h3>Top 3 FAQs</h3>';
+    echo '<ol><h2>Top 3 FAQs</h2>';
     while( $query -> have_posts() ):
       $query -> the_post();
       ?>
