@@ -25,7 +25,7 @@ get_header();
 					echo wp_get_attachment_image( get_field( 'banner_image' ), 'full' );
 				}
 				if ( get_field( 'featured_product_headline' ) ) {
-					echo '<h2>' . esc_html( the_field( 'featured_product_headline') ). '</h2>';
+					echo '<h2>' . ( get_field( 'featured_product_headline') ). '</h2>';
 				}
 				if ( get_field( 'featured_product_description' ) ) {
 					echo '<p>'.get_field( 'featured_product_description' ).'</p>';
@@ -34,14 +34,14 @@ get_header();
 				$primaryCTA = get_field( 'book_now_cta' );
 				if( $primaryCTA ):
 					?> 
-				 	<a id ="book-now-cta" class="book-now-cta" href="<?php echo esc_url( $primaryCTA ); ?>">Book Now</a>
+				 	<a id ="book-now-cta" class="book-now-cta" href="<?php echo esc_url( $primaryCTA ); ?>"><?php esc_html_e('Book Now', 'walkies') ?></a>
 					<?php 
 				endif; 	 
 
 				$secondaryCTA = get_field( 'view_all_packages_cta' );
 				if( $secondaryCTA ):
 					?> 
-				 	<a id ="view-all-packages-cta" class="view-all-packages-cta" href="<?php echo esc_url( $secondaryCTA ); ?>">View All Packages</a>
+				 	<a id ="view-all-packages-cta" class="view-all-packages-cta" href="<?php echo esc_url( $secondaryCTA ); ?>"><?php esc_html_e('View All Packages', 'walkies') ?></a>
 					<?php 
 				endif; 	 	
 			endif;
@@ -49,17 +49,16 @@ get_header();
 		</section>
 
 		<section class="featured_testimonial_section">		
-			<h2>Testimonials</h2>
+			<h2><?php esc_html_e('Testimonials', 'walkies') ?></h2>
 
 			<?php
 			if ( function_exists( 'get_field' ) ) :
 				$featuredTestimonials = get_field( 'featured_testimonials' );
-				if( $featuredTestimonials ) : ?>
-						<?php
+				if( $featuredTestimonials ) : 		
 						foreach( $featuredTestimonials as $testimonial ) :
 							$testimonialFields = get_fields( $testimonial->ID );
 							if( isset( $testimonialFields[ 'customer_photo' ], $testimonialFields[ 'quote' ] ) ): ?>
-								<article>
+								<article class="testimonial-card">
 									<?php 
 									echo wp_get_attachment_image( $testimonialFields[ 'customer_photo' ], 'thumbnail-icon' ); 
 									echo get_the_title( $testimonial->ID ); 
@@ -77,7 +76,7 @@ get_header();
 		</section>
 
 		<section class="featured-faq-section">
-			<h2>Frequently Asked Questions</h2>
+			<h2><?php echo get_the_title(284); ?></h2>
 
 			<?php
 			if ( function_exists( 'get_field' ) ) :
@@ -109,7 +108,7 @@ get_header();
 		</section>
 		
 		<section class="featured-dog-testimonial">
-			<h2>Hear Our Pup's Paw-sitive Reviews!</h2>
+			<h2><?php esc_html_e("Hear Our Pup's Paw-sitive Reviews!", 'walkies') ?></h2>
 			
 			<?php
 			if ( function_exists( 'get_field' ) ) :	
@@ -141,7 +140,7 @@ get_header();
 		</section>
 
 		<section class="instagram-feed">
-			<h2>Check out our Instagram!</h2>
+			<h2><?php esc_html_e("Check out our Instagram!", 'walkies') ?></h2>
 
 			<!-- shortcode documentation: http://localhost:8888/goforwalkies/wp-admin/plugins.php?s=smash&plugin_status=all -->
 			

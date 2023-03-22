@@ -12,7 +12,7 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<section="footer-cta">
+		<section="footer-cta" id="contact">
 			<div class="footer-cta-details">
 			<?php
 			if(function_exists('get_field')){
@@ -21,34 +21,19 @@
 				<?php endif;
 				if(get_field('contact_heading', 'option')): ?>
 					<h2><?php the_field('contact_heading', 'option'); ?></h2>
-				<?php endif; ?>
-				<section class="contact-info">
-				<?php if(have_rows('contact_details', 'option')): the_row();
+					<?php endif; ?>
+					<?php if(get_field('heading', 'option')): ?>
+					<section class="contact-info">
+						<h3><?php the_field('heading', 'option'); ?></h3>
+						<ul>
+							<li><a href="mailto:<?php the_field('company_email', 'option'); ?>"><?php the_field('company_email', 'option'); ?></a></li>
+							<li><a href="tel:+1<?php the_field('company_phone', 'option'); ?>">+1<?php the_field('company_phone', 'option'); ?></a></li>
+						</ul>
+					<?php
+				endif; 
 				
-					$group = get_field('contact_details', 'option');
-					?> <h3><?php the_sub_field('heading'); ?></h3><?php
-
-					// print_r($group['social_media']);
-
-					$socials = $group['social_media'];
-					if(have_rows('social_media', 'option')){
-						while(have_rows('social_media', 'option')): the_row(); 
-						$link = get_sub_field('social_media_link');
-
-						$link_url = $link['url'];
-						$link_title = $link['title'];
-						$link_target = $link['target'] ? $link['target'] : '_self';
-						?>
-						
-						<a href="<?php echo $link_url; ?>" target="<?php echo $link_target; ?>">
-						<figure>
-							<img src="<?php the_sub_field('social_media_icon'); ?>" alt="<?php echo $link_title;?>" class="social-icons">
-							<figcaption><?php echo $link_title;?></caption>
-						</figure>
-						</a>
-						<?php endwhile;
-					}
-					endif; ?>
+				get_template_part( 'template-parts/content', 'contact-socials');
+				?>
 					</div>
 					<div class="footer-cta-form">
 						<?php echo do_shortcode('[gravityform id="1" title="false"]') ?>
@@ -59,19 +44,26 @@
 			?>
 		</section>
 		<section class="footer-section">
-			<div class="site-info">
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'walkies' ) ); ?>">
-					<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'walkies' ), 'WordPress' );
+			<?php the_custom_logo();?>
+			<div class="footer-left">
+				<nav class="footer-nav">
+				<?php
+				wp_nav_menu(array('theme_location' => 'footer-menu'));
 				?>
-			</a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'walkies' ), 'walkies', '<a href="http://underscores.me/">FWD 32</a>' );
+				</nav>
+			</div>
+			<div class="footer-right">
+				<?php
+				get_template_part( 'template-parts/content', 'contact-socials');
 				?>
-		</div><!-- .site-info -->
+				<div>
+					<ul>
+						<li><?php esc_html_e('Capycap Team &copy;', 'walkies'); ?></li>
+						<li><a href=<?php the_permalink(377); ?>><?php esc_html_e('Privacy Policy', 'walkies'); ?></a></li>
+						<li><a href=<?php the_permalink(384); ?>><?php esc_html_e('Booking Policy', 'walkies'); ?></a></li>
+					</ul>
+				</div>
+			</div>
 		</section>
 	</footer><!-- #colophon -->
 </div><!-- #page -->

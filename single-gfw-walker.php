@@ -14,9 +14,13 @@ get_header();
 
 		<?php
 		while ( have_posts() ) :
-			the_post();
+			the_post(); ?>
 
+			<section class="walker-info">
 
+			<h1><?php the_title();?></h1>
+
+			<?php
 			if(function_exists('get_field')):
 
 				if(get_field('walker_photo')):
@@ -34,6 +38,7 @@ get_header();
 					<?php the_field('walker_bio')?>
 					<?php
 				endif;
+				?></section><?php
 
 				if(get_field('walker_testimonial') || get_field('dog_testimonial')){
 					?> <section class="testimonial"> <?php
@@ -82,21 +87,25 @@ get_header();
 					};
 					?> </section> <?php
 				};
-
+				
+				?>
+				<section class="walker-map">
+					<div>
+					<h2><?php esc_html_e("Walker Service Area", 'walkies') ?></h2>
+					</div>
+				<?php
 				// DOM Set up to get latitude and longitude values
 				$location = get_field('location');
 
 				$latVal = $location['lat'];
 				$lngVal = $location['lng'];
 		
-				if( $location ): ?>
-					<div id="circle-map"></div>
-					
-				<?php
-				echo "<p class='mapMark' id='map-lat'>".$latVal."</p>";
-				echo "<p class='mapMark' id='map-lng'>".$lngVal."</p>";
+				if( $location ): 
+          echo "<div id='circle-map'></div>";
+          echo "<span class='mapMark' id='map-lat'>" . $latVal . "</span>";
+          echo "<span class='mapMark' id='map-lng'>" . $lngVal . "</span>";
 				endif;
-
+				?></section><?php
 				$link = get_field('single_walker_cta'); 
 				if($link){
 					$link_url = $link['url'];
