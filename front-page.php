@@ -54,12 +54,11 @@ get_header();
 			<?php
 			if ( function_exists( 'get_field' ) ) :
 				$featuredTestimonials = get_field( 'featured_testimonials' );
-				if( $featuredTestimonials ) : ?>
-						<?php
+				if( $featuredTestimonials ) : 		
 						foreach( $featuredTestimonials as $testimonial ) :
 							$testimonialFields = get_fields( $testimonial->ID );
 							if( isset( $testimonialFields[ 'customer_photo' ], $testimonialFields[ 'quote' ] ) ): ?>
-								<article>
+								<article class="testimonial-card">
 									<?php 
 									echo wp_get_attachment_image( $testimonialFields[ 'customer_photo' ], 'thumbnail-icon' ); 
 									echo get_the_title( $testimonial->ID ); 
