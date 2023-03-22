@@ -264,8 +264,10 @@ function shop_landing_page($page_id) {
 
 function walkies_landing_page($page_id) {
   if( function_exists( 'get_field' ) ): 
+    // optimize if confidtion and ACF require option
     echo '<section class="walkies_intro">';
     if( get_field( 'banner_image', $page_id ))
+      // add fallback image
       echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
 
     if( get_field( 'walkies_intro_message', $page_id ))
