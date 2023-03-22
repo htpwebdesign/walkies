@@ -228,12 +228,16 @@ if ( ! function_exists( 'walkies_woocommerce_header_cart' ) ) {
 
 function shop_landing_page($page_id) {
   if( function_exists( 'get_field' ) ): 
+    echo '<section class="shop_banner">';
     if( get_field( 'banner_image', $page_id ))
       echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
  
     if( get_field( 'product_intro_summary', $page_id ))
       echo "<p>" . get_field( 'product_intro_summary', $page_id ) . "</p>";
  
+    echo '</section>';
+
+    echo '<section class="shop_package">';
     if( get_field( 'walkies_packages_image', $page_id ))
       echo wp_get_attachment_image( get_field( 'walkies_packages_image', $page_id ) );
 
@@ -249,8 +253,10 @@ function shop_landing_page($page_id) {
         <?php echo $primaryCTA["title"]  ?>
       </a>
     <?php 
-    endif; 	 
+    endif;
+    echo '</section>';
 
+    echo '<section class="shop_products">';
     if( get_field( 'products_gallery_headline', $page_id ))
       echo "<h2>" . get_field( 'products_gallery_headline', $page_id ) . "</h2>";
   endif;
@@ -258,12 +264,16 @@ function shop_landing_page($page_id) {
 
 function walkies_landing_page($page_id) {
   if( function_exists( 'get_field' ) ): 
+    echo '<section class="walkies_intro">';
     if( get_field( 'banner_image', $page_id ))
       echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
 
     if( get_field( 'walkies_intro_message', $page_id ))
       echo "<p>" . get_field( 'walkies_intro_message', $page_id ) . "</p>";
+    echo '</section>';
 
+
+    echo '<section class="walkies_best_sellers">';
     if( get_field( 'best_sellers_heading', $page_id ))
       echo "<h2>" . get_field( 'best_sellers_heading', $page_id ) . "</h2>";
 
@@ -272,13 +282,18 @@ function walkies_landing_page($page_id) {
       <!-- Display Relationship fields -->
     <?php
     endif;
+    echo '</section>';
 
+    echo '<section class="walkies_packages">';
     if( get_field( 'packages_heading', $page_id ))
       echo "<h2>" . get_field( 'packages_heading', $page_id ) . "</h2>";
 
     // if( get_field( 'package_gallery', $page_id ))
       // the_field( 'package_gallery', $page_id );
+    echo '</section>';
 
+
+    echo '<section class="walkies_passes">';
     if( get_field( 'passes_heading', $page_id ))
       echo "<h2>" . get_field( 'passes_heading', $page_id ) . "</h2>";
 
@@ -287,6 +302,7 @@ function walkies_landing_page($page_id) {
 
     // if( get_field( 'passes_gallery', $page_id ))
       // the_field( 'passes_gallery', $page_id );
+    echo '</section>';
 
   endif;
 }
@@ -310,7 +326,7 @@ function single_walkies_landing_page() {
     while( $query -> have_posts() ):
       $query -> the_post();
       ?>
-        <article>
+        <li>
           <button>
             <?php esc_html(the_title()); ?>
           </button>
@@ -323,7 +339,7 @@ function single_walkies_landing_page() {
               }
             }
           ?>
-        </article>
+        </li>
       <?php
     endwhile;
     wp_reset_postdata();
