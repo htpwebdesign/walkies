@@ -261,7 +261,30 @@ function walkies_landing_page($page_id) {
   endif;
 }
 
-// Delete default contents on shop page
+function shop_landing_page($page_id) {
+  if( function_exists( 'get_field' ) ): 
+    if( get_field( 'banner_image', $page_id ))
+      echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
+ 
+    if( get_field( 'product_intro_summary', $page_id ))
+      the_field( 'product_intro_summary', $page_id );
+ 
+    if( get_field( 'walkies_packages_image', $page_id ))
+      echo wp_get_attachment_image( get_field( 'walkies_packages_image', $page_id ) );
+
+    if( get_field( 'walkies_headline', $page_id ))
+      the_field( 'walkies_headline', $page_id );
+
+    if( get_field( 'walkies_intro_summary', $page_id ))
+      the_field( 'walkies_intro_summary', $page_id );
+
+    if( get_field( 'book_walkies_cta', $page_id ))
+      the_field( 'book_walkies_cta', $page_id );
+
+    if( get_field( 'products_gallery_headline', $page_id ))
+      the_field( 'products_gallery_headline', $page_id );
+  endif;
+}
 
 // Add ACF fields on walkies and shop
 add_action( 
