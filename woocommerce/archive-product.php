@@ -19,13 +19,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
 ?>
-
-<header class="woocommerce-products-header">
-	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
-	<?php endif; ?>
-</header>
-
+<main class="site-main">
 <?php
 
 if ( is_shop() )
@@ -39,7 +33,10 @@ get_footer( 'shop' );
 function walkies_landing_page($page_id) {
   if( function_exists( 'get_field' ) ): 
     if( get_field( 'banner_image', $page_id ) && get_field( 'walkies_intro_message', $page_id )):
-      echo '<section class="walkies_intro">';
+      echo '<section class="walkies_banner">';
+      ?>
+        <h1><?php woocommerce_page_title(); ?></h1>
+      <?php
       echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
       echo '<p>' . get_field( 'walkies_intro_message', $page_id ) . '</p>';
       echo '</section>';
@@ -156,6 +153,9 @@ function shop_landing_page($page_id) {
   if( function_exists( 'get_field' ) ): 
     echo '<section class="shop_banner">';
     if( get_field( 'banner_image', $page_id ))
+      ?>
+        <h1><?php woocommerce_page_title(); ?></h1>
+      <?php
       echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
  
     if( get_field( 'product_intro_summary', $page_id ))
@@ -202,15 +202,16 @@ function shop_landing_page($page_id) {
       $query = new WP_Query( $args );
 
       if( $query -> have_posts() ):
-        echo '<ol>';
+        echo '<ul>';
         while( $query -> have_posts() ):
           $query -> the_post();
           wc_get_template_part( 'content', 'product' );
         endwhile;
         wp_reset_postdata();
-        echo '</ol>';
+        echo '</ul>';
       endif;
       echo '</section>';
+      echo '</main>';
     endif;
 
   endif;
