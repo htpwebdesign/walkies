@@ -12,7 +12,7 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<section="footer-cta" id="contact">
+		<section class="footer-cta" id="contact">
 			<div class="footer-cta-details">
 			<?php
 			if(function_exists('get_field')){
@@ -43,7 +43,7 @@
 			}
 			?>
 		</section>
-		<section class="footer-section">
+		<div class="footer-section">
 			<?php the_custom_logo();?>
 			<div class="footer-left">
 				<nav class="footer-nav">
@@ -64,7 +64,7 @@
 					</ul>
 				</div>
 			</div>
-		</section>
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

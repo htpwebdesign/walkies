@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
+<main class='site-main'>
   <?php while ( have_posts() ) : ?>
     <?php the_post(); ?>
 
@@ -27,18 +28,9 @@ get_header( 'shop' ); ?>
 
   <?php endwhile; // end of the loop. ?>
 
-	<?php
-		/**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
-	?>
-
   <?php
     global $post;
-    echo '<p class="product_description">' . $product->get_description() . '</p>';
+    echo '<p class="product-description">' . $product->get_description() . '</p>';
 
     // 27: packages-passes, 31: physical-products	
     if( in_array( 27, $product->get_category_ids() ) )
@@ -46,6 +38,7 @@ get_header( 'shop' ); ?>
     else if( in_array( 31, $product->get_category_ids() ) )
       echo '<a href="' . get_permalink( 284 ) . '#refunds-cancellations">' . __('Refunds and Cancellations FAQ') . '</a>';
     
+
     function single_walkies_landing_page() {
       // Query packages-passes FAQs on single walkies
       $args = array(
@@ -91,7 +84,17 @@ get_header( 'shop' ); ?>
     }
   ?>
 
+	<?php
+		/**
+		 * woocommerce_after_main_content hook.
+		 *
+		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+		 */
+		do_action( 'woocommerce_after_main_content' );
+	?>
+
 <?php
+
 get_footer( 'shop' );
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
