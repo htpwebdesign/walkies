@@ -13,10 +13,5 @@ a {
 	&:hover,
 	&:active {
 		outline: none;
-		border-radius: $gfw-radius-sm;
-	}
-
-	&:focus {
-		background-color: $color__accent3-gfw;
 	}
 }

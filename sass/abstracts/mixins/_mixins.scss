@@ -1,11 +1,64 @@
-// Center block
-@mixin center-block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
+@use 'sass:math'; // for woocoomerce column-width
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: math.div($columns--margin * ($numberColumns - 1), $numberColumns) or calc(($columns--margin * ($numberColumns - 1)) / $numberColumns);
+  width: math.div($columns--margin * ($numberColumns - 1), $numberColumns) or calc(($columns--margin * ($numberColumns - 1)) / $numberColumns);
+}
+
+// Center block
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Center elements in a flex
+@mixin flex-box($jc: center, $ai: center) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+@mixin btnStyle(
+  $outline: false,
+  $br: $gfw-radius-sm,
+  $def: $color__blue-gfw,
+  $text: $color__white, 
+  $pad: $gfw-padding-sm $gfw-padding-lg
+) {
+  padding: $pad;
+  border-radius: $br;
+  background-color: $def;
+  color: $text;
+  font-weight: 700;
+
+  @if $outline == true {
+    background-color: $color__white;
+    border: 2px solid $def;
+    color: $def;
+  }
+}
+
+@mixin cardStyle(
+  $pad: $gfw-padding-lg,
+	$outline: 1px solid $color__white,
+  $br: $gfw-radius-sm,
+  $bs: 5px 7px 10px rgba(0, 0, 0, .6) // text value
+) {
+  padding: $pad;
+	border: $outline;
+  border-radius: $br;
+  box-shadow: $bs;
+
+  h2, h3, p {
+    margin: 0;
+  }
+}
+
+// Media Query Mixin
+@mixin mq($w) {
+  @media (min-width: $w) {
+    @content;
+  }
 }
