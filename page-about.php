@@ -46,15 +46,15 @@ get_header();
 
               elseif( get_row_layout() == 'why_choose_us' ):
                 if( have_rows( 'reasons' ) ):
-                  echo '<section class="why_section"><h2>Why Choose Us</h2><ul>';
+                  echo '<section class="why_section"><h2>Why Choose Us</h2>';
                   while( have_rows( 'reasons' )): the_row();
-                    echo '<li>';
+                    echo '<article>';
                     echo wp_get_attachment_image( get_sub_field( 'icon' ), 'thumbnail-icon' );
-                    the_sub_field('title');
-                    the_sub_field('description');
-                    echo '</li>';
+                    echo "<h3>".get_sub_field('title')."</h3>";
+                    echo "<p>".get_sub_field('description')."</p>";
+                    echo '</article>';
                   endwhile;
-                  echo '</ul></section>';
+                  echo '</section>';
                 endif;
 
               endif;
@@ -66,36 +66,40 @@ get_header();
           $walkers = get_field( 'human_testimonial' );
           if ( $walkers ) : ?>
             <section class="human_section">
-              <ul>
+              <h2>
+                <?php
+                esc_html_e('Customer Testimonials', 'walkies');
+                ?>
+              </h2>
                 <?php 
                 foreach ( $walkers as $walker ):
                   $walker_fields = get_fields( $walker->ID );
 
                   if( isset( $walker_fields['customer_photo'], $walker_fields['quote'] ) ):
                 ?>
-                  <li>
-                    <a href="<?php echo get_permalink( $walker->ID ); ?>">
+                  <article>
+
                       <?php echo wp_get_attachment_image( $walker_fields['customer_photo'], 'thumbnail-icon' ); ?>
-                      <span>
+                      <h3>
                         <?php echo get_the_title( $walker->ID ); ?>
-                      </span>
+                      </h3>
                       <p>
                         <?php echo $walker_fields['quote']; ?>
                       </p>
-                    </a>
-                  </li>
+                   
+                  </article>
                 
                 <?php 
                   endif;
                 endforeach;
                 ?>
-              </ul>
+              
             </section>
 
           <?php endif; ?>
 
           <section class="location_section">
-            <h2><?php esc_html_e('Available Area', 'walkies');?></h2>
+            <h2><?php esc_html_e('Walkies Service Areas', 'walkies');?></h2>
             <iframe src="https://snazzymaps.com/embed/474769" width="100%" height="400px" style="border:none;"></iframe>
           </section>
 
