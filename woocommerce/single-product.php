@@ -20,23 +20,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
+  <?php while ( have_posts() ) : ?>
+    <?php the_post(); ?>
 
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
+    <?php wc_get_template_part( 'content', 'single-product' ); ?>
 
-		<?php while ( have_posts() ) : ?>
-			<?php the_post(); ?>
-
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
-
-		<?php endwhile; // end of the loop. ?>
+  <?php endwhile; // end of the loop. ?>
 
 	<?php
 		/**
@@ -55,10 +44,7 @@ get_header( 'shop' ); ?>
     if( in_array( 27, $product->get_category_ids() ) )
       single_walkies_landing_page();
     else if( in_array( 31, $product->get_category_ids() ) )
-      echo '<a href="' . get_permalink( 284 ) . '#refunds-cancellations">';
-      esc_html_e('Refunds and Cancellations FAQ', 'walkies' );
-      echo '</a>';
-
+      echo '<a href="' . get_permalink( 284 ) . '#refunds-cancellations">' . __('Refunds and Cancellations FAQ') . '</a>';
     
     function single_walkies_landing_page() {
       // Query packages-passes FAQs on single walkies
