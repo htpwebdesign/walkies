@@ -22,15 +22,13 @@
 				if(get_field('contact_heading', 'option')): ?>
 					<h2><?php the_field('contact_heading', 'option'); ?></h2>
 					<?php endif; ?>
+					<?php if(get_field('heading', 'option')): ?>
 					<section class="contact-info">
-				<?php if(have_rows('contact_details', 'option')): the_row();
-				
-				$group = get_field(' contact_details', 'option');
-				?> <h3><?php the_sub_field('heading'); ?></h3>
-					<ul>
-						<li><a href="mailto:<?php the_sub_field('company_email'); ?>"><?php the_sub_field('company_email'); ?></a></li>
-						<li><a href="tel:+1<?php the_sub_field('company_phone'); ?>">+1<?php the_sub_field('company_phone'); ?></a></li>
-					</ul>
+						<h3><?php the_field('heading', 'option'); ?></h3>
+						<ul>
+							<li><a href="mailto:<?php the_field('company_email', 'option'); ?>"><?php the_field('company_email', 'option'); ?></a></li>
+							<li><a href="tel:+1<?php the_field('company_phone', 'option'); ?>">+1<?php the_field('company_phone', 'option'); ?></a></li>
+						</ul>
 					<?php
 				endif; 
 				
