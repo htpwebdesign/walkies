@@ -1,22 +1,17 @@
 a {
-	color: $color__link;
-
-	&:visited {
-		color: $color__link-visited;
-	}
+	color: $color__brown-gfw;
+	font-weight: 700;
+	text-decoration: none;
 
 	&:hover,
 	&:focus,
 	&:active {
-		color: $color__link-hover;
+		text-decoration: underline;
 	}
-
-	&:focus {
-		outline: thin dotted;
-	}
-
+	
+	&:focus,
 	&:hover,
 	&:active {
-		outline: 0;
+		outline: none;
 	}
 }

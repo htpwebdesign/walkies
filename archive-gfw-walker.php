@@ -36,13 +36,14 @@ get_header();
 			<article class="walker-card">
 				<?php
 				if (function_exists('get_field')):
+					?> <a href="<?php the_permalink()?>"><?php
 					if(get_field('walker_photo')):
 						echo wp_get_attachment_image( get_field('walker_photo'), 'medium' );
 					endif;
 					?>
 
 					<h2>
-						<a href="<?php the_permalink()?>"><?php the_title();?></a>
+						<?php the_title();?>
 					</h2>
 				
 					<?php
@@ -51,6 +52,7 @@ get_header();
 						<p><span><?php esc_html_e('Location: ', 'walkies'); ?></span><?php the_field('city')?></p>
 						<?php
 					endif;
+					?> </a> <?php
 				endif;
 				?>
 
