@@ -144,6 +144,12 @@ add_action( 'widgets_init', 'walkies_widgets_init' );
  * Enqueue scripts and styles.
  */
 function walkies_scripts() {
+	// Custom fonts
+	wp_enqueue_style(
+		'walkies-googlefonts',
+		'https://fonts.googleapis.com/css2?family=Kavoon&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap',
+		array(),
+		null);
 	wp_enqueue_style( 'walkies-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'walkies-style', 'rtl', 'replace' );
 
