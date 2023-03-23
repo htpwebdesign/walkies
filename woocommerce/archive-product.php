@@ -66,13 +66,15 @@ function walkies_landing_page($page_id) {
 
                 if( $best_seller->ID == 481 ) // subscription
                   echo '<a href="' . $product->get_permalink() . '">' . __('View Options') . '</a>';
+                elseif ($term->slug == 'passes')
+                  echo do_shortcode("[add_to_cart id=" . $best_seller -> ID . " show_price='false' style='']");
                 else
                   echo '<a href="' . $product->get_permalink() . '">' . __('Book Now') . '</a>';
               endif;
             endforeach;	
             
             echo '<span class="price">' . $product->get_price_html() . '</span>';
-            echo do_shortcode("[add_to_cart id=" . $product -> ID . " show_price='false' style='']");
+      
           ?>
         </li>
       <?php endforeach;	?>
