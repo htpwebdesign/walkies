@@ -26,7 +26,7 @@ if ( is_shop() )
   walkies_landing_page( 91 );
 else if ( is_product_category('physical-products') )
   shop_landing_page( 12 );
-
+echo '</main>';
 get_footer( 'shop' );
 
 
@@ -46,20 +46,19 @@ function walkies_landing_page($page_id) {
     if( get_field( 'best_sellers_heading', $page_id ) && $best_sellers ):
       echo '<section class="walkies-best-sellers">';
       echo '<h2>' . get_field( 'best_sellers_heading', $page_id ) . '</h2>';
-      echo '<ul class="bestseller-cards">';
 
       foreach( $best_sellers as $best_seller ) : ?>
-        <li class="bestseller-card">
+        <article class="bestseller-card">
           <?php
             $product = wc_get_product( $best_seller->ID );
             $terms = get_the_terms( $best_seller->ID, 'product_cat');
 
             echo get_the_post_thumbnail($best_seller);
-            echo '<span class="title">' . get_the_title($best_seller -> ID) . '</span>';
+            echo '<h3 class="title">' . get_the_title($best_seller -> ID) . '</h3>';
 
             foreach($terms as $term) :
               if( $term->term_id != 27): // packages-passes
-                echo '<p>' . esc_html($term->name) . '</p>';
+                echo '<span>' . esc_html($term->name) . '</span>';
 
                 if( $best_seller->ID == 481 ) // subscription
                   echo '<a href="' . $product->get_permalink() . '">' . __('View Options') . '</a>';
@@ -73,9 +72,8 @@ function walkies_landing_page($page_id) {
             echo '<span class="price">' . $product->get_price_html() . '</span>';
       
           ?>
-        </li>
+        </article>
       <?php endforeach;	?>
-      </ul>
       </section>
     <?php
     endif;
@@ -91,18 +89,7 @@ function walkies_landing_page($page_id) {
         <article class="packages-gallery-card">
           <?php
           echo get_the_post_thumbnail( $package );
-          echo get_the_title( $package->ID );
-
-          $post_categories = wp_get_post_categories( $package->ID );
-          $cats = array();
-
-          global $post;
-          $terms = get_the_terms( $package->ID, 'product_cat' );
-          foreach( $terms as $term ) :
-            if( $term->term_id != 27 ) :
-              echo '<p>'.esc_html( $term->name ).'</p>';
-            endif;
-          endforeach;
+          echo "<h3>".get_the_title( $package->ID )."</h3>";
 
           $product = wc_get_product( $package->ID );
           echo $product->get_price_html();
@@ -125,22 +112,21 @@ function walkies_landing_page($page_id) {
       echo '<h2>' . get_field( 'passes_heading', $page_id ) . '</h2>';
       echo '<p>' . get_field( 'passes_description', $page_id ) . '</p>';
     ?>
-      <ul class="passes-gallery-cards">
+
         <?php
           foreach( $passes_gallery as $pass ) : ?>
-            <li class="passes-gallery-card">
+            <article class="passes-gallery-card">
               <?php
                 $product = wc_get_product( $best_seller->ID );
 
                 echo get_the_post_thumbnail($pass);
-                echo '<span class="title">' . get_the_title($pass -> ID) . '</span>';
+                echo '<h3 class="title">' . get_the_title($pass -> ID) . '</h3>';
                 echo '<span class="price">' . $product->get_price_html() . '</span>';
                 echo do_shortcode("[add_to_cart id=" . $pass -> ID . " show_price='false' style='']");
                 echo '<a href="' . $product->get_permalink() . '">' . __('View Pass') . '</a>';
               ?>
-            </li>
+            </article>
         <?php endforeach;	?>
-        </ul>
       </section>
     <?php
     endif;
@@ -211,7 +197,6 @@ function shop_landing_page($page_id) {
         echo '</ul>';
       endif;
       echo '</section>';
-      echo '</main>';
     endif;
 
   endif;
