@@ -72,7 +72,7 @@ function walkies_landing_page($page_id) {
             endforeach;	
             
             echo '<span class="price">' . $product->get_price_html() . '</span>';
-            echo do_shortcode("[add_to_cart id=" . $pass -> ID . " show_price='false' style='']");
+            echo do_shortcode("[add_to_cart id=" . $product -> ID . " show_price='false' style='']");
           ?>
         </li>
       <?php endforeach;	?>
@@ -81,10 +81,42 @@ function walkies_landing_page($page_id) {
     <?php
     endif;
 
+    $packages_gallery = get_field( 'package_gallery', $page_id );
     if( get_field( 'packages_heading', $page_id ) && get_field( 'package_gallery', $page_id )):
-      echo '<section class="walkies-packages">';
-      echo '<h2>' . get_field( 'packages_heading', $page_id ) . '</h2>';
+      echo '<section class="walkies_packages">';
+      echo "<h2>" . get_field( 'packages_heading', $page_id ) . "</h2>";
+
       // package_gallery
+      foreach( $packages_gallery as $package ) :
+        ?>
+        <article class="packages-gallery-card">
+          <?php
+          echo get_the_post_thumbnail( $package );
+          echo get_the_title( $package->ID );
+
+          $post_categories = wp_get_post_categories( $package->ID );
+          $cats = array();
+
+          global $post;
+          $terms = get_the_terms( $package->ID, 'product_cat' );
+          foreach( $terms as $term ) :
+            if( $term->term_id != 27 ) :
+              echo '<p>'.esc_html( $term->name ).'</p>';
+            endif;
+          endforeach;
+
+          $product = wc_get_product( $package->ID );
+          echo $product->get_price_html();
+
+          $description = $product->get_description();
+          echo '<p>'.esc_html($description).'</p>';
+
+          echo '<a href="' . $product->get_permalink() . '">' . __('Book Now') . '</a>';
+ 
+          ?>
+        </article>
+        <?php   
+      endforeach;
       echo '</section>';
     endif;
 
