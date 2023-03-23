@@ -72,7 +72,7 @@ function walkies_landing_page($page_id) {
             endforeach;	
             
             echo '<span class="price">' . $product->get_price_html() . '</span>';
-            echo do_shortcode("[add_to_cart id=" . $pass -> ID . " show_price='false' style='']");
+            echo do_shortcode("[add_to_cart id=" . $product -> ID . " show_price='false' style='']");
           ?>
         </li>
       <?php endforeach;	?>
