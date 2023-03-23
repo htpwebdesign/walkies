@@ -80,12 +80,28 @@ function walkies_landing_page($page_id) {
     endif;
 
     $passes_gallery = get_field( 'passes_gallery', $page_id );
-    if( get_field( 'passes_heading', $page_id ) && get_field( 'passes_description', $page_id ) && $passes_gallery):
-      echo '<section class="walkies_passes">';
-      echo "<h2>" . get_field( 'passes_heading', $page_id ) . "</h2>";
-      echo "<p>" . get_field( 'passes_description', $page_id ) . "</p>";
-      // $passes_gallery
-      echo '</section>';
+    if( get_field( 'passes_heading', $page_id ) && get_field( 'passes_description', $page_id ) && $passes_gallery): ?>
+      <section class="walkies-passes">
+        <h2><?php get_field( 'passes_heading', $page_id ) ?></h2>
+        <p><?php get_field( 'passes_description', $page_id ) ?></p>
+        <ul class="passes-gallery-cards">
+        <?php
+          foreach( $passes_gallery as $pass ) : ?>
+            <li class="passes-gallery-card">
+              <?php
+                $product = wc_get_product( $best_seller->ID );
+
+                echo get_the_post_thumbnail($pass);
+                echo '<span class="title">' . get_the_title($pass -> ID) . '</span>';
+                echo '<span class="price">' . $product->get_price_html() . '</span>';
+                echo do_shortcode("[add_to_cart id=" . $pass -> ID . " show_price='false' style='']");
+                echo '<a href="' . $product->get_permalink() . '">' . __('View Pass') . '</a>';
+              ?>
+            </li>
+        <?php endforeach;	?>
+        </ul>
+      </section>
+    <?php
     endif;
 
   endif;
