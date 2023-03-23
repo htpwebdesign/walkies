@@ -25,7 +25,7 @@ get_header();
 					echo wp_get_attachment_image( get_field( 'banner_image' ), 'full' );
 				}
 				if ( get_field( 'featured_product_headline' ) ) {
-					echo '<h2>' . ( get_field( 'featured_product_headline') ). '</h2>';
+					echo '<h1>' . ( get_field( 'featured_product_headline') ). '</h1>';
 				}
 				if ( get_field( 'featured_product_description' ) ) {
 					echo '<p>'.get_field( 'featured_product_description' ).'</p>';
