@@ -122,8 +122,8 @@ get_header();
 							<article>
 								<?php 
 								echo wp_get_attachment_image( $testimonialFields[ 'customer_photo' ]);
-								echo get_the_title( $dogReview->ID);
-								echo $testimonialFields[ 'quote' ];
+								echo "<h3>".get_the_title( $dogReview->ID)."</h3>";
+								echo "<p>".$testimonialFields[ 'quote' ]."</p>";
 								echo wp_get_attachment_url( $testimonialFields[ 'dog_audio' ] ); 
 								?>
 								<audio controls> 
