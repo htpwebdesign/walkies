@@ -12,7 +12,7 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<section="footer-cta" id="contact">
+		<section class="footer-cta" id="contact">
 			<div class="footer-cta-details">
 			<?php
 			if(function_exists('get_field')){
