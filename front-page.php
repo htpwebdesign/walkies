@@ -61,7 +61,7 @@ get_header();
 								<article class="testimonial-card">
 									<?php 
 									echo wp_get_attachment_image( $testimonialFields[ 'customer_photo' ], 'thumbnail-icon' ); 
-									echo get_the_title( $testimonial->ID ); 
+									echo "<h3>".get_the_title( $testimonial->ID )."</h3>"; 
 									?>
 									<p><?php echo $testimonialFields[ 'quote' ]; ?></p>
 								</article>	
