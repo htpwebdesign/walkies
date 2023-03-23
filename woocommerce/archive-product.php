@@ -107,10 +107,7 @@ function walkies_landing_page($page_id) {
           $description = $product->get_description();
           echo '<p>'.esc_html($description).'</p>';
           
-
-          
           ?>
-          
         </article>
         <?php   
       endforeach;
