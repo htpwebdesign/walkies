@@ -89,11 +89,12 @@ function walkies_landing_page($page_id) {
     endif;
 
     $passes_gallery = get_field( 'passes_gallery', $page_id );
-    if( get_field( 'passes_heading', $page_id ) && get_field( 'passes_description', $page_id ) && $passes_gallery): ?>
-      <section class="walkies-passes">
-        <h2><?php get_field( 'passes_heading', $page_id ) ?></h2>
-        <p><?php get_field( 'passes_description', $page_id ) ?></p>
-        <ul class="passes-gallery-cards">
+    if( get_field( 'passes_heading', $page_id ) && get_field( 'passes_description', $page_id ) && $passes_gallery): 
+      echo '<section class="walkies-passes">';
+      echo '<h2>' . get_field( 'passes_heading', $page_id ) . '</h2>';
+      echo '<p>' . get_field( 'passes_description', $page_id ) . '</p>';
+    ?>
+      <ul class="passes-gallery-cards">
         <?php
           foreach( $passes_gallery as $pass ) : ?>
             <li class="passes-gallery-card">
