@@ -1,0 +1,44 @@
+.page button.primary {
+    @include btnStyle;
+}
+
+.site-header {
+    background-color: $color__dark-gfw;
+}
+
+.page .cta-header {
+    background-color: $color__yellow-gfw;
+    display: flex;
+
+    ul {
+        display: flex;
+
+    }
+}
+
+.walker-card {
+    
+    img {
+        border-radius: $gfw-radius-lg;
+    }
+
+    
+}
+
+.testimonial-card {
+    width: 30%;
+    @include cardStyle;
+    background-color: $color__accent2-gfw;
+
+    & > * {
+        margin: auto;
+        text-align: center;
+    }
+
+    img {
+        border-radius: $gfw-radius-lg;
+    }
+   
+}
+
+
