@@ -4,13 +4,13 @@ h4,
 h5,
 h6 {
 	clear: both;
-	font-size: 2rem;
+	font-size: $gfw-font-md;
 	font-family: $heading__font;
 }
 
 h1 {
 	clear: both;
-	font-size: 2.5rem;
+	font-size: $gfw-font-lg;
 	font-family: $stylized__font;
 	color: $color__dark-gfw;
 	text-transform: lowercase;
@@ -22,7 +22,7 @@ h6 {
 	color: $color__dark-gfw;
 }
 
-h4,
+h3,
 h5 {
 	color: $color__green-gfw;
 }
