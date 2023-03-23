@@ -110,7 +110,9 @@ function walkies_landing_page($page_id) {
 
           $description = $product->get_description();
           echo '<p>'.esc_html($description).'</p>';
-          
+
+          echo '<a href="' . $product->get_permalink() . '">' . __('Book Now') . '</a>';
+ 
           ?>
         </article>
         <?php   
