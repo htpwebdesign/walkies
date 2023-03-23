@@ -64,7 +64,7 @@ function walkies_landing_page($page_id) {
               if( $term->term_id != 27): // packages-passes
                 echo '<p>' . esc_html($term->name) . '</p>';
 
-                if( $best_seller->ID == 434 ) // subscription
+                if( $best_seller->ID == 481 ) // subscription
                   echo '<a href="' . $product->get_permalink() . '">' . __('View Options') . '</a>';
                 else
                   echo '<a href="' . $product->get_permalink() . '">' . __('Book Now') . '</a>';
