@@ -1,3 +1,22 @@
 .accordion {
-    
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    padding: $gfw-padding-md 0;
+    border-top: 1px solid $color__dark-gfw;
+    border-bottom: 1px solid $color__dark-gfw;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    &::after {
+        content: "+";
+        font-size: 1.25rem;
+    }
 }
+
+.accordion.active::after {
+    content: "—";
+    font-size: 1.25rem;
+}
+
