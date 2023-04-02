@@ -10,7 +10,6 @@
     justify-content: space-between;
     align-content: center;
     cursor: pointer;
-    transition: all .5s ease-in-out;
 
     &::after {
         content: "+";
@@ -24,8 +23,20 @@
 }
 
 .panel {
-    display: none;
-    transition: all .5s ease-in-out;
+    @include compact;
+    background-color: $color__accent3-gfw;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    box-sizing: border-box;
+
+    p {
+        margin: 1rem;
+    }
+
+    &.show {
+        max-height: 100%;
+    }
 }
 
 
