@@ -1,0 +1,14 @@
+section.featured_testimonial_section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    h2 {
+        width: 100%;
+    }
+
+    @include mq($gfw__mq-md) {
+        gap: 1rem;
+    }
+  
+}
