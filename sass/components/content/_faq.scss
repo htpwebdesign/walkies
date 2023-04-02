@@ -3,20 +3,29 @@
     background-color: transparent;
     border: none;
     text-align: left;
-    padding: $gfw-padding-md 0;
+    padding: $gfw-padding-lg $gfw-padding-md;
     border-top: 1px solid $color__dark-gfw;
     border-bottom: 1px solid $color__dark-gfw;
     display: flex;
     justify-content: space-between;
     align-content: center;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+
     &::after {
         content: "+";
         font-size: 1.25rem;
     }
+
+    &.active::after {
+        content: "—";
+        font-size: 1.25rem;
+    }
 }
 
-.accordion.active::after {
-    content: "—";
-    font-size: 1.25rem;
+.panel {
+    display: none;
+    transition: all .5s ease-in-out;
 }
+
 
