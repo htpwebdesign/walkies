@@ -1,0 +1,86 @@
+.home .site-main {
+
+    .featured-product-section {
+
+        margin: -1.25rem;
+
+        &>*:not(img) {
+            margin: 1.25rem;
+        }
+
+        &>a {
+            display: block;
+            margin: .5rem 1.25rem;
+        }
+
+        a.book-now-cta {
+            @include btnStyle;
+        }
+
+        a.view-all-packages-cta {
+            @include btnStyle($outline: true)
+        }
+
+        @include mq($gfw__mq-md) {
+            margin: -2rem -10rem 2rem;
+
+            a {
+                display: inline-block;
+            }
+
+            a.book-now-cta {
+
+                margin-right: 0;
+
+                &:hover,
+                &:focus {
+                    @include btnStyle($def: $color__green-gfw);
+                }
+            }
+
+            a.view-all-packages-cta {
+
+                &:focus,
+                &:hover {
+                    @include btnStyle($outline: true, $def: $color__green-gfw)
+                }
+            }
+
+        }
+
+        ;
+
+        @include mq($gfw__mq-lg) {
+            max-width: 81.25em;
+            margin: auto;
+            margin-top: -2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: min-content;
+
+            img {
+                grid-column: 1/2;
+                grid-row: 1/4;
+                height: 100%;
+                width: auto;
+                object-fit: cover;
+                object-position: 43% center;
+            }
+
+            h1 {
+                grid-row: 1/2;
+            }
+
+            p {
+                grid-row: 2/3;
+            }
+
+            a {
+                grid-row: 3/4;
+                grid-column: 2/3;
+            }
+        }
+    }
+
+    section.featured_testimonial_section {}
+}
