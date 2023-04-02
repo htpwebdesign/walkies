@@ -54,6 +54,9 @@
 	border: $outline;
   border-radius: $br;
   box-shadow: $bs;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 
   h2, h3, p {
     margin: 0;

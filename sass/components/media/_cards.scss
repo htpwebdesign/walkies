@@ -1,0 +1,47 @@
+/*Walker Archive*/
+.walker-card {
+
+    a {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        height: 25rem;
+        width: fit-content;
+
+        &>* {
+            @include compact;
+        }
+
+        img {
+            border-radius: $gfw-radius-lg;
+        }
+    }
+}
+
+/*Testimonial Cards shown on sections*/
+.testimonial-card {
+    @include cardStyle;
+    background-color: $color__accent2-gfw;
+    text-align: center;
+    margin: 1.25rem auto;
+    height: 30rem;
+    width: 20rem;
+
+    img {
+        border-radius: $gfw-radius-lg;
+        @include compact;
+        margin: 1rem auto;
+    }
+
+    p {
+        overflow: hidden;
+    }
+
+    &>* {
+        margin: auto;
+    }
+
+    @include mq($gfw__mq-lg) {
+        margin: 1.25rem .5rem;
+    }
+}
