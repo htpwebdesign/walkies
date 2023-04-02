@@ -62,7 +62,7 @@
             grid-template-columns: repeat(4, 1fr);
             grid-auto-rows: min-content;
             gap: 1.25rem;
-            align-content: start;
+            align-content: flex-start;
 
             img {
                 align-self: auto;
