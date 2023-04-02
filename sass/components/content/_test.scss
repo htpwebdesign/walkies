@@ -9,10 +9,10 @@
 .page .cta-header {
     background-color: $color__yellow-gfw;
     display: flex;
-
+    flex-wrap: wrap;
+    
     ul {
         display: flex;
-
     }
 }
 
