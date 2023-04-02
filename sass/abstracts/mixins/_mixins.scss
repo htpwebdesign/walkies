@@ -27,9 +27,13 @@
   $text: $color__white, 
   $pad: $gfw-padding-sm $gfw-padding-lg
 ) {
+  width: fit-content;
+  min-width: 10rem;
+  text-align: center;
   padding: $pad;
   border-radius: $br;
   background-color: $def;
+  border: 2px solid $def;
   color: $text;
   font-weight: 700;
 
@@ -37,7 +41,7 @@
     background-color: $color__white;
     border: 2px solid $def;
     color: $def;
-  }
+  }  
 }
 
 @mixin cardStyle(
@@ -61,4 +65,10 @@
   @media (min-width: $w) {
     @content;
   }
+}
+
+// Margin 0, Padding 0
+@mixin compact {
+  margin: 0;
+  padding: 0;
 }
