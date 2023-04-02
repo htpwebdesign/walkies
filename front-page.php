@@ -86,14 +86,14 @@ get_header();
 				if( $featuredFAQ ) : 
 					foreach( $featuredFAQ as $singleFAQ ) : ?> 
 						<article> 
-							<button>
+							<button class="accordion">
 								<?php echo get_the_title( $singleFAQ->ID ); ?>
 							</button>	
 							<?php
 							$faqFields = get_fields( $singleFAQ->ID );
 
 							if( isset( $faqFields[ 'faq_answer' ] ) ): 
-								?> <div><?php
+								?> <div class="panel"><?php
 								echo $faqFields[ 'faq_answer' ];	
 								?></div><?php
 							endif; ?>
