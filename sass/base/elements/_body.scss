@@ -7,7 +7,7 @@ body {
 	padding: 1.25rem;
 
 	@include mq($gfw__mq-md){
-			padding: 2rem 10rem;
+			padding: 2rem 5rem;
 	};
 
 	@include mq($gfw__mq-lg){
