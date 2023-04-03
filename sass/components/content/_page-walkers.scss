@@ -3,5 +3,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    
+    h2 {
+        margin-top: $gfw-margin-sm;
+    }
 
+    article {
+        padding-bottom: $gfw-margin-md;
+    }
 }
