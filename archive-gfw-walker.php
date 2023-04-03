@@ -21,48 +21,48 @@ get_header();
 				?>
 			</header><!-- .page-header -->
 
-			<?php
-			$args = array(
-				'post_type'			=> 'gfw-walker',
-				'posts_per_page'	=> -1,
-			);			
-
-			$query = new WP_QUERY($args);
-			if($query -> have_posts()):
-			while($query->have_posts()) :
-				$query->the_post();
-			?>
-
-			<article class="walker-card">
+			<div class="walkers-wrapper">
 				<?php
-				if (function_exists('get_field')):
-					?> <a href="<?php the_permalink()?>"><?php
-					if(get_field('walker_photo')):
-						echo wp_get_attachment_image( get_field('walker_photo'), 'medium' );
-					endif;
-					?>
+				$args = array(
+					'post_type'			=> 'gfw-walker',
+					'posts_per_page'	=> -1,
+				);			
 
-					<h2>
-						<?php the_title();?>
-					</h2>
-				
-					<?php
-					if(get_field('city')):
-						?>
-						<p><span><?php esc_html_e('Location: ', 'walkies'); ?></span><?php the_field('city')?></p>
-						<?php
-					endif;
-					?> </a> <?php
-				endif;
+				$query = new WP_QUERY($args);
+				if($query -> have_posts()):
+				while($query->have_posts()) :
+					$query->the_post();
 				?>
 
-			</article>
+				<article class="walker-card">
+					<?php
+					if (function_exists('get_field')):
+						?> <a href="<?php the_permalink()?>"><?php
+						if(get_field('walker_photo')):
+							echo wp_get_attachment_image( get_field('walker_photo'), 'medium' );
+						endif;
+						?>
 
-	<?php 
-		endwhile;
-	endif;
-endif; 
-?>
+						<h2>
+							<?php the_title();?>
+						</h2>
+					
+						<?php
+						if(get_field('city')):
+							?>
+							<p><span><?php esc_html_e('Location: ', 'walkies'); ?></span><?php the_field('city')?></p>
+							<?php
+						endif;
+						?> </a> <?php
+					endif;
+					?>
+				</article>
+		<?php 
+			endwhile;
+		endif;
+	endif; 
+	?>
+	</div>
 	</main><!-- #main -->
 
 <?php
