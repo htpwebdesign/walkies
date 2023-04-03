@@ -114,7 +114,6 @@ section.featured-packages {
 
             p.price {
                 color: $color__yellow-gfw;
-                font-size: 1.5rem;
             }
 
             p.description {
@@ -155,7 +154,6 @@ section.featured-packages {
 
     @media screen and (min-width: $gfw__mq-lg) {
         gap: 0;
-
 
         h2 {
             order: -3;
