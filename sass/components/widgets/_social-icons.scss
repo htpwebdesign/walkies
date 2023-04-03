@@ -1,0 +1,18 @@
+div.social-icons {
+    display: flex;
+    gap: $gfw-margin-md;
+    justify-content: center;
+
+    a {
+        width: fit-content;
+
+        figure {
+            width: fit-content;
+            text-align: center;
+
+            img.social-icons {
+                height: 2rem;
+            }
+        }
+    }
+}
