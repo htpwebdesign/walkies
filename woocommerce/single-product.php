@@ -66,13 +66,13 @@ get_header( 'shop' ); ?>
           $query -> the_post();
           ?>
             <li>
-              <button>
+              <button class="accordion">
                 <?php esc_html(the_title()); ?>
               </button>
               <?php
                 if( function_exists( 'get_field' )) {
                   if( get_field( 'faq_answer' ) ) 
-                    echo '<div>' . get_field( 'faq_answer' ) . '</div>';
+                    echo '<div class="panel">' . get_field( 'faq_answer' ) . '</div>';
                 }
               ?>
             </li>
