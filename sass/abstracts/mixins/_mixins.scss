@@ -78,7 +78,8 @@
 
 @mixin testimonialCard($human: true) {
   @include cardStyle;
-    background-color: $color__accent2-gfw;
+    background-color: $color__white;
+    border: .25rem solid $color__green-gfw;
     text-align: center;
     margin: 1.25rem $gfw-margin-sm;
     height: 30rem;
@@ -99,7 +100,6 @@
     }
 
     @if $human == false {
-      background-color: $color__white;
       border: .25rem solid $color__dark-gfw;
       height: 25rem;
 
