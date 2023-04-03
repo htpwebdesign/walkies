@@ -1,0 +1,8 @@
+section.featured-packages {
+    article.featured-package-single {
+        @include cardStyle;
+        width: 20rem;
+        display: grid;
+        
+    }
+}
