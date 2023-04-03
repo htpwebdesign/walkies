@@ -231,6 +231,15 @@ if ( ! function_exists( 'walkies_woocommerce_header_cart' ) ) {
 	}
 }
 
+// Remove product page tabs
+function gfw_remove_all_product_tabs( $tabs ) {
+  unset( $tabs['description'] );        // Remove the description tab
+  unset( $tabs['reviews'] );            // Remove the reviews tab
+  unset( $tabs['additional_information'] );    // Remove the additional information tab
+  return $tabs;
+}
+add_filter( 'woocommerce_product_tabs', 'gfw_remove_all_product_tabs', 98 );
+
 /**
  * Archive Page - Walkies List
  */
