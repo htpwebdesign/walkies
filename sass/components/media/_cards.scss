@@ -23,20 +23,13 @@
 }
 
 /* Best Sellers, Packages Card  */
-.banner-card {
+.package-list-card {
   width: 100%;
-  text-align: center;
+  overflow: hidden;
   background-color: $color__accent2-gfw;
   border: 1px solid $color__green-gfw;
   border-radius: $gfw-radius-sm;
-  overflow: hidden;
   margin-bottom: $gfw-margin-lg;
-
-  img {
-    display: block;
-    height: 20rem;
-    object-fit: cover;
-  }
 
   .card-content {
     @include flex-box;
@@ -47,13 +40,7 @@
 
   .title {
     margin: 0;
-  }
-
-  .tag {
-    padding: $gfw-padding-xs $gfw-padding-md;
-    background-color: $color__white;
-    border-radius: $gfw-radius-sm;
-    margin: $gfw-margin-sm 0 $gfw-margin-md;
+    text-align: center;
   }
 
   .price {
@@ -65,7 +52,66 @@
     margin-bottom: $gfw-margin-md;
   }
 
-  a {
+  .cta {
     @include btnStyle;
+  }
+
+  .cta-cart {
+    position: relative;
+
+    a {
+      display: block;
+    }
+
+    a:first-child {
+      @include btnStyle;
+      color: $color__white;
+    }
+
+    a:nth-child(2) {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      left: 50%;
+      right: 0;
+      bottom: -30px;
+    }
+  }
+
+  .sub-cta {
+    @include btnStyle(true);
+  }
+}
+
+.banner-card {
+  text-align: center;
+
+  img {
+    display: block;
+    height: 20rem;
+    object-fit: cover;
+  }
+
+  .tag {
+    padding: $gfw-padding-xs $gfw-padding-md;
+    background-color: $color__white;
+    border-radius: $gfw-radius-sm;
+    margin: $gfw-margin-sm 0 $gfw-margin-md;
+  }
+}
+
+/* Passes Card  */
+.passes-card {
+  .card-content {
+    padding-bottom: 1.5rem;
+  }
+
+  .card-buttons {
+    @include flex-box;
+    gap: 1rem;
+    height: 100%;
+    p {
+      margin: 0;
+    }
   }
 }

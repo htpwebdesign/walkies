@@ -261,7 +261,7 @@ function walkies_list_page($page_id) {
       echo '<h2>' . get_field( 'best_sellers_heading', $page_id ) . '</h2>';
 
       foreach( $best_sellers as $best_seller ) : ?>
-        <article class="banner-card bestseller-card">
+        <article class="package-list-card banner-card bestseller-card">
           <?php
             $product = wc_get_product( $best_seller->ID );
             $terms = get_the_terms( $best_seller->ID, 'product_cat');
@@ -280,7 +280,7 @@ function walkies_list_page($page_id) {
                 elseif ($term->slug == 'passes')
                   echo do_shortcode("[add_to_cart id=" . $best_seller -> ID . " show_price='false' style='']");
                 else
-                  echo '<a href="' . $product->get_permalink() . '">' . __('Book Now') . '</a>';
+                  echo '<a href="' . $product->get_permalink() . '" class="cta">' . __('Book Now') . '</a>';
               endif;
             endforeach;	
                         
@@ -301,12 +301,12 @@ function walkies_list_page($page_id) {
       // package_gallery
       foreach( $packages_gallery as $package ) :
         ?>
-        <article class="banner-card packages-gallery-card">
+        <article class="package-list-card banner-card packages-card">
           <?php
           echo get_the_post_thumbnail( $package );
           
           echo "<div class='card-content'>";
-          echo "<h3>".get_the_title( $package->ID )."</h3>";
+          echo "<h3 class='title'>".get_the_title( $package->ID )."</h3>";
 
           $product = wc_get_product( $package->ID );
           echo '<span class="price">' . $product->get_price_html() . '</span>';
@@ -314,7 +314,7 @@ function walkies_list_page($page_id) {
           $description = $product->get_description();
           echo '<p>'.esc_html($description).'</p>';
 
-          echo '<a href="' . $product->get_permalink() . '">' . __('Book Now') . '</a>';
+          echo '<a href="' . $product->get_permalink() . '" class="cta">' . __('Book Now') . '</a>';
           echo "</div>";
  
           ?>
@@ -333,16 +333,20 @@ function walkies_list_page($page_id) {
 
         <?php
           foreach( $passes_gallery as $pass ) : ?>
-            <article class="passes-gallery-card">
+            <article class="package-list-card passes-card">
               <?php
                 $product = wc_get_product( $best_seller->ID );
 
                 echo get_the_post_thumbnail($pass);
-                echo '<h3 class="title">' . get_the_title($pass -> ID) . '</h3>';
-                echo '<span class="price">' . $product->get_price_html() . '</span>';
-                echo do_shortcode("[add_to_cart id=" . $pass -> ID . " show_price='false' style='']");
-                echo '<a href="' . $product->get_permalink() . '">' . __('View Pass') . '</a>';
               ?>
+              <div class="card-content">
+                <h3 class="title"><?php echo get_the_title($pass -> ID) ?></h3>
+                <span class="price"><?php echo $product->get_price_html() ?></span>
+                <div class="card-buttons">
+                  <?php echo do_shortcode("[add_to_cart id=" . $pass -> ID . " show_price='false' style='' class='cta-cart']"); ?>
+                  <a href="<?php echo $product->get_permalink()?>" class="sub-cta"><?php esc_html_e('View Pass'); ?></a>
+                </div>
+              </div>
             </article>
         <?php endforeach;	?>
       </section>
