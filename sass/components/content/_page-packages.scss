@@ -7,8 +7,5 @@
   }
 
   .walkies-best-sellers {
-    @include flex-box;
-    width: 100%;
-    gap: $gfw-margin-lg;
   }
 }

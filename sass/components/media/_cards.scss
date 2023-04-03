@@ -30,9 +30,12 @@
   border: 1px solid $color__green-gfw;
   border-radius: $gfw-radius-sm;
   overflow: hidden;
+  margin-bottom: $gfw-margin-lg;
 
   img {
     display: block;
+    height: 20rem;
+    object-fit: cover;
   }
 
   .card-content {

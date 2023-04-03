@@ -301,7 +301,7 @@ function walkies_list_page($page_id) {
       // package_gallery
       foreach( $packages_gallery as $package ) :
         ?>
-        <article class="packages-gallery-card">
+        <article class="banner-card packages-gallery-card">
           <?php
           echo get_the_post_thumbnail( $package );
           
@@ -309,7 +309,7 @@ function walkies_list_page($page_id) {
           echo "<h3>".get_the_title( $package->ID )."</h3>";
 
           $product = wc_get_product( $package->ID );
-          echo $product->get_price_html();
+          echo '<span class="price">' . $product->get_price_html() . '</span>';
 
           $description = $product->get_description();
           echo '<p>'.esc_html($description).'</p>';
