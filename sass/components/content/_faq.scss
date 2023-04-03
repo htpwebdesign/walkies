@@ -1,42 +1,54 @@
-.accordion {
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    text-align: left;
-    padding: $gfw-padding-lg $gfw-padding-md;
-    border-top: 1px solid $color__dark-gfw;
-    border-bottom: 1px solid $color__dark-gfw;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    cursor: pointer;
+    .accordion {
+        width: 100%;
+        border: none;
+        text-align: left;
+        padding: $gfw-padding-lg $gfw-padding-md;
+        background-color: $color__dark-gfw;
+        display: flex;
+        color: $color__white;
+        justify-content: space-between;
+        align-content: center;
+        cursor: pointer;
+        margin-bottom: .25rem;
 
-    &::after {
-        content: "+";
-        font-size: 1.25rem;
+        &::after {
+            content: "+";
+            font-size: 1.25rem;
+        }
+
+        &.active {
+            background-color: $color__accent2-gfw;
+            &:after {
+                content: "—";
+                font-size: 1.25rem;
+            }
+        }
+
+        @media screen and (min-width: $gfw__mq-md) {
+
+            &:hover,
+            &:focus {
+                background-color: $color__accent2-gfw;
+                color: $color__black;
+            }
+        }
     }
 
-    &.active::after {
-        content: "—";
-        font-size: 1.25rem;
+    .panel,
+    .p {
+        @include compact;
+        height: 0;
+        visibility: hidden;
+        overflow: hidden;
+
+        p {
+            margin: 1rem;
+        }
+
+        &.show,
+        &.show p {
+            visibility: visible;
+            height: 100%;
+            transition: all 0.5s ease-in-out;
+        }
     }
-}
-
-.panel {
-    @include compact;
-    background-color: $color__accent3-gfw;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
-    box-sizing: border-box;
-
-    p {
-        margin: 1rem;
-    }
-
-    &.show {
-        max-height: 100%;
-    }
-}
-
-
