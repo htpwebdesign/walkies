@@ -1,24 +1,25 @@
 /*Walker Archive*/
 .walker-card {
+  a {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 25rem;
+    width: fit-content;
 
-    a {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        height: 25rem;
-        width: fit-content;
-
-        &>* {
-            @include compact;
-        }
-
-        img {
-            border-radius: $gfw-radius-lg;
-        }
+    & > * {
+      @include compact;
     }
+
+    img {
+      border-radius: $gfw-radius-lg;
+    }
+  }
 }
 
 /*Testimonial Cards shown on sections*/
 .testimonial-card {
-   @include testimonialCard;
+  @include testimonialCard;
 }
+
+/* Best Sellers Card  */
