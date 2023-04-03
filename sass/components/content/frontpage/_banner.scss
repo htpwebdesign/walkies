@@ -9,36 +9,44 @@
             margin: 1.25rem;
         }
 
-        &>a {
-            display: block;
-            margin: .5rem 1.25rem;
+        .banner-cta {
+            margin: auto;
+            text-align: center;
+
+            a {
+                display: block;
+                margin: .5rem auto;
+            }
+
+            a.book-now-cta {
+                @include btnStyle;
+            }
+
+            a.view-all-packages-cta {
+                @include btnStyle($outline: true);
+            }
         }
 
-        a.book-now-cta {
-            @include btnStyle;
-        }
-
-        a.view-all-packages-cta {
-            @include btnStyle($outline: true)
-        }
 
         @include mq($gfw__mq-md) {
             margin: -2rem -5rem 2rem;
+
 
             &>*:not(img) {
                 margin: 1rem 5rem;
             }
 
-            a {
-                display: inline-block;
-            }
+            .banner-cta {
 
-            a.book-now-cta {
-                margin-right: 0;
-
-                &:hover,
-                &:focus {
-                    @include btnStyle($def: $color__green-gfw);
+               display: flex;
+    
+                a.book-now-cta {
+                    margin-right: 0;
+    
+                    &:hover,
+                    &:focus {
+                        @include btnStyle($def: $color__green-gfw);
+                    }
                 }
             }
 
@@ -83,6 +91,7 @@
                 grid-row: 1/2;
                 margin: 0;
                 margin-top: 2rem;
+                align-self: flex-end;
             }
 
             p {
@@ -90,21 +99,18 @@
                 grid-row: 2/3;
             }
 
-            a.book-now-cta,
-            a.view-all-packages-cta {
+            .banner-cta {
                 grid-row: 3/4;
+                grid-column: 3/5;
                 justify-items: flex-start;
-                margin-left: 0;
+                gap: $gfw-margin-md;
                 width: 100%;
                 height: fit-content;
-            }
 
-            a.book-now-cta {
-                grid-column: 3/4;
-            }
+                a {
+                    margin: 0;
+                }
 
-            a.view-all-packages-cta {
-                grid-column: 4/5;
             }
         }
     }
