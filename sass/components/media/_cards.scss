@@ -150,8 +150,8 @@
 
   @include mq($gfw__mq-lg) {
     @include center-block();
-    @include flex-box(start);
-    gap: $gfw-padding-xl;
+    @include flex-box();
+    gap: 3rem;
     padding: $gfw-padding-xl;
     width: 60rem;
 
