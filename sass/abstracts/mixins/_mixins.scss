@@ -119,3 +119,10 @@
       }
     }
 }
+
+@mixin invis {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  @include compact;
+}
