@@ -1,14 +1,16 @@
 // stylelint-disable value-keyword-case
-$font__main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+$font__main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+  sans-serif;
 // stylelint-enable value-keyword-case
 $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", courier, monospace;
 $font__line-height-body: 1.5;
 $font__line-height-pre: 1.6;
-$stylized__font: 'Kavoon', sans-serif;
-$heading__font: 'Prompt', sans-serif;
-$body__font: 'Roboto', sans-serif;
+$stylized__font: "Kavoon", sans-serif;
+$heading__font: "Prompt", sans-serif;
+$body__font: "Roboto", sans-serif;
 
+$gfw-font-xs: 0.8rem;
 $gfw-font-sm: 1rem;
 $gfw-font-md: 1.75rem;
 $gfw-font-lg: 2.5rem;
