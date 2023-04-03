@@ -53,7 +53,7 @@ get_header();
 							?>
 								<article class="walker-testi">
 									<?php echo wp_get_attachment_image($id['customer_photo'], 'medium'); ?>
-									<h3><?php echo get_the_title($oneTesti->ID) ?></h3>
+									<h2><?php echo get_the_title($oneTesti->ID) ?></h2>
 									<p><?php echo $id['quote'] ; ?></p>
 								</article>	
 
@@ -77,7 +77,7 @@ get_header();
 										<source src="<?php echo $id['dog_audio'] ?>" type="audio/mp3">
 										Your browser does not support the audio element.
 									</audio>
-									<h3><?php echo get_the_title($oneTesti->ID) ?></h3>
+									<h2><?php echo get_the_title($oneTesti->ID) ?></h2>
 									<p><?php echo $id['quote'] ; ?></p>
 								</article>	
 
