@@ -1,0 +1,11 @@
+
+#walkers-wrapper {
+    @include flex-box;
+    gap: $gfw-margin-md;
+    row-gap: $gfw-margin-lg;
+    
+    h2 {
+        margin-top: $gfw-margin-sm;
+    }
+
+}
