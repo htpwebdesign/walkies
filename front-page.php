@@ -32,18 +32,23 @@ get_header();
 				}
 
 				$primaryCTA = get_field( 'book_now_cta' );
+				$secondaryCTA = get_field( 'view_all_packages_cta' );
+
+				if($primaryCTA || $secondaryCTA): ?>
+					<div class="banner-cta"><?php
 				if( $primaryCTA ):
 					?> 
 				 	<a id ="book-now-cta" class="book-now-cta" href="<?php echo esc_url( $primaryCTA ); ?>"><?php esc_html_e('Book Now', 'walkies') ?></a>
 					<?php 
 				endif; 	 
 
-				$secondaryCTA = get_field( 'view_all_packages_cta' );
 				if( $secondaryCTA ):
 					?> 
 				 	<a id ="view-all-packages-cta" class="view-all-packages-cta" href="<?php echo esc_url( $secondaryCTA ); ?>"><?php esc_html_e('View All Packages', 'walkies') ?></a>
 					<?php 
 				endif; 	 	
+			endif;
+			?></div><?php
 			endif;
 			?>
 		</section>
@@ -86,14 +91,14 @@ get_header();
 				if( $featuredFAQ ) : 
 					foreach( $featuredFAQ as $singleFAQ ) : ?> 
 						<article> 
-							<button>
+							<button class="accordion">
 								<?php echo get_the_title( $singleFAQ->ID ); ?>
 							</button>	
 							<?php
 							$faqFields = get_fields( $singleFAQ->ID );
 
 							if( isset( $faqFields[ 'faq_answer' ] ) ): 
-								?> <div><?php
+								?> <div class="panel"><?php
 								echo $faqFields[ 'faq_answer' ];	
 								?></div><?php
 							endif; ?>

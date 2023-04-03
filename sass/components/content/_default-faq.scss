@@ -1,0 +1,55 @@
+    .accordion {
+        width: 100%;
+        border: none;
+        text-align: left;
+        padding: $gfw-padding-lg $gfw-padding-md;
+        background-color: $color__dark-gfw;
+        display: flex;
+        color: $color__white;
+        justify-content: space-between;
+        align-content: center;
+        cursor: pointer;
+        margin-bottom: .25rem;
+
+        &::after {
+            content: "+";
+            font-size: 1.25rem;
+        }
+
+        &.active {
+            background-color: $color__accent2-gfw;
+            color: $color__dark-gfw;
+            &:after {
+                content: "—";
+                font-size: 1.25rem;
+            }
+        }
+
+        @media screen and (min-width: $gfw__mq-md) {
+
+            &:hover,
+            &:focus {
+                background-color: $color__accent2-gfw;
+                color: $color__black;
+            }
+        }
+    }
+
+    .panel,
+    .p {
+        @include compact;
+        height: 0;
+        visibility: hidden;
+        overflow: hidden;
+
+        p {
+            margin: 1rem;
+        }
+
+        &.show,
+        &.show p {
+            visibility: visible;
+            height: 100%;
+            transition: all 0.5s ease-in-out;
+        }
+    }

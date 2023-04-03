@@ -6,6 +6,9 @@
 --------------------------------------------- */
 @import "content/posts-and-pages";
 @import "content/test";
+@import "content/frontpage/frontpage";
+@import "content/page-faq";
+@import "content/page-walkers";
 
 /* Comments
 --------------------------------------------- */
@@ -26,3 +29,7 @@
 /* Galleries
 --------------------------------------------- */
 @import "media/galleries";
+
+/* Cards - for testimonials, packages
+--------------------------------------------- */
+@import "media/cards";

@@ -54,13 +54,13 @@ get_header();
 						$query->the_post(); ?>
 					
 						<article>
-              <button>
+              <button class="accordion">
                 <?php esc_html(the_title()); ?>
               </button>
               <?php
                 if( function_exists( 'get_field' )) {
                   if( get_field( 'faq_answer' ) ) {
-                    echo '<div>';
+                    echo '<div class="panel">';
                     the_field( 'faq_answer' );
                     echo '</div>';
                   }
