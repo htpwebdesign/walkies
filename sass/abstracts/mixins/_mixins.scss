@@ -75,3 +75,47 @@
   margin: 0;
   padding: 0;
 }
+
+@mixin testimonialCard($human: true) {
+  @include cardStyle;
+    background-color: $color__accent2-gfw;
+    text-align: center;
+    margin: 1.25rem $gfw-margin-sm;
+    height: 30rem;
+    width: 20rem;
+
+    img {
+        border-radius: $gfw-radius-lg;
+        @include compact;
+        margin: 1rem auto;
+    }
+
+    p {
+        overflow: hidden;
+    }
+
+    &>* {
+        margin: auto;
+    }
+
+    @if $human == false {
+      background-color: $color__white;
+      border: .25rem solid $color__dark-gfw;
+      height: 25rem;
+
+      audio {
+        width: auto;
+        margin: $gfw-margin-sm;
+
+        &::-webkit-media-controls-panel {
+          background-color: $color__white;
+        }
+
+        &::-webkit-media-controls-mute-button,
+        &::-webkit-media-controls-play-button {
+          background-color: $color__accent3-gfw;
+          border-radius: $gfw-radius-lg;
+        }
+      }
+    }
+}

@@ -15,6 +15,6 @@ section.featured_testimonial_section, section.featured-dog-testimonial {
 
 section.featured-dog-testimonial {
     article {
-        @include cardStyle;
+        @include testimonialCard(false);
     }
 }
