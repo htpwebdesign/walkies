@@ -114,4 +114,33 @@
       margin: 0;
     }
   }
+
+  @include mq($gfw__mq-lg) {
+    @include center-block();
+    @include flex-box(start);
+    gap: $gfw-padding-xl;
+    padding: $gfw-padding-xl;
+    width: 60rem;
+
+    img {
+      width: 25rem;
+      border-radius: $gfw-radius-sm;
+    }
+
+    .card-content {
+      text-align: left;
+      align-items: start;
+      margin: 0;
+      padding: 0;
+    }
+
+    .price {
+      flex-direction: row;
+      margin-bottom: 2rem;
+
+      del {
+        margin-right: $gfw-margin-md;
+      }
+    }
+  }
 }
