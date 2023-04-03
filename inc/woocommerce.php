@@ -276,9 +276,9 @@ function walkies_list_page($page_id) {
                 echo '<span class="price">' . $product->get_price_html() . '</span>';
 
                 if( $best_seller->ID == 481 ) // subscription
-                  echo '<a href="' . $product->get_permalink() . '">' . __('View Options') . '</a>';
+                  echo '<a href="' . $product->get_permalink() . '" class="cta">' . __('View Options') . '</a>';
                 elseif ($term->slug == 'passes')
-                  echo do_shortcode("[add_to_cart id=" . $best_seller -> ID . " show_price='false' style='']");
+                  echo do_shortcode("[add_to_cart id=" . $best_seller -> ID . " show_price='false' style='' class='cta-cart']");
                 else
                   echo '<a href="' . $product->get_permalink() . '" class="cta">' . __('Book Now') . '</a>';
               endif;
@@ -295,7 +295,7 @@ function walkies_list_page($page_id) {
 
     $packages_gallery = get_field( 'package_gallery', $page_id );
     if( get_field( 'packages_heading', $page_id ) && get_field( 'package_gallery', $page_id )):
-      echo '<section class="walkies_packages">';
+      echo '<section class="walkies-packages">';
       echo "<h2>" . get_field( 'packages_heading', $page_id ) . "</h2>";
 
       // package_gallery
@@ -373,7 +373,7 @@ function shop_list_page($page_id) {
  
     echo '</section>';
 
-    echo '<section class="shop_package">';
+    echo '<section class="shop-package">';
     if( get_field( 'walkies_packages_image', $page_id ))
       echo wp_get_attachment_image( get_field( 'walkies_packages_image', $page_id ) );
 
@@ -393,7 +393,7 @@ function shop_list_page($page_id) {
     echo '</section>';
 
     if( get_field( 'products_gallery_headline', $page_id )):
-      echo '<section class="shop_products">';
+      echo '<section class="shop-products">';
       echo '<h2>' . get_field( 'products_gallery_headline', $page_id ) . '</h2>';
 
       $args = array(
