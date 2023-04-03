@@ -1,3 +1,14 @@
-.feature-faq-section {
-    
+.featured-faq-section {
+    a {
+        @include btnStyle;
+        display: block;
+        margin: $gfw-margin-sm auto;
+
+        @media screen and (min-width: $gfw__mq-md) {
+            &:hover,
+            &:focus {
+                @include btnStyle($def: $color__green-gfw);
+            }
+        }
+    }
 }
