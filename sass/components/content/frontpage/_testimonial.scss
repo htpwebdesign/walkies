@@ -5,10 +5,10 @@ section.featured_testimonial_section {
 
     h2 {
         width: 100%;
+        @include compact;
     }
 
     @include mq($gfw__mq-md) {
         gap: 1rem;
-    }
-  
+    } 
 }
