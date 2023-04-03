@@ -22,4 +22,47 @@
   @include testimonialCard;
 }
 
-/* Best Sellers Card  */
+/* Best Sellers, Packages Card  */
+.banner-card {
+  width: 100%;
+  text-align: center;
+  background-color: $color__accent2-gfw;
+  border: 1px solid $color__green-gfw;
+  border-radius: $gfw-radius-sm;
+  overflow: hidden;
+
+  img {
+    display: block;
+  }
+
+  .card-content {
+    @include flex-box;
+    gap: $gfw-margin-md;
+    flex-direction: column;
+    margin: $gfw-margin-lg;
+  }
+
+  .title {
+    margin: 0;
+  }
+
+  .tag {
+    padding: $gfw-padding-xs $gfw-padding-md;
+    background-color: $color__white;
+    border-radius: $gfw-radius-sm;
+    margin: $gfw-margin-sm 0 $gfw-margin-md;
+  }
+
+  .price {
+    @include flex-box;
+    flex-direction: column;
+    color: $color__green-gfw;
+    font-size: $gfw-font-lg;
+    font-weight: 800;
+    margin-bottom: $gfw-margin-md;
+  }
+
+  a {
+    @include btnStyle;
+  }
+}

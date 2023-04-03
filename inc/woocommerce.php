@@ -261,17 +261,19 @@ function walkies_list_page($page_id) {
       echo '<h2>' . get_field( 'best_sellers_heading', $page_id ) . '</h2>';
 
       foreach( $best_sellers as $best_seller ) : ?>
-        <article class="bestseller-card">
+        <article class="banner-card bestseller-card">
           <?php
             $product = wc_get_product( $best_seller->ID );
             $terms = get_the_terms( $best_seller->ID, 'product_cat');
 
             echo get_the_post_thumbnail($best_seller);
+            echo '<div class="card-content">';
             echo '<h3 class="title">' . get_the_title($best_seller -> ID) . '</h3>';
 
             foreach($terms as $term) :
               if( $term->term_id != 27): // packages-passes
-                echo '<span>' . esc_html($term->name) . '</span>';
+                echo '<span class="tag">' . esc_html($term->name) . '</span>';
+                echo '<span class="price">' . $product->get_price_html() . '</span>';
 
                 if( $best_seller->ID == 481 ) // subscription
                   echo '<a href="' . $product->get_permalink() . '">' . __('View Options') . '</a>';
@@ -281,8 +283,8 @@ function walkies_list_page($page_id) {
                   echo '<a href="' . $product->get_permalink() . '">' . __('Book Now') . '</a>';
               endif;
             endforeach;	
-            
-            echo '<span class="price">' . $product->get_price_html() . '</span>';
+                        
+            echo '</div>';
       
           ?>
         </article>
@@ -302,6 +304,8 @@ function walkies_list_page($page_id) {
         <article class="packages-gallery-card">
           <?php
           echo get_the_post_thumbnail( $package );
+          
+          echo "<div class='card-content'>";
           echo "<h3>".get_the_title( $package->ID )."</h3>";
 
           $product = wc_get_product( $package->ID );
@@ -311,6 +315,7 @@ function walkies_list_page($page_id) {
           echo '<p>'.esc_html($description).'</p>';
 
           echo '<a href="' . $product->get_permalink() . '">' . __('Book Now') . '</a>';
+          echo "</div>";
  
           ?>
         </article>
