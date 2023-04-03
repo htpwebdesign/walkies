@@ -1,4 +1,6 @@
 .featured-faq-section {
+    @import "../default-faq";
+    
     a {
         @include btnStyle;
         display: block;
