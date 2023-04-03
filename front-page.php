@@ -32,18 +32,23 @@ get_header();
 				}
 
 				$primaryCTA = get_field( 'book_now_cta' );
+				$secondaryCTA = get_field( 'view_all_packages_cta' );
+
+				if($primaryCTA || $secondaryCTA): ?>
+					<div class="banner-cta"><?php
 				if( $primaryCTA ):
 					?> 
 				 	<a id ="book-now-cta" class="book-now-cta" href="<?php echo esc_url( $primaryCTA ); ?>"><?php esc_html_e('Book Now', 'walkies') ?></a>
 					<?php 
 				endif; 	 
 
-				$secondaryCTA = get_field( 'view_all_packages_cta' );
 				if( $secondaryCTA ):
 					?> 
 				 	<a id ="view-all-packages-cta" class="view-all-packages-cta" href="<?php echo esc_url( $secondaryCTA ); ?>"><?php esc_html_e('View All Packages', 'walkies') ?></a>
 					<?php 
 				endif; 	 	
+			endif;
+			?></div><?php
 			endif;
 			?>
 		</section>
