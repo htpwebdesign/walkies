@@ -1,0 +1,67 @@
+.site-header {
+  background-color: $color__dark-gfw;
+
+  ul,
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.cta-header {
+  display: none;
+}
+
+.nav-header {
+  position: relative;
+  @include flex-box(space-between);
+
+  .custom-logo {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .dashicons {
+    font-size: 1.5rem;
+    color: $color__white;
+  }
+
+  .menu-toggle svg {
+    width: 2rem;
+    height: 2rem;
+    fill: $color__white;
+  }
+
+  .menu-item,
+  .menu-toggle {
+    padding: 0 1rem;
+  }
+}
+
+.mobile-navigation {
+  position: absolute;
+  top: 4.8rem;
+  right: 0;
+  width: 16rem;
+  padding: 2rem;
+  background-color: $color__dark-gfw;
+  z-index: 999;
+
+  li {
+    padding: 1rem 0;
+
+    a {
+      color: $color__white;
+    }
+  }
+}
+
+.right-nav-header {
+  @include flex-box;
+  flex-direction: row;
+}
+
+.menu-header-right-container .menu {
+  @include flex-box;
+}
