@@ -52,7 +52,7 @@ get_header();
 							if( isset( $id['customer_photo'], $id['quote'] ) ):
 							?>
 								<article class="walker-testi">
-									<?php echo wp_get_attachment_image($id['customer_photo'], 'medium'); ?>
+									<?php echo wp_get_attachment_image($id['customer_photo'], 'thumbnail-icon'); ?>
 									<h2><?php echo get_the_title($oneTesti->ID) ?></h2>
 									<p><?php echo $id['quote'] ; ?></p>
 								</article>	
@@ -71,7 +71,7 @@ get_header();
 							if( isset( $id['customer_photo'], $id['quote'] ) ):
 							?>
 								<article class="dog-testi">
-									<?php echo wp_get_attachment_image($id['customer_photo'], 'medium', $id['dog_audio']); 
+									<?php echo wp_get_attachment_image($id['customer_photo'], 'thumbnail-icon', $id['dog_audio']); 
 									?>
 									<audio controls>
 										<source src="<?php echo $id['dog_audio'] ?>" type="audio/mp3">
