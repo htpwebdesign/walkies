@@ -28,10 +28,14 @@ get_header( 'shop' ); ?>
 
   <?php endwhile; // end of the loop. ?>
 
+  <h2>Details</h2>
+  <p class="product-description">
+    <?php echo $product->get_description() ?>
+  </p>
+
   <?php
     global $post;
-    echo '<p class="product-description">' . $product->get_description() . '</p>';
-
+    
     // 27: packages-passes, 31: physical-products	
     if( in_array( 27, $product->get_category_ids() ) )
       single_walkies_landing_page();
@@ -55,31 +59,27 @@ get_header( 'shop' ); ?>
       $query = new WP_Query( $args );
 
       if( $query -> have_posts() ): ?>
-        <section>
+        <section class="featured-faq-section">
           <h2><?php esc_html_e('Top 3 FAQs', 'walkies' ); ?></h2>
-          <a href="<?php get_permalink( 284 ) ?>">
-            <?php esc_html_e('Read More FAQ', 'walkies' ); ?>
-          </a>
-          <ol>
-        <?php
-        while( $query -> have_posts() ):
-          $query -> the_post();
-          ?>
-            <li>
+          <?php
+          while( $query -> have_posts() ):
+            $query -> the_post(); ?>
+            <article>
               <button class="accordion">
                 <?php esc_html(the_title()); ?>
               </button>
-              <?php
-                if( function_exists( 'get_field' )) {
-                  if( get_field( 'faq_answer' ) ) 
-                    echo '<div class="panel">' . get_field( 'faq_answer' ) . '</div>';
-                }
-              ?>
-            </li>
-        <?php
-        endwhile;
-        wp_reset_postdata();
-        echo '</ol></section>';
+              <?php if( function_exists( 'get_field' ) &&  get_field( 'faq_answer' ) ) : ?>
+                <div class="panel"><?php echo get_field( 'faq_answer' ) ?></div>
+              <?php endif; ?>
+            </article>
+            <?php
+          endwhile;
+          wp_reset_postdata(); ?>
+          <a href="<?php get_permalink( 284 ) ?>">
+            <?php esc_html_e('View All FAQs', 'walkies' ); ?>
+          </a>
+        </section>
+      <?php
       endif;
     }
   ?>

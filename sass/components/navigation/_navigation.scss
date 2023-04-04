@@ -75,7 +75,7 @@ a {
   padding-bottom: 0;
 }
 
-@include mq($gfw__mq-md) {
+@include mq($gfw__mq-lg) {
   .nav-header .menu-header-right-container,
   .navigation-list .searchform,
   .menu-toggle {
