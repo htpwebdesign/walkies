@@ -1,7 +1,9 @@
 div.social-icons {
+    margin: $gfw-margin-md 0;
     display: flex;
+    flex-wrap: wrap;
     gap: $gfw-margin-md;
-    justify-content: center;
+    justify-content: flex-start;
 
     a {
         width: fit-content;
@@ -15,6 +17,10 @@ div.social-icons {
 
             img.social-icons {
                 height: 1.5rem;
+            }
+
+            figcaption {
+                @include invis;
             }
         }
 
