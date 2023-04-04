@@ -68,11 +68,11 @@
       color: $color__white;
     }
 
-    a:nth-child(2) {
+    .added_to_cart {
       width: 100%;
       text-align: center;
       position: absolute;
-      left: 50%;
+      left: 0;
       right: 0;
       bottom: -30px;
     }
@@ -151,9 +151,8 @@
   @include mq($gfw__mq-lg) {
     @include center-block();
     @include flex-box();
-    gap: 3rem;
-    padding: $gfw-padding-xl;
-    width: 60rem;
+    gap: 2rem;
+    padding: $gfw-padding-md;
 
     img {
       width: 25rem;
