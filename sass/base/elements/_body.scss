@@ -6,7 +6,8 @@ body {
 // Base MQs
 .page .site-main,
 .archive .site-main,
-.site-header > *,
+.cta-header,
+.nav-header,
 .site-footer > *,
 .single .site-main {
   padding: 1.25rem;
@@ -26,10 +27,4 @@ body {
 .site-main > section {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-}
-
-.site-header > * {
-  @include mq($gfw__mq-md) {
-    padding: 2rem;
-  }
 }
