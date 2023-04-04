@@ -7,14 +7,16 @@ section.walker-info {
     }
 }
 
-article.walker-testi {
-    @include testimonialCard(true);
-    @include walkerTestCard;
-    @include flex-box;
+section.testimonial {
     
-}
+    article.walker-testi {
+        @include testimonialCard(true);
+        @include walkerTestCard;
+        @include flex-box;
+    }
 
-article.dog-testi {
-    @include testimonialCard(false);
-    @include walkerTestCard;
+    article.dog-testi {
+        @include testimonialCard(false);
+        @include walkerTestCard;
+    }
 }
