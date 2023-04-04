@@ -246,7 +246,7 @@ add_filter( 'woocommerce_product_tabs', 'gfw_remove_all_product_tabs', 98 );
 function walkies_list_page($page_id) {
   if( function_exists( 'get_field' ) ): 
     if( get_field( 'banner_image', $page_id ) && get_field( 'walkies_intro_message', $page_id )):
-      echo '<section class="walkies_banner">';
+      echo '<section class="featured-product-section">';
       ?>
         <h1><?php woocommerce_page_title(); ?></h1>
       <?php
@@ -261,28 +261,30 @@ function walkies_list_page($page_id) {
       echo '<h2>' . get_field( 'best_sellers_heading', $page_id ) . '</h2>';
 
       foreach( $best_sellers as $best_seller ) : ?>
-        <article class="bestseller-card">
+        <article class="package-list-card banner-card bestseller-card">
           <?php
             $product = wc_get_product( $best_seller->ID );
             $terms = get_the_terms( $best_seller->ID, 'product_cat');
 
             echo get_the_post_thumbnail($best_seller);
+            echo '<div class="card-content">';
             echo '<h3 class="title">' . get_the_title($best_seller -> ID) . '</h3>';
 
             foreach($terms as $term) :
               if( $term->term_id != 27): // packages-passes
-                echo '<span>' . esc_html($term->name) . '</span>';
+                echo '<span class="tag">' . esc_html($term->name) . '</span>';
+                echo '<span class="price">' . $product->get_price_html() . '</span>';
 
                 if( $best_seller->ID == 481 ) // subscription
-                  echo '<a href="' . $product->get_permalink() . '">' . __('View Options') . '</a>';
+                  echo '<a href="' . $product->get_permalink() . '" class="cta">' . __('View Options') . '</a>';
                 elseif ($term->slug == 'passes')
-                  echo do_shortcode("[add_to_cart id=" . $best_seller -> ID . " show_price='false' style='']");
+                  echo do_shortcode("[add_to_cart id=" . $best_seller -> ID . " show_price='false' style='' class='cta-cart']");
                 else
-                  echo '<a href="' . $product->get_permalink() . '">' . __('Book Now') . '</a>';
+                  echo '<a href="' . $product->get_permalink() . '" class="cta">' . __('Book Now') . '</a>';
               endif;
             endforeach;	
-            
-            echo '<span class="price">' . $product->get_price_html() . '</span>';
+                        
+            echo '</div>';
       
           ?>
         </article>
@@ -293,24 +295,27 @@ function walkies_list_page($page_id) {
 
     $packages_gallery = get_field( 'package_gallery', $page_id );
     if( get_field( 'packages_heading', $page_id ) && get_field( 'package_gallery', $page_id )):
-      echo '<section class="walkies_packages">';
+      echo '<section class="walkies-packages">';
       echo "<h2>" . get_field( 'packages_heading', $page_id ) . "</h2>";
 
       // package_gallery
       foreach( $packages_gallery as $package ) :
         ?>
-        <article class="packages-gallery-card">
+        <article class="package-list-card banner-card packages-card">
           <?php
           echo get_the_post_thumbnail( $package );
-          echo "<h3>".get_the_title( $package->ID )."</h3>";
+          
+          echo "<div class='card-content'>";
+          echo "<h3 class='title'>".get_the_title( $package->ID )."</h3>";
 
           $product = wc_get_product( $package->ID );
-          echo $product->get_price_html();
+          echo '<span class="price">' . $product->get_price_html() . '</span>';
 
           $description = $product->get_description();
           echo '<p>'.esc_html($description).'</p>';
 
-          echo '<a href="' . $product->get_permalink() . '">' . __('Book Now') . '</a>';
+          echo '<a href="' . $product->get_permalink() . '" class="cta">' . __('Book Now') . '</a>';
+          echo "</div>";
  
           ?>
         </article>
@@ -328,16 +333,20 @@ function walkies_list_page($page_id) {
 
         <?php
           foreach( $passes_gallery as $pass ) : ?>
-            <article class="passes-gallery-card">
+            <article class="package-list-card passes-card">
               <?php
                 $product = wc_get_product( $best_seller->ID );
 
                 echo get_the_post_thumbnail($pass);
-                echo '<h3 class="title">' . get_the_title($pass -> ID) . '</h3>';
-                echo '<span class="price">' . $product->get_price_html() . '</span>';
-                echo do_shortcode("[add_to_cart id=" . $pass -> ID . " show_price='false' style='']");
-                echo '<a href="' . $product->get_permalink() . '">' . __('View Pass') . '</a>';
               ?>
+              <div class="card-content">
+                <h3 class="title"><?php echo get_the_title($pass -> ID) ?></h3>
+                <span class="price"><?php echo $product->get_price_html() ?></span>
+                <div class="card-buttons">
+                  <?php echo do_shortcode("[add_to_cart id=" . $pass -> ID . " show_price='false' style='' class='cta-cart']"); ?>
+                  <a href="<?php echo $product->get_permalink()?>" class="sub-cta"><?php esc_html_e('View Pass'); ?></a>
+                </div>
+              </div>
             </article>
         <?php endforeach;	?>
       </section>
@@ -364,7 +373,7 @@ function shop_list_page($page_id) {
  
     echo '</section>';
 
-    echo '<section class="shop_package">';
+    echo '<section class="shop-package">';
     if( get_field( 'walkies_packages_image', $page_id ))
       echo wp_get_attachment_image( get_field( 'walkies_packages_image', $page_id ) );
 
@@ -384,7 +393,7 @@ function shop_list_page($page_id) {
     echo '</section>';
 
     if( get_field( 'products_gallery_headline', $page_id )):
-      echo '<section class="shop_products">';
+      echo '<section class="shop-products">';
       echo '<h2>' . get_field( 'products_gallery_headline', $page_id ) . '</h2>';
 
       $args = array(

@@ -1,24 +1,207 @@
 /*Walker Archive*/
 .walker-card {
+  a {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 25rem;
+    width: fit-content;
 
-    a {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        height: 25rem;
-        width: fit-content;
-
-        &>* {
-            @include compact;
-        }
-
-        img {
-            border-radius: $gfw-radius-lg;
-        }
+    & > * {
+      @include compact;
     }
+
+    img {
+      border-radius: $gfw-radius-lg;
+    }
+  }
 }
 
 /*Testimonial Cards shown on sections*/
 .testimonial-card {
-   @include testimonialCard;
+  @include testimonialCard;
+  position: relative;
+
+  &::after {
+    border-bottom-left-radius: 20rem;
+    border-bottom-right-radius: 20rem;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    right: 5%;
+    height: 4rem;
+    background-color: $color__white;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4430147058823529) 26%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 69%);
+  }
+}
+
+/* Best Sellers, Packages Card  */
+.package-list-card {
+  width: 100%;
+  overflow: hidden;
+  background-color: $color__accent2-gfw;
+  border: 1px solid $color__green-gfw;
+  border-radius: $gfw-radius-sm;
+  margin-bottom: $gfw-margin-lg;
+
+  .card-content {
+    @include flex-box(start);
+    flex-direction: column;
+    height: calc(100% - 320px);
+    padding: $gfw-margin-lg;
+  }
+
+  .title {
+    margin: 0;
+    text-align: center;
+  }
+
+  .price {
+    @include flex-box;
+    flex-direction: column;
+    color: $color__green-gfw;
+    font-size: $gfw-font-lg;
+    font-weight: 800;
+    margin-bottom: auto;
+
+    del {
+      order: 2;
+      font-size: $gfw-font-md;
+    }
+  }
+
+  .cta {
+    @include btnStyle;
+  }
+
+  .cta-cart {
+    position: relative;
+
+    a {
+      display: block;
+    }
+
+    a:first-child {
+      @include btnStyle;
+      color: $color__white;
+    }
+
+    .added_to_cart {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -30px;
+    }
+
+    @include mq($gfw__mq-lg) {
+      margin: 0;
+    }
+  }
+
+  .sub-cta {
+    @include btnStyle(true);
+  }
+}
+
+.banner-card {
+  width: 17.5rem;
+  text-align: center;
+  margin: 0 0 1rem;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+  }
+
+  .tag {
+    padding: $gfw-padding-xs $gfw-padding-md;
+    background-color: $color__white;
+    border-radius: $gfw-radius-sm;
+    margin: $gfw-margin-sm 0 $gfw-margin-md;
+  }
+
+  @include mq($gfw__mq-lg) {
+    width: 16.5rem;
+  }
+}
+
+.bestseller-card {
+  height: 48rem;
+
+  @include mq($gfw__mq-lg) {
+    .title {
+      min-height: 8rem;
+    }
+
+    .price {
+      min-height: 8rem;
+    }
+  }
+}
+
+.packages-card {
+  // height: 55rem;
+
+  @include mq($gfw__mq-lg) {
+    .card-content {
+      // height: calc(100% - 20rem);
+    }
+
+    .cta {
+      margin-top: auto;
+    }
+  }
+}
+
+/* Passes Card  */
+.passes-card {
+  .card-content {
+    padding-bottom: 1.5rem;
+  }
+
+  .card-buttons {
+    @include flex-box;
+    gap: 1rem;
+    height: 100%;
+    p {
+      margin: 0;
+    }
+  }
+
+  .price {
+    margin-bottom: 2rem;
+  }
+
+  @include mq($gfw__mq-lg) {
+    @include center-block();
+    @include flex-box();
+    gap: 2rem;
+    padding: $gfw-padding-md;
+
+    img {
+      width: 25rem;
+      border-radius: $gfw-radius-sm;
+    }
+
+    .card-content {
+      text-align: left;
+      align-items: start;
+      margin: 0;
+      padding: 0;
+    }
+
+    .price {
+      flex-direction: row;
+      justify-content: end;
+
+      del {
+        margin-left: $gfw-margin-md;
+      }
+    }
+  }
 }

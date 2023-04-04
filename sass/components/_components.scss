@@ -2,13 +2,19 @@
 --------------------------------------------- */
 @import "navigation/navigation";
 
+/* Header
+--------------------------------------------- */
+@import "header/header";
+
 /* Posts and pages
 --------------------------------------------- */
 @import "content/posts-and-pages";
-@import "content/test";
 @import "content/frontpage/frontpage";
 @import "content/page-faq";
 @import "content/page-walkers";
+@import "content/page-packages";
+@import "content/page-single-walker";
+@import "content/section-banner";
 
 /* Comments
 --------------------------------------------- */
@@ -17,6 +23,7 @@
 /* Widgets
 --------------------------------------------- */
 @import "widgets/widgets";
+@import "widgets/social-icons";
 
 /* Media
 --------------------------------------------- */
@@ -33,3 +40,7 @@
 /* Cards - for testimonials, packages
 --------------------------------------------- */
 @import "media/cards";
+
+/* Footer
+--------------------------------------------- */
+@import "footer/footer";

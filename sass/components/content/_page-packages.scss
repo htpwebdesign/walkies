@@ -1,0 +1,23 @@
+.post-type-archive-product .site-main {
+  h2 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .walkies_banner {
+    img {
+      position: relative;
+      margin: 0 -1.25rem;
+    }
+  }
+
+  .walkies-best-sellers,
+  .walkies-packages {
+    @include flex-box;
+    gap: 1rem;
+
+    @include mq($gfw__mq-lg) {
+      justify-content: space-between;
+    }
+  }
+}

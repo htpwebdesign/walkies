@@ -79,15 +79,36 @@ get_header();
 			endif;
 			?>
 		</section>
+		
+		<?php $featuredPackages = get_field('featured_walkies_packages');
 
+			if($featuredPackages) : ?>
+			<section class="featured-packages"> 
+				<h2 class="invis"><?php esc_html_e('Featured Walkies', 'walkies') ?></h2><?php
+				foreach($featuredPackages as $onePackage) { 	
+					$post = get_post($onePackage->ID);
+					$content = $post->post_content; 
+					$price = wc_get_product($onePackage->ID)->get_price_html(); ?>
+					<article class="featured-package-single"> 
+					<svg class="dog-icon" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M298.06,224,448,277.55V496a16,16,0,0,1-16,16H368a16,16,0,0,1-16-16V384H192V496a16,16,0,0,1-16,16H112a16,16,0,0,1-16-16V282.09C58.84,268.84,32,233.66,32,192a32,32,0,0,1,64,0,32.06,32.06,0,0,0,32,32ZM544,112v32a64,64,0,0,1-64,64H448v35.58L320,197.87V48c0-14.25,17.22-21.39,27.31-11.31L374.59,64h53.63c10.91,0,23.75,7.92,28.62,17.69L464,96h64A16,16,0,0,1,544,112Zm-112,0a16,16,0,1,0-16,16A16,16,0,0,0,432,112Z"/><title>Dog Icon from https://www.iconfinder.com/</title></svg>
+						<h3> <?php echo get_the_title($onePackage->ID); ?></h3>	
+						<p class="price"><?php echo $price;?></p>
+						<p class="description"><?php echo $content;?></p>	
+						<a id ="book-now-cta" class="book-now-cta" href="<?php echo get_the_permalink($onePackage->ID); ?>"><?php esc_html_e('Book Now', 'walkies') ?></a>
+					</article>
+				<?php };
+				wp_reset_postdata(); ?> 
+				</section> 
+				<?php endif; ?>
+			
+		
 		<section class="featured-faq-section">
 			<h2><?php echo get_the_title(284); ?></h2>
 
 			<?php
 			if ( function_exists( 'get_field' ) ) :
 
-				$featuredFAQ = get_field( 'featured_faqs' );
-			
+				$featuredFAQ = get_field( 'featured_faqs' );			
 				if( $featuredFAQ ) : 
 					foreach( $featuredFAQ as $singleFAQ ) : ?> 
 						<article> 

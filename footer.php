@@ -56,13 +56,13 @@
 				<?php
 				get_template_part( 'template-parts/content', 'contact-socials');
 				?>
-				<div>
+				<nav>
 					<ul>
 						<li><?php esc_html_e('Capycap Team &copy;', 'walkies'); ?></li>
 						<li><a href=<?php the_permalink(377); ?>><?php esc_html_e('Privacy Policy', 'walkies'); ?></a></li>
 						<li><a href=<?php the_permalink(384); ?>><?php esc_html_e('Booking Policy', 'walkies'); ?></a></li>
 					</ul>
-				</div>
+				</nav>
 			</div>
 		</div>
 	</footer><!-- #colophon -->
