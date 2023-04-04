@@ -1,0 +1,20 @@
+section.walker-info {
+   padding: 0 1.25rem;
+
+    img { 
+        border-radius: $gfw-radius-md;
+        margin: 0;
+    }
+}
+
+article.walker-testi {
+    @include testimonialCard(true);
+    @include walkerTestCard;
+    @include flex-box;
+    
+}
+
+article.dog-testi {
+    @include testimonialCard(false);
+    @include walkerTestCard;
+}
