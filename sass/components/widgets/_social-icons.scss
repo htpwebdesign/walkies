@@ -9,9 +9,32 @@ div.social-icons {
         figure {
             width: fit-content;
             text-align: center;
+            position: relative;
+            margin: 0;
+            padding: $gfw-padding-xs;
 
             img.social-icons {
-                height: 2rem;
+                height: 1.5rem;
+            }
+        }
+
+        @media screen and (min-width: $gfw__mq-md) {
+
+            &:hover,
+            &:focus {
+                figure::after {
+                    content: "";
+                    height: 2.5rem;
+                    width: 2.5rem;
+                    z-index: -1;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                    border-radius: 50%;
+                    background-color: $color__accent3-gfw;
+                }
             }
         }
     }

@@ -2,10 +2,13 @@
 --------------------------------------------- */
 @import "navigation/navigation";
 
+/* Header
+--------------------------------------------- */
+@import "header/header";
+
 /* Posts and pages
 --------------------------------------------- */
 @import "content/posts-and-pages";
-@import "content/test";
 @import "content/frontpage/frontpage";
 @import "content/page-faq";
 @import "content/page-walkers";
@@ -36,3 +39,7 @@
 /* Cards - for testimonials, packages
 --------------------------------------------- */
 @import "media/cards";
+
+/* Footer
+--------------------------------------------- */
+@import "footer/footer";

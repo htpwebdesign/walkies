@@ -1,26 +1,35 @@
 body {
-	background: $color__background-body; // Fallback for when there is no custom background color defined.
-
-	scroll-behavior: smooth;
+  background: $color__background-body; // Fallback for when there is no custom background color defined.
+  scroll-behavior: smooth;
 }
 
 // Base MQs
-.page .site-main, .archive .site-main, .site-header > *, .site-footer > * {
-	padding: 1.25rem;
+.page .site-main,
+.archive .site-main,
+.site-header > *,
+.site-footer > *,
+.single {
+  padding: 1.25rem;
 
-	@include mq($gfw__mq-md){
-			padding: 2rem 5rem;
-	};
+  @include mq($gfw__mq-md) {
+    padding: 2rem 5rem;
+  }
 
-	@include mq($gfw__mq-lg){
-			padding-top: 2rem;
-			padding-bottom: 2rem;
-			max-width: 81.25em;
-			margin: auto;
-	};
+  @include mq($gfw__mq-lg) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    max-width: 81.25em;
+    margin: auto;
+  }
 }
 
 .site-main > section {
-	margin-top: 1.25rem;
-	margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.site-header > * {
+  @include mq($gfw__mq-md) {
+    padding: 2rem;
+  }
 }
