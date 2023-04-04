@@ -26,17 +26,19 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'walkies' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<section class="cta-header">
-      <div class="cta-btns">
-        <?php
-        wp_nav_menu(array('theme_location' => 'header-left'));
-        ?>
-      </div>
-      <div class="desktop-shop-icons">
-        <?php
-        get_search_form();
-        wp_nav_menu(array('theme_location' => 'header-right'));
-        ?>
+		<section class="cta-header-bg">
+      <div class="cta-header">
+        <div class="cta-btns">
+          <?php
+          wp_nav_menu(array('theme_location' => 'header-left'));
+          ?>
+        </div>
+        <div class="desktop-shop-icons">
+          <?php
+          get_search_form();
+          wp_nav_menu(array('theme_location' => 'header-right'));
+          ?>
+        </div>
       </div>
 		</section>
 
