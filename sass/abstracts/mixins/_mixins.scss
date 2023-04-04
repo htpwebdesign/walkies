@@ -89,18 +89,18 @@
 
 @mixin testimonialCard($human: true) {
   @include cardStyle;
-    background-color: $color__white;
-    border: .25rem solid $color__green-gfw;
-    text-align: center;
-    margin: 1.25rem $gfw-margin-sm;
-    height: 30rem;
-    width: 20rem;
+  background-color: $color__white;
+  border: 0.25rem solid $color__green-gfw;
+  text-align: center;
+  margin: 1.25rem $gfw-margin-sm;
+  height: 30rem;
+  width: 20rem;
 
-    img {
-        border-radius: $gfw-radius-lg;
-        @include compact;
-        margin: 1rem auto;
-    }
+  img {
+    border-radius: $gfw-radius-lg;
+    @include compact;
+    margin: 1rem auto;
+  }
 
   p {
     overflow: hidden;
@@ -110,9 +110,9 @@
     margin: auto;
   }
 
-    @if $human == false {
-      border: .25rem solid $color__dark-gfw;
-      height: 25rem;
+  @if $human == false {
+    border: 0.25rem solid $color__dark-gfw;
+    height: 25rem;
 
     audio {
       width: auto;
