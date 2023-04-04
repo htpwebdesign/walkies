@@ -15,7 +15,7 @@
   .walkies-packages {
     @include mq($gfw__mq-lg) {
       @include flex-box;
-      gap: $gfw-margin-lg;
+      gap: 1rem;
     }
   }
 }
