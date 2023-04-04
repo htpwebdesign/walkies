@@ -2,6 +2,8 @@
 
 section.walker-info {
     max-width: 48rem;
+    display: flex;
+    flex-direction: column;
 
     img { 
         border-radius: $gfw-radius-md;
