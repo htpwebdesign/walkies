@@ -1,109 +1,115 @@
 .main-navigation {
-	display: block;
-	width: 100%;
+  display: block;
+  width: min-content;
+  text-align: center;
 
-	ul {
-		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
 
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
+    :hover > a,
+    .focus > a {
+    }
 
-			ul {
-				left: -999em;
-				top: 0;
-			}
+    a:hover,
+    a.focus {
+    }
+  }
 
-			li {
+  li:hover > ul,
+  li.focus > ul {
+    left: auto;
+  }
+}
 
-				&:hover > ul,
-				&.focus > ul {
-					display: block;
-					left: auto;
-				}
-			}
+li {
+  position: relative;
 
-			a {
-				width: 200px;
-			}
+  &:hover > a,
+  &.focus > a {
+  }
+}
 
-			:hover > a,
-			.focus > a {
-			}
+a {
+  display: block;
+  text-decoration: none;
+}
 
-			a:hover,
-			a.focus {
-			}
-		}
+.current_page_item > a,
+.current-menu-item > a,
+.current_page_ancestor > a,
+.current-menu-ancestor > a {
+}
 
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
-	}
+.cta-header,
+.navigation-list {
+  display: none;
+}
 
-	li {
-		position: relative;
-
-		&:hover > a,
-		&.focus > a {
-		}
-	}
-
-	a {
-		display: block;
-		text-decoration: none;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-	}
+.main-navigation.toggled .navigation-list {
+  display: block;
 }
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
+.main-navigation.toggled .mobile-navigation {
+  display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+.menu-toggle {
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  padding: 0;
+}
 
-	.menu-toggle {
-		display: none;
-	}
+.sub-menu {
+  // About the company
+  display: none;
+}
 
-	.main-navigation ul {
-		display: flex;
-	}
+#menu-item-441 {
+  // Contact
+  clear: both;
+  padding-bottom: 0;
+}
+
+@include mq($gfw__mq-md) {
+  .nav-header .menu-header-right-container,
+  .navigation-list .searchform,
+  .menu-toggle {
+    display: none;
+  }
+
+  .cta-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .cta-header .menu-header-right-container,
+  .navigation-list {
+    display: inline-flex;
+  }
 }
 
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
+  .site-main & {
+    margin: 0 0 1.5em;
+  }
 
-	.site-main & {
-		margin: 0 0 1.5em;
-	}
+  .nav-links {
+    display: flex;
+  }
 
-	.nav-links {
-		display: flex;
-	}
+  .nav-previous {
+    flex: 1 0 50%;
+  }
 
-	.nav-previous {
-		flex: 1 0 50%;
-	}
-
-	.nav-next {
-		text-align: end;
-		flex: 1 0 50%;
-	}
+  .nav-next {
+    text-align: end;
+    flex: 1 0 50%;
+  }
 }

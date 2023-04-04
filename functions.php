@@ -257,3 +257,14 @@ add_action('acf/init', 'gfw_contact_page_acf');
 
 // Hide Archive Prefix
 add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
+
+function custom_search_form( $form ) {
+  $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
+    <div class="custom-form"><label class="screen-reader-text" for="s">' . __( 'Search:' ) . '</label>
+      <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'. esc_attr__( 'Search' ) .'"  />
+    </div>
+  </form>';
+
+  return $form;
+}
+add_filter( 'get_search_form', 'custom_search_form', 40 );
