@@ -1,20 +1,26 @@
 section.walker-info {
    padding: 0 1.25rem;
+   align-content: center;
+
+   
 
     img { 
         border-radius: $gfw-radius-md;
-        margin: 0;
     }
+    // @include mq($gfw__mq-med) {
+    //     // @include flex-box;
+    // }
 }
 
-section.testimonial {
-    
+section.testimonial {  
+    @include flex-box;
+    row-gap: $gfw-margin-lg;
+
     article.walker-testi {
-        @include testimonialCard(true);
+        @include testimonialCard(false);
         @include walkerTestCard;
         @include flex-box;
     }
-
     article.dog-testi {
         @include testimonialCard(false);
         @include walkerTestCard;
@@ -23,17 +29,14 @@ section.testimonial {
 
 section.walker-map {
     padding: 0 1.2rem;
-
     h2 {
         text-align: center;
     }
     a {
-        margin-left: 1rem;
+        margin-left: $gfw-padding-md;
     }
 }
 
 a.button, span.nav-subtitle {
     margin-left: 1.2rem;
 }
-
-
