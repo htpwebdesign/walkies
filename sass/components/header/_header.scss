@@ -130,6 +130,29 @@
   }
 }
 
-.cta-header {
-  background-color: $color__yellow-gfw;
+@include mq($gfw__mq-md) {
+  .cta-header {
+    width: 100%;
+    justify-content: space-between;
+    background-color: $color__yellow-gfw;
+
+    .menu-header-left-container .menu {
+      @include flex-box();
+      width: max-content;
+      gap: 2rem;
+    }
+
+    .desktop-shop-icons {
+      width: max-content;
+    }
+
+    .menu-header-right-container .menu {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .searchform {
+      margin-right: 2rem;
+    }
+  }
 }

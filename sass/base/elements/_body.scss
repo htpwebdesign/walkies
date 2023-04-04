@@ -27,3 +27,9 @@ body {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
+
+.site-header > * {
+  @include mq($gfw__mq-md) {
+    padding: 2rem;
+  }
+}

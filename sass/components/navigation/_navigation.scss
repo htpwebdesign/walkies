@@ -76,15 +76,20 @@ a {
 }
 
 @include mq($gfw__mq-md) {
-  .menu-toggle,
-  .menu-header-right-container,
-  .navigation-list .searchform {
+  .nav-header .menu-header-right-container,
+  .navigation-list .searchform,
+  .menu-toggle {
     display: none;
   }
 
-  .navigation-list,
   .cta-header {
-    display: block;
+    display: flex;
+    align-items: center;
+  }
+
+  .cta-header .menu-header-right-container,
+  .navigation-list {
+    display: inline-flex;
   }
 }
 
