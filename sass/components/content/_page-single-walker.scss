@@ -31,7 +31,8 @@ section.walker-info {
 }
 
 // Testimonial Section - Walker & Dog
-.testimonial {  
+section.testimonial {  
+    @include flex-box;
     row-gap: $gfw-margin-lg;
 
     .walker-testi {
