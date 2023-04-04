@@ -133,6 +133,8 @@ function walkies_scripts() {
 	wp_enqueue_style( 'walkies-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'walkies-style', 'rtl', 'replace' );
 
+	wp_enqueue_style('dashicons');
+	
 	wp_enqueue_script( 'walkies-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	// Enqueue accordion script for click event listener
