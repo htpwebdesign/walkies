@@ -20,15 +20,19 @@
 /*Testimonial Cards shown on sections*/
 .testimonial-card {
   @include testimonialCard;
-  p::after {
+  position: relative;
+
+  &::after {
+    border-bottom-left-radius: 20rem;
+    border-bottom-right-radius: 20rem;
     content: "";
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
-    height: $gfw-margin-lg;
+    left: 5%;
+    right: 5%;
+    height: 4rem;
     background-color: $color__white;
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4430147058823529) 43%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4430147058823529) 26%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 69%);
   }
 }
 
