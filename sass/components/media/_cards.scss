@@ -32,9 +32,9 @@
   margin-bottom: $gfw-margin-lg;
 
   .card-content {
-    @include flex-box;
-    gap: $gfw-margin-md;
+    @include flex-box(start);
     flex-direction: column;
+    height: calc(100% - 320px);
     padding: $gfw-margin-lg;
   }
 
@@ -49,7 +49,12 @@
     color: $color__green-gfw;
     font-size: $gfw-font-lg;
     font-weight: 800;
-    margin-bottom: $gfw-margin-md;
+    margin-bottom: auto;
+
+    del {
+      order: 2;
+      font-size: $gfw-font-md;
+    }
   }
 
   .cta {
@@ -90,7 +95,7 @@
 .banner-card {
   width: 17.5rem;
   text-align: center;
-  margin: 0 auto 1rem;
+  margin: 0 0 1rem;
 
   img {
     display: block;
@@ -105,28 +110,32 @@
     border-radius: $gfw-radius-sm;
     margin: $gfw-margin-sm 0 $gfw-margin-md;
   }
+
+  @include mq($gfw__mq-lg) {
+    width: 16.5rem;
+  }
 }
 
 .bestseller-card {
+  height: 48rem;
+
   @include mq($gfw__mq-lg) {
-    width: 20rem;
-    height: 48rem;
+    .title {
+      min-height: 8rem;
+    }
 
     .price {
-      justify-content: start;
       min-height: 8rem;
-      margin-bottom: 0;
     }
   }
 }
 
 .packages-card {
-  @include mq($gfw__mq-lg) {
-    width: 31rem;
-    height: 55rem;
+  // height: 55rem;
 
+  @include mq($gfw__mq-lg) {
     .card-content {
-      height: calc(100% - 20rem);
+      // height: calc(100% - 20rem);
     }
 
     .cta {
@@ -150,6 +159,10 @@
     }
   }
 
+  .price {
+    margin-bottom: 2rem;
+  }
+
   @include mq($gfw__mq-lg) {
     @include center-block();
     @include flex-box();
@@ -170,10 +183,10 @@
 
     .price {
       flex-direction: row;
-      margin-bottom: 2rem;
+      justify-content: end;
 
       del {
-        margin-right: $gfw-margin-md;
+        margin-left: $gfw-margin-md;
       }
     }
   }

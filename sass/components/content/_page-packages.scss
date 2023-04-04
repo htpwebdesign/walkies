@@ -13,9 +13,11 @@
 
   .walkies-best-sellers,
   .walkies-packages {
+    @include flex-box;
+    gap: 1rem;
+
     @include mq($gfw__mq-lg) {
-      @include flex-box;
-      gap: 1rem;
+      justify-content: space-between;
     }
   }
 }
