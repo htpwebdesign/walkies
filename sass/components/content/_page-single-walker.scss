@@ -1,0 +1,47 @@
+// Single Walker Info section
+
+section.walker-info {
+    max-width: 48rem;
+
+    img { 
+        border-radius: $gfw-radius-md;
+    }
+
+    @include mq($gfw__mq-md) {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-auto-rows: 1fr min-content;
+        grid-gap: 1rem;
+
+        img {
+            grid-column: 1/2;
+            grid-row: 2/3;
+        }
+        p:first-of-type {
+          grid-column: 1/2;
+          grid-row: 3/4;
+        }
+        p:nth-of-type(2) {
+            padding-top: 2rem;
+            grid-column: 2/3;
+            grid-row: 2/4;
+        }
+ 
+    }
+}
+
+// Testimonial Section - Walker & Dog
+.testimonial {  
+    row-gap: $gfw-margin-lg;
+
+    .walker-testi {
+        @include testimonialCard;
+    }
+    .dog-testi {
+        @include testimonialCard(false);
+        audio {
+            order: 3;
+        }
+    }
+}
+
