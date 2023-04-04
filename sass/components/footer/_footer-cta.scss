@@ -1,0 +1,55 @@
+section.footer-cta {
+
+
+    div.footer-cta-details {
+        &>* {
+            @include compact;
+        }
+
+        display: flex;
+        flex-direction: column;
+
+        section.contact-info {
+            order: -1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: flex-end;
+
+            h3 {
+                width: 100%;
+            }            
+
+            ul {
+                @include compact;
+
+                li {
+                    list-style-type: none;
+
+                    a {
+                        color: $color__black;
+                        display: inline-block;
+                    }
+
+                    &::before {
+                        display: inline;
+                        margin-right: $gfw-margin-sm;
+                    }
+                }
+
+                li:first-of-type {
+                    margin-bottom: $gfw-margin-sm;
+
+                    &::before {
+                        content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgMGwtNiAyMi04LjEyOS03LjIzOSA3LjgwMi04LjIzNC0xMC40NTggNy4yMjctNy4yMTUtMS43NTQgMjQtMTJ6bS0xNSAxNi42Njh2Ny4zMzJsMy4yNTgtNC40MzEtMy4yNTgtMi45MDF6Ii8+PC9zdmc+");
+                    }
+                }
+
+                li:last-of-type::before {
+                    content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNSA2Yy0xLjEwNSAwLTIgLjg5Ni0yIDJ2MTIuNjc4Yy0uMDAxIDIuMjEzIDIuNTAzIDMuMzIyIDYuMDA1IDMuMzIyIDMuNDk4IDAgNS45OTUtMS4xMDYgNS45OTUtMy4zMjJ2LTEyLjY3OGMwLTEuMTA0LS44OTUtMi0yLTJoLTh6bTQgMTZjLS41NTIgMC0xLS40NDgtMS0xcy40NDgtMSAxLTEgMSAuNDQ4IDEgMS0uNDQ4IDEtMSAxem00LTRoLTh2LThoOHY4em0wLTEzLjY4OGMuOTQ0LS4wMDEgMS44ODkuMzU5IDIuNjA4IDEuMDguNzIxLjcyIDEuMDgyIDEuNjY0IDEuMDgyIDIuNjA2aDEuNTU0Yy0uMDAxLTEuMzQxLS41MTQtMi42ODQtMS41MzgtMy43MDctMS4wMjUtMS4wMjItMi4zNjUtMS41MzMtMy43MDYtMS41MzJ2MS41NTN6bTAtMi43MThjMS42MzktLjAwMSAzLjI3Ny42MjMgNC41MyAxLjg3NCAxLjI1MSAxLjI1IDEuODc3IDIuODkyIDEuODc4IDQuNTMxaDEuNTkyYy0uMDAxLTIuMDQ3LS43ODItNC4wOTYtMi4zNDUtNS42NTgtMS41NjItMS41NjItMy42MDktMi4zNDEtNS42NTUtMi4zNHYxLjU5M3oiLz48L3N2Zz4=")
+                }
+
+            }
+        }
+    }
+}
