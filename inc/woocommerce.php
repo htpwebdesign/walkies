@@ -246,7 +246,7 @@ add_filter( 'woocommerce_product_tabs', 'gfw_remove_all_product_tabs', 98 );
 function walkies_list_page($page_id) {
   if( function_exists( 'get_field' ) ): 
     if( get_field( 'banner_image', $page_id ) && get_field( 'walkies_intro_message', $page_id )):
-      echo '<section class="walkies_banner">';
+      echo '<section class="featured-product-section">';
       ?>
         <h1><?php woocommerce_page_title(); ?></h1>
       <?php
