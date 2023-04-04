@@ -1,3 +1,55 @@
 // Footer CTA
 @import "footer-cta";
 
+div.footer-section {
+    background-color: $color__dark-gfw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    
+
+    ul {
+        @include compact;
+
+        li {
+            list-style-type: none;
+            &, & > * {
+                color: $color__white;
+                font-weight: 700;
+            }
+        }
+    }
+
+    div.footer-right {
+        nav:last-of-type {
+            ul {
+                display: flex;
+                justify-content: space-between;
+                li, li a {
+                    font-size: .75rem;
+                    font-weight: 400;
+                    display: inline;
+                }
+
+            }
+        }
+    }
+
+    nav.social-icons {
+        a {
+            figure {
+                img {
+                    filter: brightness(5);
+                }
+            }
+        }
+    }
+
+    a.custom-logo-link {
+        img {
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+    }
+}

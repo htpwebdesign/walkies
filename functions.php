@@ -121,26 +121,6 @@ function walkies_content_width() {
 add_action( 'after_setup_theme', 'walkies_content_width', 0 );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function walkies_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'walkies' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'walkies' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
-add_action( 'widgets_init', 'walkies_widgets_init' );
-
-/**
  * Enqueue scripts and styles.
  */
 function walkies_scripts() {
@@ -153,6 +133,8 @@ function walkies_scripts() {
 	wp_enqueue_style( 'walkies-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'walkies-style', 'rtl', 'replace' );
 
+	wp_enqueue_style('dashicons');
+	
 	wp_enqueue_script( 'walkies-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	// Enqueue accordion script for click event listener

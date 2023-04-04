@@ -12,7 +12,7 @@
 <?php 
 if(function_exists('get_field')){
 	if(have_rows('social_media', 'option')){
-		?><div class="social-icons"><?php
+		?><nav class="social-icons"><?php
 		while(have_rows('social_media', 'option')): the_row(); 
 		$link = get_sub_field('social_media_link');
 		
@@ -30,5 +30,5 @@ if(function_exists('get_field')){
 			<?php endwhile;
 	}
 }
-	?></div><?php
+	?></nav><?php
 	

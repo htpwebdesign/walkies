@@ -58,18 +58,12 @@
       }
     }
 
-    @include mq($gfw__mq-md) {
+    @include mq($gfw__mq-lg) {
       position: relative;
       top: 0;
       right: 0;
       width: max-content;
       padding: 0;
-    }
-
-    .search-form {
-      @include mq($gfw__mq-md) {
-        display: inline-flex;
-      }
     }
   }
 
@@ -80,7 +74,7 @@
       text-decoration: none;
     }
 
-    @include mq($gfw__mq-md) {
+    @include mq($gfw__mq-lg) {
       @include flex-box;
       flex-direction: row;
     }
@@ -89,12 +83,24 @@
   .menu-main-menu-container {
     .menu {
       flex-direction: column;
+      align-items: start;
 
-      @include mq($gfw__mq-md) {
+      @include mq($gfw__mq-lg) {
         display: inline-flex;
         flex-direction: row;
       }
     }
+  }
+}
+
+.searchform {
+  input {
+    width: 100%;
+  }
+
+  @include mq($gfw__mq-lg) {
+    display: inline-flex;
+    margin-right: 2rem;
   }
 }
 
@@ -106,12 +112,13 @@
   box-shadow: none;
   padding-top: 1rem;
 
-  @include mq($gfw__mq-md) {
+  @include mq($gfw__mq-lg) {
     padding: 0;
   }
 }
 
-@include mq($gfw__mq-md) {
+// For Toggle
+@include mq($gfw__mq-lg) {
   #menu-item-294 {
     @include flex-box;
   }
@@ -124,17 +131,21 @@
     padding: 0;
   }
 
-  .searchform,
   .menu-main-menu-container {
     display: inline-flex;
   }
 }
 
-@include mq($gfw__mq-md) {
-  .cta-header {
-    width: 100%;
-    justify-content: space-between;
+@include mq($gfw__mq-lg) {
+  .cta-header-bg {
+    max-width: 100%;
+    margin: 0 auto;
     background-color: $color__yellow-gfw;
+  }
+
+  .cta-header {
+    display: flex;
+    justify-content: space-between;
 
     .menu-header-left-container .menu {
       @include flex-box();
@@ -149,10 +160,6 @@
     .menu-header-right-container .menu {
       display: flex;
       gap: 2rem;
-    }
-
-    .searchform {
-      margin-right: 2rem;
     }
   }
 
