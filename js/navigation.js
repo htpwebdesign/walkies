@@ -20,7 +20,7 @@
   }
 
   // const menu = siteNavigation.getElementsByTagName( 'ul' )[ 0 ];
-  const menu = document.getElementById('mobile-navigation');
+  const menu = document.getElementById('navigation-list');
 
   // Hide menu toggle button if menu is empty and return early.
   if ('undefined' === typeof menu) {
