@@ -41,8 +41,10 @@ get_header();
 				?></section><?php
 
 				if(get_field('walker_testimonial') || get_field('dog_testimonial')){
-					?> <section class="testimonial"> <?php
-					
+					?> <section class="testimonial"> 
+						
+						<h2><?php esc_html_e('Testimonials', 'walkies')?></h2>
+					<?php
 					$walkerTesti = get_field('walker_testimonial');
 
 					if($walkerTesti){
@@ -53,7 +55,7 @@ get_header();
 							?>
 								<article class="walker-testi">
 									<?php echo wp_get_attachment_image($id['customer_photo'], 'thumbnail-icon'); ?>
-									<h2><?php echo get_the_title($oneTesti->ID) ?></h2>
+									<h3><?php echo get_the_title($oneTesti->ID) ?></h3>
 									<p><?php echo $id['quote'] ; ?></p>
 								</article>	
 
@@ -77,7 +79,7 @@ get_header();
 										<source src="<?php echo $id['dog_audio'] ?>" type="audio/mp3">
 										Your browser does not support the audio element.
 									</audio>
-									<h2><?php echo get_the_title($oneTesti->ID) ?></h2>
+									<h3><?php echo get_the_title($oneTesti->ID) ?></h3>
 									<p><?php echo $id['quote'] ; ?></p>
 								</article>	
 
