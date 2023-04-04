@@ -126,3 +126,9 @@
   width: 0;
   @include compact;
 }
+
+@mixin testimonial-card {
+  margin: 0 auto; 
+  padding: 0 1.25rem;
+  width: 16.5rem;
+}
