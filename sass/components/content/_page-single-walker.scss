@@ -1,0 +1,28 @@
+// section.walker-info {
+    
+    article.walker-card {
+        @include flex-box;
+        flex-direction: column;
+
+        p {
+            margin: $gfw-margin-md 0;
+        }
+
+    }
+
+
+  .walker-testi {
+      @include testimonialCard;
+
+  }
+    // article.walker-testi,
+    // article.dog-testi {
+    //     @include testimonialCard(false);
+    // }
+    // }
+
+    
+
+
+
+// }

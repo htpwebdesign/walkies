@@ -5,7 +5,7 @@ body {
 }
 
 // Base MQs
-.page .site-main, .archive .site-main, .site-header > *, .site-footer > *, .single {
+.page .site-main, .archive .site-main, .site-header > *, .site-footer > *, .single > *, .single {
 	padding: 1.25rem;
 
 	@include mq($gfw__mq-md){
