@@ -8,7 +8,7 @@ body {
 .archive .site-main,
 .site-header > *,
 .site-footer > *,
-.single {
+.single .site-main {
   padding: 1.25rem;
 
   @include mq($gfw__mq-md) {
