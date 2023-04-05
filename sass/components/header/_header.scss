@@ -25,6 +25,10 @@
   .custom-logo {
     width: 2rem;
     height: 2rem;
+    @include mq($gfw__mq-lg) {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
   }
 
   .menu-toggle svg {
