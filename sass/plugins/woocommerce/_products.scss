@@ -9,9 +9,18 @@
   }
 }
 
+.shop-products h2,
+.tax-product_cat h1 {
+  text-align: center;
+}
+
 ul.products {
   margin: 0;
   padding: 0;
+
+  .onsale {
+    display: none;
+  }
 
   li.product {
     width: 100%;
@@ -35,8 +44,16 @@ ul.products {
     }
 
     .price {
+      @include flex-box;
+      flex-direction: column;
       font-size: 2rem;
       color: $color__green-gfw;
+      min-height: 6.5rem;
+
+      .from,
+      .subscription-details {
+        display: none;
+      }
     }
 
     .add_to_cart_button {
@@ -53,7 +70,7 @@ ul.products {
 
 @include mq($gfw__mq-md) {
   ul.products {
-    @include flex-box(start);
+    @include flex-box();
     gap: 1rem;
 
     li.product {
