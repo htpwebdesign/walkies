@@ -43,6 +43,7 @@
 			}
 			?>
 		</section>
+		<div class="footer-bg">
 		<div class="footer-section">
 			<?php the_custom_logo();?>
 			<div class="footer-left">
@@ -64,6 +65,7 @@
 					</ul>
 				</nav>
 			</div>
+		</div>
 		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
