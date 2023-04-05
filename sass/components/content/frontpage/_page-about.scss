@@ -1,0 +1,102 @@
+article.post-83 {
+
+    section.who_section {
+
+        
+
+        @include mq($gfw__mq-lg) {
+            max-width: 81.25em;
+            margin: -2rem auto 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: min-content;
+            gap: 1.25rem;
+            align-content: flex-start;
+        
+            img {
+              align-self: auto;
+              grid-column: 1/3;
+              grid-row: 1/4;
+              height: 100%;
+              max-height: 50vh;
+              width: 100%;
+              object-fit: cover;
+              object-position: 60% center;
+              padding-top: $gfw-font-md;
+            }
+        
+            & > *:not(img) {
+              grid-column: 3/5;
+            }
+        
+            h1 {
+              grid-row: 1/2;
+              margin: 0;
+              margin-top: 2rem;
+              align-self: flex-end;
+            }
+
+            h2 {
+                padding-top: $gfw-padding-lg;
+            }
+        
+            p {
+              margin: 0;
+              grid-row: 2/3;
+            }
+    }
+}
+
+    section.human-section {
+        @include flex-box;
+        gap: $gfw-padding-md;
+        
+        h2 {
+            width: 100%;
+        }
+        article {
+            @include testimonialCard;
+        }
+
+        // @include mq($gfw__mq-md) {
+        //     @include flex-box;
+        //     gap: $gfw-padding-md;
+        // }
+    }
+
+    section.why_section {
+        row-gap: $gfw-padding-md;
+        article {
+            @include cardStyle;
+            max-width: 400px;
+            align-items: center;
+
+            h3 {
+                padding: 1.25rem 0;
+            }
+            img {
+                align-self: center;
+            }
+        }
+
+        @include mq($gfw__mq-md) {
+            @include flex-box;
+            flex-direction: row;
+            gap: $gfw-margin-lg;
+
+            h2{
+                width: 100%;
+            }
+        }
+    }
+
+        // img {
+        //     margin-left: 1.25rem;
+        // }
+    }
+
+   
+
+
+
+
