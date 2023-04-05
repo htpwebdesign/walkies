@@ -7,7 +7,9 @@ body {
 .page .site-main,
 .archive .site-main,
 .site-footer > *,
-.single .site-main, .woocommerce-page .site-main {
+.single .site-main, 
+.woocommerce-page .site-main,
+.search .site-main {
   padding: 1.25rem;
 
   @include mq($gfw__mq-md) {
