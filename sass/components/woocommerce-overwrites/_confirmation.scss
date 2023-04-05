@@ -1,0 +1,29 @@
+body.woocommerce-order-received {
+    div.woocommerce-order {
+
+        ul.woocommerce-thankyou-order-details {
+            @include compact;
+
+            li {
+                list-style-type: none;
+                margin-top: $gfw-margin-sm;
+                margin-bottom: $gfw-margin-sm;
+            }
+        }
+
+        table.woocommerce-table--order-details {
+            th, td {
+                text-align: left;
+            }
+        }
+
+        p.order-again {
+            a {
+                @include btnStyle;
+                &:hover, &:focus, &:active {
+                    @include btnStyle($def: $color__green-gfw);
+                }
+            }
+        }
+    }
+}
