@@ -195,10 +195,18 @@
 // Searchbar
 .searchform {
   margin-bottom: 0.5rem;
+  position: relative;
+  color: $color__dark-gfw;
 
   input {
     border: 0;
     border-radius: 0;
+  }
+
+  .dashicons-search {
+    position: absolute;
+    bottom: 15%;
+    right: 0.25rem;
   }
 
   @include mq($gfw__mq-lg) {
@@ -209,6 +217,11 @@
       border: 2px solid $color__dark-gfw;
       border-radius: $gfw-radius-sm;
       padding: 0.5rem 1.5rem;
+    }
+
+    .dashicons-search {
+      bottom: 25%;
+      right: 0.5rem;
     }
   }
 }
