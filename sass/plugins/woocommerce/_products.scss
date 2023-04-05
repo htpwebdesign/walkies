@@ -28,6 +28,7 @@ ul.products {
     }
 
     .woocommerce-loop-product__title {
+      min-height: 3.75rem;
       font-size: 1.25rem;
       color: $color__black;
       margin: 1rem 0;

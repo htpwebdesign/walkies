@@ -139,7 +139,8 @@
   }
 
   @include mq($gfw__mq-lg) {
-    width: 16.5rem;
+    width: calc(100% / 3 - 3rem);
+
     .title {
       min-height: 5rem;
     }

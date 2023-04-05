@@ -7,7 +7,7 @@ body {
 .page .site-main,
 .post-type-archive .site-main,
 .site-footer > *,
-.single .site-main, 
+.single .site-main,
 .woocommerce-page .site-main,
 .search .site-main, .error404 .site-main {
   padding: 1.25rem;
@@ -30,13 +30,16 @@ body {
 }
 
 .term-physical-products .site-main {
-  padding: 0;
   overflow: hidden;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
 
   .featured-product-section,
   .shop-package,
   .shop-products {
     padding: 1.25rem;
+    margin: 0 auto;
 
     @include mq($gfw__mq-md) {
       padding: 2rem 5rem;
@@ -46,7 +49,6 @@ body {
       padding-top: 2rem;
       padding-bottom: 2rem;
       max-width: 81.25em;
-      margin: auto;
     }
   }
 }

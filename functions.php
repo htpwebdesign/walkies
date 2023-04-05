@@ -170,6 +170,33 @@ function my_acf_init() {
 add_action('acf/init', 'my_acf_init');
 
 /**
+ * Dashboard Widgets
+ */
+function gfw_dashboard_widget() {
+  esc_html_e( "Hello World, this is my first Dashboard Widget!", "textdomain" );
+  echo '<iframe width="100%" height="315" src="https://www.youtube.com/embed/C2SaWYOOG3w"></iframe>';
+}
+
+function gftw_remove_dashboard_widget() {
+  // Globalize the metaboxes array, this holds all the widgets for wp-admin.
+  global $wp_meta_boxes;
+  wp_add_dashboard_widget('dashboard_widget', 'Tutorial Video', 'gfw_dashboard_widget');
+
+	remove_meta_box( 'wc_admin_dashboard_setup', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_site_health', 'dashboard', 'normal' );
+	remove_meta_box( 'rg_forms_dashboard', 'dashboard', 'normal' );
+	remove_meta_box( 'cn_dashboard_stats', 'dashboard', 'normal' );
+	remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'normal' );
+
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
+} 
+
+add_action( 'wp_dashboard_setup', 'gftw_remove_dashboard_widget' );
+
+ /**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -237,9 +264,7 @@ function gfw_contact_page_acf() {
 }
 add_action('acf/init', 'gfw_contact_page_acf');
 
-// Hide Archive Prefix
-add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
-
+// Search Bar
 function custom_search_form( $form ) {
   $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
     <div class="custom-form"><label class="screen-reader-text" for="s">' . __( 'Search:' ) . '</label>
@@ -251,3 +276,38 @@ function custom_search_form( $form ) {
   return $form;
 }
 add_filter( 'get_search_form', 'custom_search_form', 40 );
+
+// Custom Menu Order
+function gfw_menu_order( $menu_order ) {
+  return array( 
+    'index.php', // Dashboard
+    'edit.php?post_type=wc_booking', // Bookings
+    'admin.php?page=gf_edit_forms', // Contact Form
+    'edit.php?post_type=product', // Products
+    'edit.php?post_type=gfw-testimonial', // Testimonials
+    'edit.php?post_type=gfw-walker', // Walker
+    'edit.php?post_type=gfw-faq', // FAQ
+    'edit.php?post_type=page', // Pages
+    'admin.php?page=contact-form-settings', // Contact Settings
+    'upload.php', // Media
+    
+    'themes.php', // Appearance
+    'admin.php?page=wc-admin', // WooCommerce
+    'options-general.php', // Settings
+    'wp-admin/plugins.php', // Plugins
+    
+    'edit.php?post_type=acf-field-group', // ACF
+    'admin.php?page=wpseo_dashboard', // Yoast SEO
+    'admin.php?page=wc-admin&path=%2Fanalytics%2Foverview', // Analytics
+    'admin.php?page=wc-admin&path=%2Fmarketing', // Marketing
+    'admin.php?page=sbi-feed-builder', // Instagram Feed
+    'admin.php?page=cookie-notice', // Cookies
+    'tools.php', // Tools
+    'users.php', // Users
+
+    'edit-comments.php', // Comments
+    'edit.php',  // Posts
+  );
+}
+add_filter( 'custom_menu_order', '__return_true' );
+add_filter( 'menu_order', 'gfw_menu_order', 10, 1 );

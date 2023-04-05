@@ -21,6 +21,11 @@
   li.focus > ul {
     left: auto;
   }
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
 }
 
 li {
@@ -29,11 +34,6 @@ li {
   &:hover > a,
   &.focus > a {
   }
-}
-
-a {
-  display: block;
-  text-decoration: none;
 }
 
 .current_page_item > a,
