@@ -356,7 +356,7 @@ function walkies_list_page($page_id) {
   endif;
 }
 
-/**
+ /**
  * Category Page - Product List
  */
 function shop_list_page($page_id) {
@@ -427,4 +427,12 @@ function shop_list_page($page_id) {
     endif;
 
   endif;
+}
+
+
+/**
+ * Category Page - Product List
+ */
+function category_grid_page() {
+ echo "EHERHE";
 }
