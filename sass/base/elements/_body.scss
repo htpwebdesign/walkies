@@ -5,11 +5,11 @@ body {
 
 // Base MQs
 .page .site-main,
-.archive .site-main,
-.cta-header,
-.nav-header,
+.post-type-archive .site-main,
 .site-footer > *,
-.single .site-main {
+.single .site-main, 
+.woocommerce-page .site-main,
+.search .site-main {
   padding: 1.25rem;
 
   @include mq($gfw__mq-md) {
@@ -24,7 +24,29 @@ body {
   }
 }
 
-.site-main > section {
+.site-main > section:not(.shop-package-bg) {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
+}
+
+.term-physical-products .site-main {
+  padding: 0;
+  overflow: hidden;
+
+  .featured-product-section,
+  .shop-package,
+  .shop-products {
+    padding: 1.25rem;
+
+    @include mq($gfw__mq-md) {
+      padding: 2rem 5rem;
+    }
+
+    @include mq($gfw__mq-lg) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      max-width: 81.25em;
+      margin: auto;
+    }
+  }
 }
