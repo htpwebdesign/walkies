@@ -23,9 +23,33 @@
             }
         }
     }
+
     div#payment {
         a {
             display: inline;
+        }
+
+        ul {
+            @include compact;
+            li {
+                list-style-type: none;
+            }
+        }
+    }
+
+    div#order_review {
+        table.woocommerce-checkout-review-order-table {
+            th:first-of-type, td:first-of-type {
+                width: 30%;
+            }
+
+            th:last-of-type, td:last-of-type {
+                width: 40%;
+            }
+
+            th, td {
+                text-align: left;
+            }
         }
     }
 }
