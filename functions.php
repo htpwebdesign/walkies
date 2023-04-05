@@ -244,6 +244,7 @@ function custom_search_form( $form ) {
   $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
     <div class="custom-form"><label class="screen-reader-text" for="s">' . __( 'Search:' ) . '</label>
       <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'. esc_attr__( 'Search' ) .'"  />
+      <span class="dashicons dashicons-search"></span>
     </div>
   </form>';
 
