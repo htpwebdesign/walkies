@@ -1,4 +1,5 @@
 .shop-package-bg {
+  width: 100%;
   background-color: rgba(67, 135, 253, 0.1);
   padding: 1rem 0;
 
@@ -56,6 +57,21 @@ ul.products {
 
     li.product {
       min-width: 18rem;
+    }
+  }
+
+  .shop-package {
+    display: flex;
+    gap: 2rem;
+
+    img {
+      width: 50%;
+      order: 2;
+      object-fit: cover;
+    }
+
+    .book-walkies-cta {
+      width: 50%;
     }
   }
 }

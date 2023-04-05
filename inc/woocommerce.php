@@ -377,6 +377,7 @@ function shop_list_page($page_id) {
     if( get_field( 'walkies_packages_image', $page_id ))
       echo wp_get_attachment_image( get_field( 'walkies_packages_image', $page_id ), 'full' );
 
+    echo '<div class="shop-package-content">';
     if( get_field( 'walkies_headline', $page_id ))
       echo "<h2>" . get_field( 'walkies_headline', $page_id ) . "</h2>";
 
@@ -385,11 +386,12 @@ function shop_list_page($page_id) {
 
     $primaryCTA = get_field( 'book_walkies_cta', $page_id );
     if( $primaryCTA["title"]): ?> 
-      <a class="book-walkies-cta" href="<?php echo esc_url( $primaryCTA["url"] ); ?>" target="_blank">
+      <a class="book-walkies-cta" href="<?php echo esc_url( $primaryCTA["url"] ); ?>">
         <?php echo $primaryCTA["title"]  ?>
       </a>
     <?php 
     endif;
+    echo '</div>';
     echo '</div>';
     echo '</section>';
 
