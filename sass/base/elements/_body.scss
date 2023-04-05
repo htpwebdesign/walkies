@@ -9,7 +9,7 @@ body {
 .site-footer > *,
 .single .site-main, 
 .woocommerce-page .site-main,
-.search .site-main {
+.search .site-main, .error404 .site-main {
   padding: 1.25rem;
 
   @include mq($gfw__mq-md) {
@@ -24,7 +24,7 @@ body {
   }
 }
 
-.site-main > section:not(.shop-package-bg) {
+.site-main > section:not(.shop-package-bg):not(.featured-product-section)  {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
