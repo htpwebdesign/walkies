@@ -2,18 +2,30 @@
     div#customer_details {
         div.col-1 {
             div.woocommerce-billing-fields {
-                label, input {
+
+                label,
+                input {
                     width: 100%;
                 }
-                p#billing_first_name_field, p#billing_last_name_field, span.woocommerce-input-wrapper {
+
+                p#billing_first_name_field,
+                p#billing_last_name_field,
+                span.woocommerce-input-wrapper {
                     display: block;
                     width: 100%;
 
-                    label, span.woocommerce-input-wrapper, input {
+                    label,
+                    span.woocommerce-input-wrapper,
+                    input {
                         width: 100%;
                     }
                 }
             }
+        }
+    }
+    div#payment {
+        a {
+            display: inline;
         }
     }
 }
