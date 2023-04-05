@@ -1,0 +1,38 @@
+.search .site-main .product {
+  padding: 1rem 0;
+  border-top: 2px solid $color__dark-gfw;
+
+  @include mq($gfw__mq-md) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+
+    .entry-header {
+      grid-column: 1 / 3;
+      grid-row: 1 / 2;
+    }
+
+    .post-thumbnail {
+      grid-column: 1;
+      grid-row: 2 / 3;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .entry-summary {
+      grid-column: 2;
+      grid-row: 2 / 3;
+      margin: 0 0 0 1rem;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .entry-footer {
+      grid-column: 3;
+    }
+  }
+}
