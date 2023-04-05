@@ -212,7 +212,7 @@ p.stars {
 }
 
 .required {
-	color: #f00;
+	color: $color__brown-gfw;
 }
 
 /**
@@ -223,18 +223,18 @@ p.stars {
 .woocommerce-error,
 .woocommerce-noreviews,
 p.no-comments {
-	background-color: $woocommerce__color-success;
+	background-color: $color__accent2-gfw;
 	clear: both;
 }
 
 .woocommerce-info,
 .woocommerce-noreviews,
 p.no-comments {
-	background-color: $woocommerce__color-info;
+	background-color: $color__accent3-gfw;
 }
 
 .woocommerce-error {
-	background-color: $woocommerce__color-error;
+	background-color: $color__accent1-gfw;
 }
 
 .demo_store {

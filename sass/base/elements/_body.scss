@@ -9,7 +9,7 @@ body {
 .cta-header,
 .nav-header,
 .site-footer > *,
-.single .site-main {
+.single .site-main, .woocommerce-page .site-main {
   padding: 1.25rem;
 
   @include mq($gfw__mq-md) {
