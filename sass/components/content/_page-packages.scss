@@ -4,6 +4,10 @@
     text-align: center;
   }
 
+  span.from, span.subscription-details {
+    display: none;
+  }
+
   .walkies_banner {
     img {
       position: relative;
