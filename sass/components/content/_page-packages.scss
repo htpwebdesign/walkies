@@ -4,7 +4,8 @@
     text-align: center;
   }
 
-  span.from, span.subscription-details {
+  span.from,
+  span.subscription-details {
     display: none;
   }
 
@@ -19,9 +20,5 @@
   .walkies-packages {
     @include flex-box;
     gap: 1rem;
-
-    @include mq($gfw__mq-lg) {
-      justify-content: space-between;
-    }
   }
 }
