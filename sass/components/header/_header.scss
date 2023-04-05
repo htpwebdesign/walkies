@@ -58,10 +58,10 @@
 
   .navigation-list {
     position: absolute;
-    top: 4.8rem;
+    top: 3.3rem;
     right: 0;
-    width: 16rem;
-    padding: 2rem;
+    width: 14rem;
+    padding: 1.5rem 2rem;
     background-color: $color__dark-gfw;
     z-index: 999;
 
@@ -189,5 +189,26 @@
     @include btnStyle();
     min-width: 6rem;
     padding: 0.5rem 1.5rem;
+  }
+}
+
+// Searchbar
+.searchform {
+  margin-bottom: 0.5rem;
+
+  input {
+    border: 0;
+    border-radius: 0;
+  }
+
+  @include mq($gfw__mq-lg) {
+    margin-bottom: 0;
+
+    input {
+      background-color: transparent;
+      border: 2px solid $color__dark-gfw;
+      border-radius: $gfw-radius-sm;
+      padding: 0.5rem 1.5rem;
+    }
   }
 }
