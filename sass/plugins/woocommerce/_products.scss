@@ -1,14 +1,46 @@
+.shop-package-bg {
+  background-color: rgba(67, 135, 253, 0.1);
+  padding: 1rem 0;
+
+  .book-walkies-cta {
+    @include btnStyle();
+    width: 100%;
+  }
+}
+
 ul.products {
   margin: 0;
   padding: 0;
 
   li.product {
+    min-width: 100%;
     list-style: none;
     position: relative;
-    margin-bottom: 2em;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid $color__dark-gfw;
+    text-align: center;
 
     img {
       display: block;
+      margin: 0 auto;
+    }
+
+    .woocommerce-loop-product__title {
+      font-size: 1.25rem;
+      color: $color__black;
+      margin: 1rem 0;
+    }
+
+    .price {
+      font-size: 2rem;
+      color: $color__green-gfw;
+    }
+
+    .add_to_cart_button {
+      @include btnStyle(true);
+      padding: 0.5rem 0.75rem;
+      margin: 1rem auto 0;
     }
 
     .button {
@@ -17,35 +49,13 @@ ul.products {
   }
 }
 
-@media screen and (min-width: 48em) {
+@include mq($gfw__mq-md) {
   ul.products {
+    @include flex-box;
+    gap: 2rem;
+
     li.product {
-      @include column-width(3);
-      float: left;
-      margin-right: $columns__margin;
-
-      &.first {
-        clear: both;
-      }
-
-      &.last {
-        margin-right: 0;
-      }
-    }
-  }
-
-  ul.products.columns-1 {
-    li.product {
-      float: none;
-      width: 100%;
-    }
-  }
-
-  @for $i from 2 through 6 {
-    ul.products.columns-#{$i} {
-      li.product {
-        @include column-width($i);
-      }
+      min-width: 18rem;
     }
   }
 }
