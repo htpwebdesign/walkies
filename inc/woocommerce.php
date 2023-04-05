@@ -247,10 +247,10 @@ function walkies_list_page($page_id) {
   if( function_exists( 'get_field' ) ): 
     if( get_field( 'banner_image', $page_id ) && get_field( 'walkies_intro_message', $page_id )):
       echo '<section class="featured-product-section">';
+      echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
       ?>
         <h1><?php woocommerce_page_title(); ?></h1>
       <?php
-      echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
       echo '<p>' . get_field( 'walkies_intro_message', $page_id ) . '</p>';
       echo '</section>';
     endif;
@@ -361,21 +361,21 @@ function walkies_list_page($page_id) {
  */
 function shop_list_page($page_id) {
   if( function_exists( 'get_field' ) ): 
-    echo '<section class="shop_banner">';
+    echo '<section class="featured-product-section">';
     if( get_field( 'banner_image', $page_id ))
+      echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
       ?>
         <h1><?php woocommerce_page_title(); ?></h1>
       <?php
-      echo wp_get_attachment_image( get_field( 'banner_image', $page_id ), 'full' );
- 
     if( get_field( 'product_intro_summary', $page_id ))
       echo "<p>" . get_field( 'product_intro_summary', $page_id ) . "</p>";
  
     echo '</section>';
 
-    echo '<section class="shop-package">';
+    echo '<section class="shop-package-bg">';
+    echo '<div class="shop-package">';
     if( get_field( 'walkies_packages_image', $page_id ))
-      echo wp_get_attachment_image( get_field( 'walkies_packages_image', $page_id ) );
+      echo wp_get_attachment_image( get_field( 'walkies_packages_image', $page_id ), 'full' );
 
     if( get_field( 'walkies_headline', $page_id ))
       echo "<h2>" . get_field( 'walkies_headline', $page_id ) . "</h2>";
@@ -390,6 +390,7 @@ function shop_list_page($page_id) {
       </a>
     <?php 
     endif;
+    echo '</div>';
     echo '</section>';
 
     if( get_field( 'products_gallery_headline', $page_id )):
@@ -412,7 +413,7 @@ function shop_list_page($page_id) {
       $query = new WP_Query( $args );
 
       if( $query -> have_posts() ):
-        echo '<ul>';
+        echo '<ul class="products">';
         while( $query -> have_posts() ):
           $query -> the_post();
           wc_get_template_part( 'content', 'product' );

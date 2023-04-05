@@ -59,15 +59,17 @@
   }
 
   .title {
-    margin: 0;
+    font-size: 1.25rem;
+    color: $color__black;
     text-align: center;
+    margin: 0;
   }
 
   .price {
     @include flex-box;
     flex-direction: column;
+    font-size: 2rem;
     color: $color__green-gfw;
-    font-size: $gfw-font-lg;
     font-weight: 800;
     margin-bottom: auto;
 
@@ -138,21 +140,22 @@
 
   @include mq($gfw__mq-lg) {
     width: 16.5rem;
-  }
-}
-
-.bestseller-card {
-  height: 48rem;
-
-  @include mq($gfw__mq-lg) {
     .title {
-      min-height: 8rem;
+      min-height: 5rem;
     }
 
     .price {
       min-height: 8rem;
     }
+
+    &.packages-card .price {
+      min-height: 4rem;
+    }
   }
+}
+
+.bestseller-card {
+  height: 45rem;
 }
 
 .packages-card {
@@ -204,6 +207,10 @@
       align-items: start;
       margin: 0;
       padding: 0;
+    }
+
+    .title {
+      min-height: 3rem;
     }
 
     .price {
