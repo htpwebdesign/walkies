@@ -1,12 +1,18 @@
 .single-product {
   div.product {
     position: relative;
+
+    h2 {
+      @include compact;
+    }
+
     label, input, select {
       width: 100%;
     }
 
     td {
       display: block;
+      margin-top: $gfw-margin-sm;
     }
     .price {
       font-size: $gfw-font-md;
@@ -82,32 +88,48 @@
 
     .woocommerce-product-gallery {
       position: relative;
-      float: left;
 
       .woocommerce-product-gallery__trigger {
         position: absolute;
         top: 2em;
-        right: 1em;
+        right: 2em;
         display: block;
         z-index: 99;
+      }
+      .woocommerce-product-gallery__image {
+        height: 20rem;
+        width: 100%;
+        img {
+          width: auto;
+        }
       }
 
       .flex-viewport {
         margin-bottom: 1em;
+        width: 100%;
+
+        .woocommerce-product-gallery__wrapper {
+          width: 100%;
+        }
       }
 
-      .flex-control-thumbs {
+      ol.flex-control-thumbs {
         margin: 0;
         padding: 0;
 
+        
         li {
           list-style: none;
           cursor: pointer;
           float: left;
+          margin-right: $gfw-margin-sm;
+    
 
           img {
             opacity: 0.5;
-
+            height: 3rem;
+            width: auto;
+  
             &.flex-active {
               opacity: 1;
             }
@@ -121,23 +143,6 @@
         }
       }
 
-      @for $i from 2 through 5 {
-        &.woocommerce-product-gallery--columns-#{$i} {
-          .flex-control-thumbs {
-            li {
-              @include column-width($i);
-
-              &:nth-child(#{$i}n) {
-                margin-right: 0;
-              }
-
-              &:nth-child(#{$i}n + 1) {
-                clear: both;
-              }
-            }
-          }
-        }
-      }
     }
   }
 
@@ -147,6 +152,7 @@
       grid-template-columns: 1fr 1fr;
       grid-template-rows: repeat(4, min-content);
       gap: $gfw-margin-lg;
+      row-gap: $gfw-margin-sm;
 
       div.woocommerce-notices-wrapper {
         grid-row: 1/2;
