@@ -14,7 +14,7 @@ ul.products {
   padding: 0;
 
   li.product {
-    min-width: 100%;
+    width: 100%;
     list-style: none;
     position: relative;
     padding-bottom: 2rem;
@@ -52,11 +52,11 @@ ul.products {
 
 @include mq($gfw__mq-md) {
   ul.products {
-    @include flex-box;
-    gap: 2rem;
+    @include flex-box(start);
+    gap: 1rem;
 
     li.product {
-      min-width: 18rem;
+      width: 17rem;
     }
   }
 

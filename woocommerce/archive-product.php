@@ -26,8 +26,6 @@ if ( is_shop() )
   walkies_list_page( 91 );
 else if ( is_product_category('physical-products') )
   shop_list_page( 12 );
-else 
-  echo "asdf";
     
 echo '</main>';
 get_footer( 'shop' );
