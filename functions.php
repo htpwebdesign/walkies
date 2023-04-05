@@ -170,6 +170,33 @@ function my_acf_init() {
 add_action('acf/init', 'my_acf_init');
 
 /**
+ * Dashboard Widgets
+ */
+function gfw_dashboard_widget() {
+  esc_html_e( "Hello World, this is my first Dashboard Widget!", "textdomain" );
+  echo '<iframe width="100%" height="315" src="https://www.youtube.com/embed/C2SaWYOOG3w"></iframe>';
+}
+
+function gftw_remove_dashboard_widget() {
+  // Globalize the metaboxes array, this holds all the widgets for wp-admin.
+  global $wp_meta_boxes;
+  wp_add_dashboard_widget('dashboard_widget', 'Tutorial Video', 'gfw_dashboard_widget');
+
+	remove_meta_box( 'wc_admin_dashboard_setup', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_site_health', 'dashboard', 'normal' );
+	remove_meta_box( 'rg_forms_dashboard', 'dashboard', 'normal' );
+	remove_meta_box( 'cn_dashboard_stats', 'dashboard', 'normal' );
+	remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'normal' );
+
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
+} 
+
+add_action( 'wp_dashboard_setup', 'gftw_remove_dashboard_widget' );
+
+ /**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
