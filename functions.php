@@ -174,7 +174,7 @@ add_action('acf/init', 'my_acf_init');
  * Dashboard Widgets
  */
 function gfw_dashboard_widget() {
-  esc_html_e( "Hello World, this is my first Dashboard Widget!", "textdomain" );
+  esc_html_e( "Walkthrough for adding a new product, a testimonial, and a walker.", "walkies" );
   echo '<iframe width="100%" height="315" src="https://www.youtube.com/embed/Wr0NRt2_Ha8"></iframe>';
 }
 
