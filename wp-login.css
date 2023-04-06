@@ -1,0 +1,48 @@
+body.login-action-login {
+    background-color: #154866;
+    font-family: 'Roboto', sans-serif;
+}
+
+body.login-action-login input {
+    border-color: #4378fd;
+}
+
+.login p#nav a, div.privacy-policy-page-link a, .login p#backtoblog a {
+    color: #fff;
+}
+
+#login h1 a,
+.login h1 a {
+    background-image: url('https://goforwalkies.bcitwebdeveloper.ca/wp-content/uploads/2023/04/cropped-IMG_0595.png');
+    height: 8rem;
+    width: auto;
+    background-size: auto 8rem;
+    background-repeat: no-repeat;
+    padding-bottom: 2.5rem;
+}
+
+#login h1 a:focus,
+.login h1 a:focus, #login h1 a:active,
+.login h1 a:active {
+    outline: 0;
+    border: 0;
+}
+
+form#loginform {
+    padding: 2.5rem;
+    border-radius: 3rem;
+    border: .5rem solid #fac711;
+}
+
+p.submit input#wp-submit {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+    padding: .5rem 1rem;
+    border-radius: 10rem;
+    background-color: #4378fd;
+    border: 2px solid #4378fd;
+    color: #fff;
+    font-weight: 700;
+}

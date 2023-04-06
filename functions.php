@@ -131,6 +131,7 @@ function walkies_scripts() {
 		array(),
 		null);
 	wp_enqueue_style( 'walkies-style', get_stylesheet_uri(), array(), _S_VERSION );
+
 	wp_style_add_data( 'walkies-style', 'rtl', 'replace' );
 
 	wp_enqueue_style('dashicons');
@@ -287,3 +288,18 @@ function gfw_change_shop_img_size() {
 add_filter( 'woocommerce_gallery_image_size', 'gfw_change_shop_img_size' );
 add_filter( 'woocommerce_gallery_full_size', 'gfw_change_shop_img_size' );
 
+// Custom WP Login
+function gfw_login_stylesheet() {
+    wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/wp-login.css' );
+}
+add_action( 'login_enqueue_scripts', 'gfw_login_stylesheet' );
+
+function gfw_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'gfw_login_logo_url' );
+
+function gfw_login_logo_url_title() {
+    return 'Go for Walkies';
+}
+add_filter( 'login_headertext', 'gfw_login_logo_url_title' );
