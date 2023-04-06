@@ -1,3 +1,4 @@
+// Site Header
 .site-header {
   background-color: $color__dark-gfw;
 
@@ -9,138 +10,12 @@
   }
 }
 
-.nav-header {
-  position: relative;
-  @include flex-box(space-between);
-
-  .custom-logo {
-    width: 2rem;
-    height: 2rem;
-    @include mq($gfw__mq-lg) {
-      width: 2.5rem;
-      height: 2.5rem;
-    }
-  }
-
-  .menu-toggle svg {
-    display: block;
-    width: 1.8rem;
-    height: 2rem;
-    fill: $color__white;
-    cursor: pointer;
-  }
-
-  .menu-item {
-    padding: 0 1rem;
-  }
-
-  .menu-toggle {
-    padding: 0 0 0 1rem;
-  }
-}
-
-.menu-item .dashicons {
-  font-size: 1.5rem;
-  color: $color__white;
-  @include mq($gfw__mq-lg) {
-    color: $color__dark-gfw;
-  }
-}
-
-.right-nav-header {
-  @include flex-box;
-  flex-direction: row;
-
-  .navigation-list {
-    position: absolute;
-    top: 3.3rem;
-    right: 0;
-    width: 14rem;
-    padding: 1.5rem 2rem;
-    background-color: $color__dark-gfw;
-    z-index: 999;
-
-    li {
-      padding: 1rem 0;
-
-      a {
-        color: $color__white;
-      }
-    }
-
-    @include mq($gfw__mq-lg) {
-      position: relative;
-      top: 0;
-      right: 0;
-      width: max-content;
-      padding: 0;
-    }
-  }
-
-  .menu {
-    @include flex-box;
-
-    a:hover {
-      text-decoration: none;
-    }
-
-    @include mq($gfw__mq-lg) {
-      @include flex-box;
-      flex-direction: row;
-    }
-  }
-
-  .menu-main-menu-container {
-    .menu {
-      flex-direction: column;
-      align-items: start;
-
-      @include mq($gfw__mq-lg) {
-        display: inline-flex;
-        flex-direction: row;
-      }
-    }
-  }
-}
-
-.main-navigation ul ul {
-  position: relative;
-  top: 0;
-  left: 0;
-  clear: both;
-  box-shadow: none;
-  padding-top: 1rem;
-
-  @include mq($gfw__mq-lg) {
-    padding: 0;
-  }
-}
-
-// For Toggle
-@include mq($gfw__mq-lg) {
-  #menu-item-294 {
-    @include flex-box;
-  }
-
-  .right-nav-header .navigation-list li {
-    padding: 0 1rem;
-  }
-
-  .menu-item-298 {
-    padding: 0;
-  }
-
-  .menu-main-menu-container {
-    display: inline-flex;
-  }
-}
-
-@include mq($gfw__mq-lg) {
-  .cta-header-bg {
-    max-width: 100%;
-    margin: 0 auto;
-    background-color: $color__yellow-gfw;
-  }
+// CTA Header
+.cta-header-bg {
+  display: none;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: $color__yellow-gfw;
 
   .cta-header {
     display: flex;
@@ -173,13 +48,146 @@
     min-width: 6rem;
     padding: 0.5rem 1.5rem;
   }
+
+  @include mq($gfw__mq-lg) {
+    display: block;
+  }
+}
+
+// Nav Header
+.nav-header {
+  position: relative;
+  @include flex-box(space-between);
+
+  .custom-logo {
+    width: 2rem;
+    height: 2rem;
+
+    @include mq($gfw__mq-lg) {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
+  .menu-header-right-container .menu {
+    @include flex-box;
+    gap: 1rem;
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    @include mq($gfw__mq-lg) {
+      flex-direction: row;
+    }
+  }
+
+  .menu-toggle {
+    padding: 0 0 0 1rem;
+    svg {
+      display: block;
+      width: 1.8rem;
+      height: 2rem;
+      fill: $color__white;
+      cursor: pointer;
+    }
+  }
+}
+
+// Right Navigation
+.right-nav-header {
+  @include flex-box;
+  flex-direction: row;
+
+  .navigation-list {
+    position: absolute;
+    top: 3.3rem;
+    right: 0;
+    width: 14rem;
+    background-color: $color__dark-gfw;
+    z-index: 999;
+
+    li {
+      width: 100%;
+
+      a {
+        width: 100%;
+        text-align: left;
+        color: $color__white;
+        padding: 1rem 1.5rem;
+      }
+
+      @include mq($gfw__mq-lg) {
+        &:not(.page_item) {
+          width: max-content;
+          padding: 0;
+        }
+      }
+    }
+
+    @include mq($gfw__mq-md) {
+      right: 5rem;
+    }
+
+    @include mq($gfw__mq-lg) {
+      position: relative;
+      top: 0;
+      right: 0;
+      width: max-content;
+      padding: 0;
+    }
+  }
+
+  .menu-main-menu-container {
+    .menu {
+      flex-direction: column;
+      align-items: start;
+
+      @include mq($gfw__mq-lg) {
+        display: inline-flex;
+        flex-direction: row;
+      }
+    }
+  }
+}
+
+// .main-navigation ul ul {
+//   position: relative;
+//   top: 0;
+//   left: 0;
+//   clear: both;
+//   box-shadow: none;
+
+//   @include mq($gfw__mq-lg) {
+//     padding: 0;
+//   }
+// }
+
+// For Toggle
+// @include mq($gfw__mq-lg) {
+//   #menu-item-294 {
+//     @include flex-box;
+//   }
+
+//   .menu-main-menu-container {
+//     display: inline-flex;
+//   }
+// }
+
+// Menu Icons
+.menu-item .dashicons {
+  font-size: 1.5rem;
+  color: $color__white;
+  @include mq($gfw__mq-lg) {
+    color: $color__dark-gfw;
+  }
 }
 
 // Searchbar
 .searchform {
-  margin-bottom: 0.5rem;
   position: relative;
   color: $color__dark-gfw;
+  margin: 1.5rem 1rem 1rem;
 
   input {
     width: 100%;

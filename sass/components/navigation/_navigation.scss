@@ -4,10 +4,6 @@
   text-align: center;
 
   ul {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-
     :hover > a,
     .focus > a {
     }
@@ -66,7 +62,23 @@ li {
 
 .sub-menu {
   // About the company
-  display: none;
+  background-color: $color__blue-gfw;
+
+  @include mq($gfw__mq-lg) {
+    float: left;
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: -999em;
+    z-index: 99999;
+    flex-direction: column;
+
+    li {
+      width: 7.5rem;
+      a {
+        width: 100%;
+      }
+    }
+  }
 }
 
 #menu-item-441 {
