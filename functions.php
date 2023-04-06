@@ -175,7 +175,7 @@ add_action('acf/init', 'my_acf_init');
  */
 function gfw_dashboard_widget() {
   esc_html_e( "Hello World, this is my first Dashboard Widget!", "textdomain" );
-  echo '<iframe width="100%" height="315" src="https://www.youtube.com/embed/C2SaWYOOG3w"></iframe>';
+  echo '<iframe width="100%" height="315" src="https://www.youtube.com/embed/Wr0NRt2_Ha8"></iframe>';
 }
 
 function gftw_remove_dashboard_widget() {
