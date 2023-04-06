@@ -175,7 +175,7 @@ add_action('acf/init', 'my_acf_init');
  */
 function gfw_dashboard_widget() {
   esc_html_e( "Hello World, this is my first Dashboard Widget!", "textdomain" );
-  echo '<iframe width="100%" height="315" src="https://www.youtube.com/embed/C2SaWYOOG3w"></iframe>';
+  echo '<iframe width="100%" height="315" src="https://www.youtube.com/embed/Wr0NRt2_Ha8"></iframe>';
 }
 
 function gftw_remove_dashboard_widget() {
@@ -191,6 +191,7 @@ function gftw_remove_dashboard_widget() {
 	remove_meta_box( 'cn_dashboard_stats', 'dashboard', 'normal' );
 	remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'normal' );
 	remove_meta_box( 'wordfence_activity_report_widget', 'dashboard', 'normal' );
+	remove_meta_box( 'jetpack_summary_widget', 'dashboard', 'normal' );
 
 	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
 	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
