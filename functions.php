@@ -189,6 +189,7 @@ function gftw_remove_dashboard_widget() {
 	remove_meta_box( 'rg_forms_dashboard', 'dashboard', 'normal' );
 	remove_meta_box( 'cn_dashboard_stats', 'dashboard', 'normal' );
 	remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'normal' );
+	remove_meta_box( 'wordfence_activity_report_widget', 'dashboard', 'normal' );
 
 	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
 	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
