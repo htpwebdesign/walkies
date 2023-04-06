@@ -20,6 +20,8 @@
   .cta-header {
     display: flex;
     justify-content: space-between;
+    max-width: 81.25em;
+    margin: auto;
 
     .menu-header-left-container .menu {
       @include flex-box();
@@ -57,7 +59,9 @@
 // Nav Header
 .nav-header {
   position: relative;
+  max-width: 81.25em;
   @include flex-box(space-between);
+  margin: auto;
 
   .custom-logo {
     width: 2rem;
@@ -141,6 +145,7 @@
       top: 0;
       right: 0;
       width: max-content;
+      margin: auto;
       padding: 0;
     }
   }
