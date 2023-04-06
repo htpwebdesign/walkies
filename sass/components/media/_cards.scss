@@ -160,11 +160,27 @@
 }
 
 .packages-card {
-  // height: 55rem;
-
   @include mq($gfw__mq-lg) {
-    .card-content {
-      // height: calc(100% - 20rem);
+    .card-content .price + p {
+      position: relative;
+      overflow: hidden;
+      max-height: 10rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: $gfw-margin-lg;
+        background-color: $color__dark-gfw;
+        background: linear-gradient(
+          180deg,
+          rgba(194, 245, 239, 0) 0%,
+          rgba(194, 245, 239, 0.4430147058823529) 50%,
+          rgba(194, 245, 239, 1) 100%
+        );
+      }
     }
 
     .cta {
@@ -193,20 +209,17 @@
   }
 
   @include mq($gfw__mq-lg) {
-    @include center-block();
-    @include flex-box();
-    gap: 2rem;
-    padding: $gfw-padding-md;
+    width: 90%;
+    @include center-block;
+    @include flex-box(start);
 
     img {
-      width: 25rem;
-      border-radius: $gfw-radius-sm;
+      width: 50%;
     }
 
     .card-content {
-      text-align: left;
       align-items: start;
-      margin: 0;
+      margin: 0 auto;
       padding: 0;
     }
 
