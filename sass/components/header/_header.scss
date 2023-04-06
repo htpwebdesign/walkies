@@ -1,12 +1,3 @@
-.cta-header,
-.nav-header {
-  padding: 0.5rem 1rem;
-
-  @include mq($gfw__mq-md) {
-    padding: 1rem 2rem;
-  }
-}
-
 .site-header {
   background-color: $color__dark-gfw;
 
@@ -112,17 +103,6 @@
   }
 }
 
-.searchform {
-  input {
-    width: 100%;
-  }
-
-  @include mq($gfw__mq-lg) {
-    display: inline-flex;
-    margin-right: 2rem;
-  }
-}
-
 .main-navigation ul ul {
   position: relative;
   top: 0;
@@ -183,14 +163,13 @@
   }
 
   #menu-item-456 {
-    @include btnStyle(true);
-    border: 0;
+    @include btnStyle();
     min-width: 6rem;
     padding: 0.5rem 1.5rem;
   }
 
   #menu-item-457 {
-    @include btnStyle();
+    @include btnStyle(true);
     min-width: 6rem;
     padding: 0.5rem 1.5rem;
   }
@@ -203,6 +182,7 @@
   color: $color__dark-gfw;
 
   input {
+    width: 100%;
     border: 0;
     border-radius: 0;
   }
@@ -214,10 +194,11 @@
   }
 
   @include mq($gfw__mq-lg) {
+    display: inline-flex;
+    margin-right: 2rem;
     margin-bottom: 0;
 
     input {
-      background-color: transparent;
       border: 2px solid $color__dark-gfw;
       border-radius: $gfw-radius-sm;
       padding: 0.5rem 1.5rem;
