@@ -1,4 +1,7 @@
 .page-id-83 {
+    h1 {
+        @include compact;
+    }
 
     section.who_section {
 
@@ -10,48 +13,49 @@
             grid-auto-rows: min-content;
             gap: 1.25rem;
             align-content: flex-start;
-        
+
             img {
-              align-self: auto;
-              grid-column: 1/3;
-              grid-row: 1/4;
-              height: 100%;
-              max-height: 50vh;
-              width: 100%;
-              object-fit: cover;
-              object-position: 60% center;
-              padding-top: $gfw-font-md;
+                align-self: auto;
+                grid-column: 1/3;
+                grid-row: 1/4;
+                height: 100%;
+                max-height: 50vh;
+                width: 100%;
+                object-fit: cover;
+                object-position: 60% center;
+                padding-top: $gfw-font-md;
             }
-        
-            & > *:not(img) {
-              grid-column: 3/5;
+
+            &>*:not(img) {
+                grid-column: 3/5;
             }
-        
+
             h1 {
-              grid-row: 1/2;
-              margin: 0;
-              margin-top: 2rem;
-              align-self: flex-end;
+                grid-row: 1/2;
+                margin: 0;
+                margin-top: 2rem;
+                align-self: flex-end;
             }
 
             h2 {
                 padding-top: $gfw-padding-lg;
             }
-        
+
             p {
-              margin: 0;
-              grid-row: 2/3;
+                margin: 0;
+                grid-row: 2/3;
             }
+        }
     }
-}
 
     section.human-section {
         @include flex-box;
         gap: $gfw-padding-md;
-        
+
         h2 {
             width: 100%;
         }
+
         article {
             @include testimonialCard;
         }
@@ -60,6 +64,7 @@
 
     section.why_section {
         row-gap: $gfw-padding-md;
+
         article {
             @include cardStyle;
             max-width: 25rem;
@@ -70,6 +75,7 @@
             h3 {
                 padding: 1.25rem 0;
             }
+
             img {
                 align-self: center;
                 height: 5rem;
@@ -82,24 +88,34 @@
             flex-direction: row;
             gap: $gfw-margin-lg;
 
-            h2{
+            h2 {
                 width: 100%;
             }
         }
     }
 
-     section.social_section {
+    section.social_section {
         display: flex;
         flex-direction: column;
-        div.social_bg{
-            background-color: $color__accent3-gfw;
-            margin: -1.25rem;
+        margin: $gfw-margin-lg auto;
+        border-top: 1px solid $color__dark-gfw;
+        border-bottom: 1px solid $color__dark-gfw;
+
+        nav.social-icons {
+            justify-content: center;
         }
-     }
+
+        @include mq($gfw__mq-md) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            
+            nav.social-icons {
+                width: 100%;
+                align-content: center;
+                justify-content: flex-end;
+            }
+            
+        }
     }
-
-   
-
-
-
-
+}
