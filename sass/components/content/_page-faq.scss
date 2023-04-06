@@ -1,14 +1,13 @@
 .page-id-284 {
-    // Accordion styles
-    @import "default-faq";
+  // Accordion styles
+  @import "default-faq";
 
-    nav.faq-nav {
-
-        a {
-            &:not(:last-child)::after {
-                content: " | ";
-                color: $color__black;
-            }
-        }
+  nav.faq-nav {
+    a {
+      &:not(:last-child)::after {
+        content: " | ";
+        color: $color__black;
+      }
     }
+  }
 }

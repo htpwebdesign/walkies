@@ -1,95 +1,97 @@
 .page-id-15 {
-    article#post-15 {
-        padding: $gfw-padding-lg;
+  article#post-15 {
+    padding: $gfw-padding-lg;
 
-        div#customer_login {
-            display: flex;
-            flex-direction: column;
-            gap: $gfw-margin-lg;
+    div#customer_login {
+      display: flex;
+      flex-direction: column;
+      gap: $gfw-margin-lg;
 
-            div.u-column1,
-            div.u-column2 {
-                @include cardStyle;
+      div.u-column1,
+      div.u-column2 {
+        @include cardStyle;
 
-                label,
-                input {
-                    width: 100%;
-                    font-weight: 700;
-                    margin-top: $gfw-margin-sm;
-                }
-
-                input {
-                    margin-bottom: $gfw-margin-sm;
-                }
-
-                input#rememberme {
-                    width: fit-content;
-                    margin-right: $gfw-margin-sm;
-                }
-
-                button {
-                    @include btnStyle;
-                }
-
-                a {
-                    width: fit-content;
-                    display: inline;
-                }
-            }
-
-            div.u-column1 {
-                background-color: $color__accent3-gfw;
-
-                p.form-row:nth-of-type(3) {
-                    display: flex;
-                    flex-direction: column;
-
-                    button {
-                        margin: $gfw-margin-sm auto;
-                    }
-                }
-
-                p.lost_password {
-                    text-align: center;
-                }
-            }
-
-            div.u-column2 {
-                p.form-row {
-                    button {
-                        display: block;
-                        margin: $gfw-margin-sm auto;
-                    }
-                }
-            }
-            @media screen and (min-width: $gfw__mq-md) {
-                div.u-column1, div.u-column2 {
-                    p.form-row {
-                        button {
-                            &:hover, &:focus {
-                                @include btnStyle($def: $color__green-gfw);
-                            }
-                        }
-                    }
-                }
-            }
-            @media screen and (min-width: $gfw__mq-lg) {
-                flex-direction: row;
-                justify-content: center;
-
-                div.u-column1,
-                div.u-column2 {
-                    width: 100%;
-                }
-
-                div.u-column2 {
-                    p.form-row {
-                        button {
-                            margin-top: 1.5rem;
-                        }
-                    }
-                }
-            }
+        label,
+        input {
+          width: 100%;
+          font-weight: 700;
+          margin-top: $gfw-margin-sm;
         }
+
+        input {
+          margin-bottom: $gfw-margin-sm;
+        }
+
+        input#rememberme {
+          width: fit-content;
+          margin-right: $gfw-margin-sm;
+        }
+
+        button {
+          @include btnStyle;
+        }
+
+        a {
+          width: fit-content;
+          display: inline;
+        }
+      }
+
+      div.u-column1 {
+        background-color: $color__accent3-gfw;
+
+        p.form-row:nth-of-type(3) {
+          display: flex;
+          flex-direction: column;
+
+          button {
+            margin: $gfw-margin-sm auto;
+          }
+        }
+
+        p.lost_password {
+          text-align: center;
+        }
+      }
+
+      div.u-column2 {
+        p.form-row {
+          button {
+            display: block;
+            margin: $gfw-margin-sm auto;
+          }
+        }
+      }
+      @media screen and (min-width: $gfw__mq-md) {
+        div.u-column1,
+        div.u-column2 {
+          p.form-row {
+            button {
+              &:hover,
+              &:focus {
+                @include btnStyle($def: $color__green-gfw);
+              }
+            }
+          }
+        }
+      }
+      @media screen and (min-width: $gfw__mq-lg) {
+        flex-direction: row;
+        justify-content: center;
+
+        div.u-column1,
+        div.u-column2 {
+          width: 100%;
+        }
+
+        div.u-column2 {
+          p.form-row {
+            button {
+              margin-top: 1.5rem;
+            }
+          }
+        }
+      }
     }
+  }
 }

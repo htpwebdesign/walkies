@@ -109,8 +109,18 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wr
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 
 /**
- * Remove related products on single product.
+ * Change Woo Product H2 Tag to H3
  */
+remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+add_action( 'woocommerce_shop_loop_item_title', 'gfw_loop_product_title', 10 );
+function gfw_loop_product_title() {
+    the_title( '<h3 class="product_title entry-title">', '</h3>' );
+}
+
+ /**
+ * Remove price, related products on single product.
+ */
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
 if ( ! function_exists( 'walkies_woocommerce_wrapper_before' ) ) {

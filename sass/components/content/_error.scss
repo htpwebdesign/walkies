@@ -1,13 +1,12 @@
 .site-main section.error-404 {
-    text-align: center;
+  text-align: center;
 
-    div.custom-form {
-        
-        input#s {
-            color: $color__text-input;
-            border: 1px solid $color__blue-gfw;
-            border-radius: 3px;
-            padding: 3px;
-        }
+  div.custom-form {
+    input#s {
+      color: $color__text-input;
+      border: 1px solid $color__blue-gfw;
+      border-radius: 3px;
+      padding: 3px;
     }
+  }
 }

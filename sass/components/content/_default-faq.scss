@@ -1,55 +1,54 @@
-    .accordion {
-        width: 100%;
-        border: none;
-        text-align: left;
-        padding: $gfw-padding-lg $gfw-padding-md;
-        background-color: $color__dark-gfw;
-        display: flex;
-        color: $color__white;
-        justify-content: space-between;
-        align-content: center;
-        cursor: pointer;
-        margin-bottom: .25rem;
+.accordion {
+  width: 100%;
+  border: none;
+  text-align: left;
+  padding: $gfw-padding-lg $gfw-padding-md;
+  background-color: $color__dark-gfw;
+  display: flex;
+  color: $color__white;
+  justify-content: space-between;
+  align-content: center;
+  cursor: pointer;
+  margin-bottom: 0.25rem;
 
-        &::after {
-            content: "+";
-            font-size: 1.25rem;
-        }
+  &::after {
+    content: "+";
+    font-size: 1.25rem;
+  }
 
-        &.active {
-            background-color: $color__accent2-gfw;
-            color: $color__dark-gfw;
-            &:after {
-                content: "—";
-                font-size: 1.25rem;
-            }
-        }
-
-        @media screen and (min-width: $gfw__mq-md) {
-
-            &:hover,
-            &:focus {
-                background-color: $color__accent2-gfw;
-                color: $color__black;
-            }
-        }
+  &.active {
+    background-color: $color__accent2-gfw;
+    color: $color__dark-gfw;
+    &:after {
+      content: "—";
+      font-size: 1.25rem;
     }
+  }
 
-    .panel {
-        @include compact;
-        max-height: 0;
-        overflow: hidden;
-        transition: all 0.3s ease-in-out;
-
-        p {
-            margin: 1rem;
-        }
-
-        &.show {
-            max-height: 30rem;
-
-            @media screen and (min-width: $gfw__mq-lg) {
-                max-height: 15rem;;
-            }
-        }
+  @media screen and (min-width: $gfw__mq-md) {
+    &:hover,
+    &:focus {
+      background-color: $color__accent2-gfw;
+      color: $color__black;
     }
+  }
+}
+
+.panel {
+  @include compact;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+
+  p {
+    margin: 1rem;
+  }
+
+  &.show {
+    max-height: 30rem;
+
+    @media screen and (min-width: $gfw__mq-lg) {
+      max-height: 15rem;
+    }
+  }
+}

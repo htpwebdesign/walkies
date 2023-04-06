@@ -1,121 +1,118 @@
 .page-id-83 {
-    h1 {
-        @include compact;
+  h1 {
+    @include compact;
+  }
+
+  section.who_section {
+    @include mq($gfw__mq-lg) {
+      max-width: 81.25em;
+      margin: -2rem auto 2rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: min-content;
+      gap: 1.25rem;
+      align-content: flex-start;
+
+      img {
+        align-self: auto;
+        grid-column: 1/3;
+        grid-row: 1/4;
+        height: 100%;
+        max-height: 50vh;
+        width: 100%;
+        object-fit: cover;
+        object-position: 60% center;
+        padding-top: $gfw-font-md;
+      }
+
+      & > *:not(img) {
+        grid-column: 3/5;
+      }
+
+      h1 {
+        grid-row: 1/2;
+        margin: 0;
+        margin-top: 2rem;
+        align-self: flex-end;
+      }
+
+      h2 {
+        padding-top: $gfw-padding-lg;
+      }
+
+      p {
+        margin: 0;
+        grid-row: 2/3;
+      }
+    }
+  }
+
+  section.human-section {
+    @include flex-box;
+    gap: $gfw-padding-md;
+
+    h2 {
+      width: 100%;
     }
 
-    section.who_section {
+    article {
+      @include testimonialCard;
+    }
+  }
 
-        @include mq($gfw__mq-lg) {
-            max-width: 81.25em;
-            margin: -2rem auto 2rem;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: min-content;
-            gap: 1.25rem;
-            align-content: flex-start;
+  section.why_section {
+    row-gap: $gfw-padding-md;
 
-            img {
-                align-self: auto;
-                grid-column: 1/3;
-                grid-row: 1/4;
-                height: 100%;
-                max-height: 50vh;
-                width: 100%;
-                object-fit: cover;
-                object-position: 60% center;
-                padding-top: $gfw-font-md;
-            }
+    article {
+      @include cardStyle;
+      max-width: 25rem;
+      height: 18rem;
+      align-items: center;
+      box-shadow: none;
 
-            &>*:not(img) {
-                grid-column: 3/5;
-            }
+      h3 {
+        padding: 1.25rem 0;
+      }
 
-            h1 {
-                grid-row: 1/2;
-                margin: 0;
-                margin-top: 2rem;
-                align-self: flex-end;
-            }
-
-            h2 {
-                padding-top: $gfw-padding-lg;
-            }
-
-            p {
-                margin: 0;
-                grid-row: 2/3;
-            }
-        }
+      img {
+        align-self: center;
+        height: 5rem;
+        width: auto;
+      }
     }
 
-    section.human-section {
-        @include flex-box;
-        gap: $gfw-padding-md;
+    @include mq($gfw__mq-md) {
+      @include flex-box;
+      flex-direction: row;
+      gap: $gfw-margin-lg;
 
-        h2 {
-            width: 100%;
-        }
+      h2 {
+        width: 100%;
+      }
+    }
+  }
 
-        article {
-            @include testimonialCard;
-        }
+  section.social_section {
+    display: flex;
+    flex-direction: column;
+    margin: $gfw-margin-lg auto;
+    border-top: 1px solid $color__dark-gfw;
+    border-bottom: 1px solid $color__dark-gfw;
 
+    nav.social-icons {
+      justify-content: center;
     }
 
-    section.why_section {
-        row-gap: $gfw-padding-md;
+    @include mq($gfw__mq-md) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
 
-        article {
-            @include cardStyle;
-            max-width: 25rem;
-            height: 18rem;
-            align-items: center;
-            box-shadow: none;
-
-            h3 {
-                padding: 1.25rem 0;
-            }
-
-            img {
-                align-self: center;
-                height: 5rem;
-                width: auto;
-            }
-        }
-
-        @include mq($gfw__mq-md) {
-            @include flex-box;
-            flex-direction: row;
-            gap: $gfw-margin-lg;
-
-            h2 {
-                width: 100%;
-            }
-        }
+      nav.social-icons {
+        width: 100%;
+        align-content: center;
+        justify-content: flex-end;
+      }
     }
-
-    section.social_section {
-        display: flex;
-        flex-direction: column;
-        margin: $gfw-margin-lg auto;
-        border-top: 1px solid $color__dark-gfw;
-        border-bottom: 1px solid $color__dark-gfw;
-
-        nav.social-icons {
-            justify-content: center;
-        }
-
-        @include mq($gfw__mq-md) {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            
-            nav.social-icons {
-                width: 100%;
-                align-content: center;
-                justify-content: flex-end;
-            }
-            
-        }
-    }
+  }
 }

@@ -37,7 +37,6 @@
     .single_add_to_cart_button {
       @include btnStyle;
       margin: $gfw-margin-md 0;
-      width: 100%;
     }
 
     .onsale {
@@ -100,7 +99,6 @@
         z-index: 99;
       }
 
-
       .flex-viewport {
         margin-bottom: 1em;
         width: 100%;
@@ -113,7 +111,9 @@
             height: 20rem;
             width: 100%;
 
-            a, a img, a img.zoomImg {
+            a,
+            a img,
+            a img.zoomImg {
               object-fit: cover;
               object-position: center bottom;
               height: auto;
@@ -127,13 +127,11 @@
         margin: 0;
         padding: 0;
 
-
         li {
           list-style: none;
           cursor: pointer;
           float: left;
           margin-right: $gfw-margin-sm;
-
 
           img {
             opacity: 0.5;
@@ -152,7 +150,6 @@
           }
         }
       }
-
     }
   }
 

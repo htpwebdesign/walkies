@@ -1,12 +1,11 @@
 .term-physical-products .site-main,
 .page-id-115 .site-main,
 .woocommerce-shop .site-main {
-
   section.featured-product-section {
     margin: -1.25rem;
     margin-bottom: 1.25rem;
 
-    &>*:not(img) {
+    & > *:not(img) {
       margin: 1.25rem;
     }
 
@@ -35,7 +34,7 @@
     @include mq($gfw__mq-md) {
       margin: -2rem -5rem 2rem;
 
-      &>*:not(img) {
+      & > *:not(img) {
         margin: 1rem 5rem;
       }
 
@@ -82,7 +81,7 @@
         object-position: 43% center;
       }
 
-      &>*:not(img) {
+      & > *:not(img) {
         grid-column: 3/5;
       }
 
