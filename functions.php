@@ -269,7 +269,7 @@ function custom_search_form( $form ) {
   $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
     <div class="custom-form"><label class="screen-reader-text" for="s">' . __( 'Search:' ) . '</label>
       <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'. esc_attr__( 'Search' ) .'"  />
-      <span class="dashicons dashicons-search"></span>
+      <button class="dashicons dashicons-search" type="submit"></button>
     </div>
   </form>';
 
@@ -277,37 +277,5 @@ function custom_search_form( $form ) {
 }
 add_filter( 'get_search_form', 'custom_search_form', 40 );
 
-// Custom Menu Order
-function gfw_menu_order( $menu_order ) {
-  return array( 
-    'index.php', // Dashboard
-    'edit.php?post_type=wc_booking', // Bookings
-    'admin.php?page=gf_edit_forms', // Contact Form
-    'edit.php?post_type=product', // Products
-    'edit.php?post_type=gfw-testimonial', // Testimonials
-    'edit.php?post_type=gfw-walker', // Walker
-    'edit.php?post_type=gfw-faq', // FAQ
-    'edit.php?post_type=page', // Pages
-    'admin.php?page=contact-form-settings', // Contact Settings
-    'upload.php', // Media
-    
-    'themes.php', // Appearance
-    'admin.php?page=wc-admin', // WooCommerce
-    'options-general.php', // Settings
-    'wp-admin/plugins.php', // Plugins
-    
-    'edit.php?post_type=acf-field-group', // ACF
-    'admin.php?page=wpseo_dashboard', // Yoast SEO
-    'admin.php?page=wc-admin&path=%2Fanalytics%2Foverview', // Analytics
-    'admin.php?page=wc-admin&path=%2Fmarketing', // Marketing
-    'admin.php?page=sbi-feed-builder', // Instagram Feed
-    'admin.php?page=cookie-notice', // Cookies
-    'tools.php', // Tools
-    'users.php', // Users
-
-    'edit-comments.php', // Comments
-    'edit.php',  // Posts
-  );
-}
-add_filter( 'custom_menu_order', '__return_true' );
-add_filter( 'menu_order', 'gfw_menu_order', 10, 1 );
+// Hide Archive Prefix
+add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
