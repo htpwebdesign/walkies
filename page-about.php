@@ -17,7 +17,7 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <header class="entry-header">
         <?php echo '<h1>' . esc_html( get_the_title() ) . '</h1>'; ?>
       </header><!-- .entry-header -->
@@ -106,8 +106,10 @@ get_header();
         <?php 
           if ( get_field( 'social_media_headline' )):
             echo '<section class="social_section social-section2">';
+            echo '<div class="social_bg">';
             echo '<h2>' . esc_html( get_field( 'social_media_headline' ) ) . '</h2>';
             get_template_part( 'template-parts/content', 'contact-socials');
+            echo '</div>';
             echo '</section>';
           endif;
 
@@ -120,7 +122,7 @@ get_header();
         ?>
       </div><!-- .entry-content -->
 
-    </article>
+      </div>
     
     <!-- #post-<?php the_ID(); ?> -->
 

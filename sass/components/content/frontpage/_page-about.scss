@@ -1,8 +1,6 @@
-article.post-83 {
+.page-id-83 {
 
     section.who_section {
-
-        
 
         @include mq($gfw__mq-lg) {
             max-width: 81.25em;
@@ -58,24 +56,24 @@ article.post-83 {
             @include testimonialCard;
         }
 
-        // @include mq($gfw__mq-md) {
-        //     @include flex-box;
-        //     gap: $gfw-padding-md;
-        // }
     }
 
     section.why_section {
         row-gap: $gfw-padding-md;
         article {
             @include cardStyle;
-            max-width: 400px;
+            max-width: 25rem;
+            height: 18rem;
             align-items: center;
+            box-shadow: none;
 
             h3 {
                 padding: 1.25rem 0;
             }
             img {
                 align-self: center;
+                height: 5rem;
+                width: auto;
             }
         }
 
@@ -90,9 +88,14 @@ article.post-83 {
         }
     }
 
-        // img {
-        //     margin-left: 1.25rem;
-        // }
+     section.social_section {
+        display: flex;
+        flex-direction: column;
+        div.social_bg{
+            background-color: $color__accent3-gfw;
+            margin: -1.25rem;
+        }
+     }
     }
 
    
