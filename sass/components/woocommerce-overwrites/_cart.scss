@@ -36,6 +36,8 @@
   div.wc-proceed-to-checkout {
     a.checkout-button {
       @include btnStyle;
+      display: block;
+      margin: 0 auto;
 
       &:hover,
       &:focus,
