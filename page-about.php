@@ -35,7 +35,7 @@ get_header();
             
               if( get_row_layout() == 'who_we_are' ):
                 echo '<section class="who_section who-section"><h2>Who We Are</h2>';
-                echo wp_get_attachment_image( get_sub_field( 'banner_image' ), 'medium' );
+                echo wp_get_attachment_image( get_sub_field( 'banner_image' ), 'large' );
                 echo '<p>' . get_sub_field( 'content' ) . '</p>';
                 echo '</section>';
 
