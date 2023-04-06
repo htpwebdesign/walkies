@@ -64,8 +64,8 @@
     height: 2rem;
 
     @include mq($gfw__mq-lg) {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 3rem;
+      height: 3rem;
     }
   }
 
@@ -118,9 +118,16 @@
       }
 
       @include mq($gfw__mq-lg) {
-        &:not(.page_item) {
-          width: max-content;
-          padding: 0;
+        width: max-content;
+        padding: 0;
+
+        a {
+          padding-top: 1.5rem;
+          padding-bottom: 1.5rem;
+        }
+
+        &.menu-item-441 a {
+          padding-right: 0;
         }
       }
     }
@@ -146,33 +153,14 @@
       @include mq($gfw__mq-lg) {
         display: inline-flex;
         flex-direction: row;
+
+        a:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
 }
-
-// .main-navigation ul ul {
-//   position: relative;
-//   top: 0;
-//   left: 0;
-//   clear: both;
-//   box-shadow: none;
-
-//   @include mq($gfw__mq-lg) {
-//     padding: 0;
-//   }
-// }
-
-// For Toggle
-// @include mq($gfw__mq-lg) {
-//   #menu-item-294 {
-//     @include flex-box;
-//   }
-
-//   .menu-main-menu-container {
-//     display: inline-flex;
-//   }
-// }
 
 // Menu Icons
 .menu-item .dashicons {
@@ -196,15 +184,18 @@
   }
 
   .dashicons-search {
+    width: max-content;
     position: absolute;
-    bottom: 15%;
-    right: 0.25rem;
+    bottom: 20%;
+    right: 0.2rem;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
   }
 
   @include mq($gfw__mq-lg) {
     display: inline-flex;
-    margin-right: 2rem;
-    margin-bottom: 0;
+    margin: 0 2rem 0 0;
 
     input {
       border: 2px solid $color__dark-gfw;
@@ -213,7 +204,7 @@
     }
 
     .dashicons-search {
-      bottom: 25%;
+      bottom: 30%;
       right: 0.5rem;
     }
   }

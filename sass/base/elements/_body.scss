@@ -33,6 +33,12 @@ body {
   @include mq($gfw__mq-md) {
     padding: 0.75rem 5rem;
   }
+
+  @include mq($gfw__mq-lg) {
+    &.nav-header {
+      padding: 0 5rem;
+    }
+  }
 }
 
 .site-main > section:not(.shop-package-bg):not(.featured-product-section) {

@@ -67,17 +67,10 @@ li {
   @include mq($gfw__mq-lg) {
     float: left;
     position: absolute;
-    top: calc(100% + 0.75rem);
+    top: 100%;
     left: -999em;
     z-index: 99999;
     flex-direction: column;
-
-    li {
-      width: 7.5rem;
-      a {
-        width: 100%;
-      }
-    }
   }
 }
 
