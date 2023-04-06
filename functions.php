@@ -279,3 +279,11 @@ add_filter( 'get_search_form', 'custom_search_form', 40 );
 
 // Hide Archive Prefix
 add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
+
+//Prevents WP from grabbing the thumbnail size on single product page 
+function gfw_change_shop_img_size() {
+	return 'full';
+}
+add_filter( 'woocommerce_gallery_image_size', 'gfw_change_shop_img_size' );
+add_filter( 'woocommerce_gallery_full_size', 'gfw_change_shop_img_size' );
+

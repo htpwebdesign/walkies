@@ -17,7 +17,7 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <header class="entry-header">
         <?php echo '<h1>' . esc_html( get_the_title() ) . '</h1>'; ?>
       </header><!-- .entry-header -->
@@ -35,7 +35,7 @@ get_header();
             
               if( get_row_layout() == 'who_we_are' ):
                 echo '<section class="who_section who-section"><h2>Who We Are</h2>';
-                echo wp_get_attachment_image( get_sub_field( 'banner_image' ), 'medium' );
+                echo wp_get_attachment_image( get_sub_field( 'banner_image' ), 'large' );
                 echo '<p>' . get_sub_field( 'content' ) . '</p>';
                 echo '</section>';
 
@@ -120,7 +120,7 @@ get_header();
         ?>
       </div><!-- .entry-content -->
 
-    </article>
+      </div>
     
     <!-- #post-<?php the_ID(); ?> -->
 
