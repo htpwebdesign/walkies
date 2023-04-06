@@ -311,3 +311,10 @@ function gfw_menu_order( $menu_order ) {
 }
 add_filter( 'custom_menu_order', '__return_true' );
 add_filter( 'menu_order', 'gfw_menu_order', 10, 1 );
+
+//Prevents WP from grabbing the thumbnail size on single product page 
+function gfw_change_shop_img_size() {
+	return 'full';
+}
+add_filter( 'woocommerce_gallery_image_size', 'gfw_change_shop_img_size' );
+add_filter( 'woocommerce_gallery_full_size', 'gfw_change_shop_img_size' );
