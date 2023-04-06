@@ -3,26 +3,26 @@ h3,
 h4,
 h5,
 h6 {
-	clear: both;
-	font-size: $gfw-font-md;
-	font-family: $heading__font;
+  clear: both;
+  font-size: $gfw-font-md;
+  font-family: $heading__font;
 }
 
 h1 {
-	clear: both;
-	font-size: $gfw-font-lg;
-	font-family: $stylized__font;
-	color: $color__dark-gfw;
-	text-transform: lowercase;
+  clear: both;
+  font-size: $gfw-font-lg;
+  font-family: $stylized__font;
+  color: $color__dark-gfw;
+  text-transform: lowercase;
 }
 
 h2,
 h4,
 h6 {
-	color: $color__dark-gfw;
+  color: $color__dark-gfw;
 }
 
 h3,
 h5 {
-	color: $color__green-gfw;
+  color: $color__green-gfw;
 }

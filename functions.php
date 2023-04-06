@@ -131,6 +131,7 @@ function walkies_scripts() {
 		array(),
 		null);
 	wp_enqueue_style( 'walkies-style', get_stylesheet_uri(), array(), _S_VERSION );
+
 	wp_style_add_data( 'walkies-style', 'rtl', 'replace' );
 
 	wp_enqueue_style('dashicons');
@@ -170,6 +171,34 @@ function my_acf_init() {
 add_action('acf/init', 'my_acf_init');
 
 /**
+ * Dashboard Widgets
+ */
+function gfw_dashboard_widget() {
+  esc_html_e( "Hello World, this is my first Dashboard Widget!", "textdomain" );
+  echo '<iframe width="100%" height="315" src="https://www.youtube.com/embed/C2SaWYOOG3w"></iframe>';
+}
+
+function gftw_remove_dashboard_widget() {
+  // Globalize the metaboxes array, this holds all the widgets for wp-admin.
+  global $wp_meta_boxes;
+  wp_add_dashboard_widget('dashboard_widget', 'Tutorial Video', 'gfw_dashboard_widget');
+
+	remove_meta_box( 'wc_admin_dashboard_setup', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_site_health', 'dashboard', 'normal' );
+	remove_meta_box( 'rg_forms_dashboard', 'dashboard', 'normal' );
+	remove_meta_box( 'cn_dashboard_stats', 'dashboard', 'normal' );
+	remove_meta_box( 'wpseo-dashboard-overview', 'dashboard', 'normal' );
+	remove_meta_box( 'wordfence_activity_report_widget', 'dashboard', 'normal' );
+
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
+} 
+
+add_action( 'wp_dashboard_setup', 'gftw_remove_dashboard_widget' );
+
+ /**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -237,17 +266,41 @@ function gfw_contact_page_acf() {
 }
 add_action('acf/init', 'gfw_contact_page_acf');
 
-// Hide Archive Prefix
-add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
-
+// Search Bar
 function custom_search_form( $form ) {
   $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
     <div class="custom-form"><label class="screen-reader-text" for="s">' . __( 'Search:' ) . '</label>
       <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="'. esc_attr__( 'Search' ) .'"  />
-      <span class="dashicons dashicons-search"></span>
+      <button class="dashicons dashicons-search" type="submit"></button>
     </div>
   </form>';
 
   return $form;
 }
 add_filter( 'get_search_form', 'custom_search_form', 40 );
+
+// Hide Archive Prefix
+add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
+
+//Prevents WP from grabbing the thumbnail size on single product page 
+function gfw_change_shop_img_size() {
+	return 'full';
+}
+add_filter( 'woocommerce_gallery_image_size', 'gfw_change_shop_img_size' );
+add_filter( 'woocommerce_gallery_full_size', 'gfw_change_shop_img_size' );
+
+// Custom WP Login
+function gfw_login_stylesheet() {
+    wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/wp-login.css' );
+}
+add_action( 'login_enqueue_scripts', 'gfw_login_stylesheet' );
+
+function gfw_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'gfw_login_logo_url' );
+
+function gfw_login_logo_url_title() {
+    return 'Go for Walkies';
+}
+add_filter( 'login_headertext', 'gfw_login_logo_url_title' );

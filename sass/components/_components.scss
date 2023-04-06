@@ -10,12 +10,13 @@
 --------------------------------------------- */
 @import "content/posts-and-pages";
 @import "content/frontpage/frontpage";
+@import "content/frontpage/page-about";
 @import "content/page-faq";
 @import "content/page-walkers";
 @import "content/page-packages";
 @import "content/page-single-walker";
-@import "content/section-banner"; 
-@import "content/error"; 
+@import "content/section-banner";
+@import "content/error";
 @import "content/page-search";
 @import "woocommerce-overwrites/woo-overwrite";
 

@@ -1,43 +1,47 @@
 .page-id-13 {
-    table.cart {
-        td {
-            margin-bottom: $gfw-margin-sm;
+  table.cart {
+    td {
+      margin-bottom: $gfw-margin-sm;
 
-            button {
-                margin-top: $gfw-margin-sm;
-            }
+      button {
+        margin-top: $gfw-margin-sm;
+      }
 
-            div.coupon {
-                text-align: right;
-            }
+      div.coupon {
+        text-align: right;
+      }
 
-            button[name="update_cart"] {
-                @include btnStyle(true);
+      button[name="update_cart"] {
+        @include btnStyle(true);
 
-                &:hover,
-                &:active,
-                &:focus {
-                    @include btnStyle($outline: true, $def: $color__green-gfw);
-                }
-            }
+        &:hover,
+        &:active,
+        &:focus {
+          @include btnStyle($outline: true, $def: $color__green-gfw);
         }
+      }
     }
+  }
 
-    p.return-to-shop {
-        a {
-            @include btnStyle;
-            &:hover, &:focus, &:active {
-                @include btnStyle($def: $color__green-gfw)
-            }
-        }
+  p.return-to-shop {
+    a {
+      @include btnStyle;
+      &:hover,
+      &:focus,
+      &:active {
+        @include btnStyle($def: $color__green-gfw);
+      }
     }
-    div.wc-proceed-to-checkout{
-        a.checkout-button {
-            @include btnStyle;
+  }
+  div.wc-proceed-to-checkout {
+    a.checkout-button {
+      @include btnStyle;
 
-            &:hover, &:focus, &:active {
-                @include btnStyle($def: $color__green-gfw)
-            }
-        }
+      &:hover,
+      &:focus,
+      &:active {
+        @include btnStyle($def: $color__green-gfw);
+      }
     }
+  }
 }

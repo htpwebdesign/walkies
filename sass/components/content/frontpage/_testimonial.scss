@@ -1,20 +1,21 @@
-section.featured_testimonial_section, section.featured-dog-testimonial {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+section.featured_testimonial_section,
+section.featured-dog-testimonial {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
-    h2 {
-        width: 100%;
-        @include compact;
-    }
+  h2 {
+    width: 100%;
+    @include compact;
+  }
 
-    @include mq($gfw__mq-md) {
-        gap: 1rem;
-    } 
+  @include mq($gfw__mq-md) {
+    gap: 1rem;
+  }
 }
 
 section.featured-dog-testimonial {
-    article {
-        @include testimonialCard(false);
-    }
+  article {
+    @include testimonialCard(false);
+  }
 }

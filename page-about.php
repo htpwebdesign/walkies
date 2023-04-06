@@ -17,7 +17,7 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
       <header class="entry-header">
         <?php echo '<h1>' . esc_html( get_the_title() ) . '</h1>'; ?>
       </header><!-- .entry-header -->
@@ -34,19 +34,19 @@ get_header();
               $sub_value = get_sub_field( 'who_we_are' );
             
               if( get_row_layout() == 'who_we_are' ):
-                echo '<section class="who_section"><h2>Who We Are</h2>';
-                echo wp_get_attachment_image( get_sub_field( 'banner_image' ), 'full' );
+                echo '<section class="who_section who-section"><h2>Who We Are</h2>';
+                echo wp_get_attachment_image( get_sub_field( 'banner_image' ), 'large' );
                 echo '<p>' . get_sub_field( 'content' ) . '</p>';
                 echo '</section>';
 
               elseif( get_row_layout() == 'what_we_do' ):
-                echo '<section class="what_section"><h2>What We Do</h2>';
+                echo '<section class="what_section what-section"><h2>What We Do</h2>';
                 echo '<p>' . get_sub_field( 'content' ) . '</p>';
                 echo '</section>';
 
               elseif( get_row_layout() == 'why_choose_us' ):
                 if( have_rows( 'reasons' ) ):
-                  echo '<section class="why_section"><h2>Why Choose Us</h2>';
+                  echo '<section class="why_section why-section"><h2>Why Choose Us</h2>';
                   while( have_rows( 'reasons' )): the_row();
                     echo '<article>';
                     echo wp_get_attachment_image( get_sub_field( 'icon' ), 'thumbnail-icon' );
@@ -65,13 +65,14 @@ get_header();
           <?php
           $walkers = get_field( 'human_testimonial' );
           if ( $walkers ) : ?>
-            <section class="human_section">
+            <section class="human_section human-section">
               <h2>
                 <?php
                 esc_html_e('Customer Testimonials', 'walkies');
                 ?>
               </h2>
                 <?php 
+
                 foreach ( $walkers as $walker ):
                   $walker_fields = get_fields( $walker->ID );
 
@@ -93,26 +94,25 @@ get_header();
                   endif;
                 endforeach;
                 ?>
-              
             </section>
 
           <?php endif; ?>
 
-          <section class="location_section">
+          <section class="location_section location-section">
             <h2><?php esc_html_e('Walkies Service Areas', 'walkies');?></h2>
             <iframe src="https://snazzymaps.com/embed/474769" width="100%" height="400px" style="border:none;"></iframe>
           </section>
 
         <?php 
           if ( get_field( 'social_media_headline' )):
-            echo '<section class="social_section">';
+            echo '<section class="social_section social-section2">';
             echo '<h2>' . esc_html( get_field( 'social_media_headline' ) ) . '</h2>';
             get_template_part( 'template-parts/content', 'contact-socials');
             echo '</section>';
           endif;
 
           if ( get_field( 'instagram_feed' ) &&  get_field( 'instagram_feed' ) == '1'):
-            echo '<section class="instagram_section"><h2>Instagram</h2>';
+            echo '<section class="instagram_section instagram-section"><h2>Instagram</h2>';
             echo do_shortcode('[instagram-feed feed=1]');
             echo '</section>';
           endif;
@@ -120,7 +120,7 @@ get_header();
         ?>
       </div><!-- .entry-content -->
 
-    </article>
+      </div>
     
     <!-- #post-<?php the_ID(); ?> -->
 

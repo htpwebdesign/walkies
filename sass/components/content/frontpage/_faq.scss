@@ -1,16 +1,16 @@
 .featured-faq-section {
-    @import "../default-faq";
-    
-    a {
-        @include btnStyle;
-        display: block;
-        margin: $gfw-margin-sm auto;
+  @import "../default-faq";
 
-        @media screen and (min-width: $gfw__mq-md) {
-            &:hover,
-            &:focus {
-                @include btnStyle($def: $color__green-gfw);
-            }
-        }
+  a {
+    @include btnStyle;
+    display: block;
+    margin: $gfw-margin-sm auto;
+
+    @media screen and (min-width: $gfw__mq-md) {
+      &:hover,
+      &:focus {
+        @include btnStyle($def: $color__green-gfw);
+      }
     }
+  }
 }

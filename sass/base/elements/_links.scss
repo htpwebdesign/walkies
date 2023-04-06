@@ -1,17 +1,17 @@
 a {
-	color: $color__brown-gfw;
-	font-weight: 700;
-	text-decoration: none;
+  color: $color__brown-gfw;
+  font-weight: 700;
+  text-decoration: none;
 
-	&:hover,
-	&:focus,
-	&:active {
-		text-decoration: underline;
-	}
-	
-	&:focus,
-	&:hover,
-	&:active {
-		outline: none;
-	}
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    outline: none;
+  }
 }

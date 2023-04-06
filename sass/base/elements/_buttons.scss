@@ -1,11 +1,12 @@
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-button:not(.menu-toggle) {
-	@include btnStyle;
+button:not(.menu-toggle):not(.accordion):not(.dashicons-search) {
+  @include btnStyle;
 
-	&:hover, &:active,
-	&:focus {
-		@include btnStyle($def: $color__green-gfw);
-	}
+  &:hover,
+  &:active,
+  &:focus {
+    @include btnStyle($def: $color__green-gfw);
+  }
 }
